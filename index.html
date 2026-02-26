@@ -3,300 +3,314 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>LRC Authority Lab</title>
+<title>LRC Authority Dominance</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
 
 <style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Montserrat',sans-serif;}
 
 body{
-margin:0;
-font-family: 'Segoe UI', sans-serif;
-background:#050816;
+background:#070b14;
 color:white;
 overflow-x:hidden;
-text-align:center;
 }
 
-/* FUNDO TECH GRID ANIMADO */
-
+/* FUNDO TECNOLÓGICO ANIMADO */
 body::before{
-content:"";
+content:'';
 position:fixed;
 width:200%;
 height:200%;
 background:
-linear-gradient(rgba(0,255,255,0.05) 1px, transparent 1px),
-linear-gradient(90deg, rgba(0,255,255,0.05) 1px, transparent 1px);
-background-size:60px 60px;
-transform:rotate(45deg);
-animation:gridMove 20s linear infinite;
-z-index:-2;
-}
-
-@keyframes gridMove{
-from{transform:translateY(0) rotate(45deg);}
-to{transform:translateY(-60px) rotate(45deg);}
-}
-
-/* LUZ DE FUNDO */
-
-body::after{
-content:"";
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:radial-gradient(circle at 50% 20%, rgba(255,215,0,0.15), transparent 60%);
+radial-gradient(circle at 20% 30%,rgba(255,215,0,0.15),transparent 40%),
+radial-gradient(circle at 80% 70%,rgba(0,140,255,0.15),transparent 40%);
+animation:moveBg 18s infinite alternate;
 z-index:-1;
 }
 
+@keyframes moveBg{
+0%{transform:translate(0,0);}
+100%{transform:translate(-150px,-150px);}
+}
+
 /* HEADER */
-
 header{
-padding:180px 20px 120px;
+text-align:center;
+padding:120px 20px;
 }
 
-/* LOGO HOLOGRÁFICO */
-
-.logo{
-font-size:70px;
+header h1{
+font-size:65px;
 font-weight:900;
-letter-spacing:4px;
-background:linear-gradient(90deg,#FFD700,#fff6c0,#FFD700,#fff6c0);
-background-size:300%;
+background:linear-gradient(45deg,#ffd700,#fff3b0,#b8860b);
 -webkit-background-clip:text;
--webkit-text-fill-color:transparent;
-animation:shine 6s linear infinite;
-text-transform:uppercase;
-text-shadow:0 0 30px rgba(255,215,0,0.6);
+color:transparent;
+text-shadow:0 0 35px rgba(255,215,0,0.7);
 }
 
-@keyframes shine{
-0%{background-position:0%}
-100%{background-position:300%}
-}
-
-.sub{
+header p{
 margin-top:25px;
 font-size:22px;
-color:#ccc;
-max-width:750px;
-margin-left:auto;
-margin-right:auto;
-line-height:1.6;
+opacity:0.9;
 }
 
-/* BOTÃO HERO */
-
-.hero-btn{
-margin-top:40px;
-padding:18px 40px;
-background:linear-gradient(90deg,gold,#ffdf00);
-border:none;
-border-radius:40px;
+.btn{
+display:inline-block;
+margin:15px;
+padding:16px 45px;
+border-radius:50px;
+text-decoration:none;
 font-weight:bold;
-cursor:pointer;
-font-size:16px;
+background:linear-gradient(45deg,#ffd700,#d4af37);
+color:black;
+transition:0.3s;
+box-shadow:0 0 20px rgba(255,215,0,0.6);
+}
+
+.btn:hover{
+transform:scale(1.1);
+box-shadow:0 0 35px rgba(255,215,0,1);
+}
+
+section{
+padding:100px 20px;
+text-align:center;
+}
+
+.highlight{
+font-size:28px;
+margin-bottom:30px;
+color:#ffd700;
+}
+
+/* CONTADORES */
+.contadores{
+display:flex;
+justify-content:center;
+gap:80px;
+flex-wrap:wrap;
+margin-top:50px;
+}
+
+.numero{
+font-size:50px;
+color:#ffd700;
+font-weight:900;
+}
+
+/* GALERIA */
+.galeria{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
+margin-top:50px;
+}
+
+.galeria img{
+width:100%;
+border-radius:15px;
 transition:0.4s;
 }
 
-.hero-btn:hover{
+.galeria img:hover{
 transform:scale(1.08);
-box-shadow:0 0 40px gold;
-}
-
-/* SEÇÕES */
-
-section{
-padding:120px 20px;
-opacity:0;
-transform:translateY(40px);
-transition:1s;
-}
-
-section.show{
-opacity:1;
-transform:translateY(0);
-}
-
-h2{
-font-size:40px;
-margin-bottom:60px;
-color:gold;
 }
 
 /* PLANOS */
-
 .planos{
 display:flex;
 flex-wrap:wrap;
 justify-content:center;
 gap:40px;
+margin-top:50px;
 }
 
 .plano{
 background:rgba(255,255,255,0.05);
-border:1px solid rgba(255,215,0,0.3);
-backdrop-filter:blur(15px);
-padding:45px;
-width:340px;
-border-radius:25px;
+backdrop-filter:blur(20px);
+padding:35px;
+border-radius:20px;
+width:300px;
 transition:0.4s;
-position:relative;
+border:1px solid rgba(255,255,255,0.1);
 }
 
 .plano:hover{
 transform:translateY(-15px);
-box-shadow:0 0 40px gold;
+box-shadow:0 0 35px rgba(255,215,0,0.5);
 }
 
-.destaque{
-border:2px solid gold;
-transform:scale(1.08);
-box-shadow:0 0 60px gold;
+.vip{
+border:2px solid #ffd700;
+box-shadow:0 0 40px rgba(255,215,0,0.7);
 }
 
-.tag{
-position:absolute;
-top:-18px;
-left:50%;
-transform:translateX(-50%);
-background:gold;
-color:black;
-padding:8px 20px;
-border-radius:30px;
-font-weight:bold;
-font-size:13px;
+.plano h3{
+color:#ffd700;
 }
 
-.preco{
-font-size:36px;
-margin:25px 0;
-color:gold;
-font-weight:bold;
+.plano h2{
+margin:15px 0;
+font-size:35px;
 }
 
-ul{
-text-align:left;
-line-height:1.7;
-}
-
-.botao{
+.plano a{
 display:block;
-margin:20px auto;
-padding:16px;
-border-radius:12px;
-font-weight:bold;
-text-decoration:none;
-width:95%;
-background:linear-gradient(90deg,gold,#ffdf00);
+margin-top:12px;
+padding:12px;
+background:linear-gradient(45deg,#ffd700,#fff3b0);
 color:black;
+border-radius:30px;
+text-decoration:none;
+font-weight:bold;
 transition:0.3s;
 }
 
-.botao:hover{
+.plano a:hover{
 transform:scale(1.05);
 }
 
-/* GALERIA */
-
-.galeria{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-gap:30px;
-max-width:1200px;
-margin:auto;
+/* CLIENTES */
+.clientes{
+display:flex;
+justify-content:center;
+gap:40px;
+flex-wrap:wrap;
+margin-top:60px;
 }
 
-.galeria img{
-width:100%;
-border-radius:20px;
-box-shadow:0 0 30px rgba(255,215,0,0.4);
+.card-cliente{
+background:rgba(255,255,255,0.05);
+padding:25px;
+border-radius:15px;
+width:260px;
 transition:0.3s;
 }
 
-.galeria img:hover{
-transform:scale(1.08);
-box-shadow:0 0 50px gold;
-}
-
-/* CLIENTES */
-
-.clientes{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-gap:35px;
-max-width:1000px;
-margin:auto;
-}
-
-.clientes div{
-background:rgba(255,255,255,0.05);
-padding:30px;
-border-radius:15px;
-border:1px solid rgba(255,215,0,0.3);
-}
-
-/* CTA FINAL */
-
-.cta{
-padding:150px 20px;
-background:rgba(0,0,0,0.6);
-}
-
-.cta h2{
-font-size:42px;
-}
-
-/* WHATSAPP */
-
-.whatsapp{
-position:fixed;
-bottom:25px;
-right:25px;
-background:#25D366;
-color:white;
-padding:18px 24px;
-border-radius:50px;
-font-weight:bold;
-text-decoration:none;
-box-shadow:0 0 20px rgba(0,0,0,0.6);
+.card-cliente:hover{
+transform:scale(1.05);
 }
 
 footer{
-padding:60px;
-color:#888;
+padding:40px;
+text-align:center;
+background:#000;
+margin-top:80px;
 }
 
+/* WHATSAPP */
+.whatsapp{
+position:fixed;
+bottom:20px;
+right:20px;
+background:#25D366;
+padding:15px 25px;
+border-radius:50px;
+color:white;
+font-weight:bold;
+text-decoration:none;
+box-shadow:0 0 25px rgba(37,211,102,0.7);
+}
 </style>
 </head>
 
 <body>
 
 <header>
-<div class="logo">LRC Authority Lab</div>
-<p class="sub">
-Autoridade. Estratégia. Posicionamento digital no mais alto nível.
-</p>
-<button class="hero-btn">Quero minha autoridade</button>
+<h1>LRC AUTHORITY DOMINANCE</h1>
+<p>Você sem preocupação. Nós dominamos sua presença digital.</p>
+<a href="#planos" class="btn">Ver Planos</a>
+<a href="https://wa.me/5561999999999" class="btn">Falar no WhatsApp</a>
 </header>
 
-<!-- Você pode manter aqui todas as seções anteriores (planos, galeria, clientes etc) -->
+<section>
+<h2 class="highlight">Foque no seu negócio. Nós cuidamos de tudo.</h2>
+<p>Criação, edição, estratégia, chat, publicações, ideias, crescimento e posicionamento.</p>
 
-<a href="https://wa.me/5561996052406" class="whatsapp">WhatsApp</a>
+<div class="contadores">
+<div><div class="numero" data-target="120">0</div><p>Projetos</p></div>
+<div><div class="numero" data-target="35">0</div><p>Marcas</p></div>
+<div><div class="numero" data-target="98">0</div><p>% Satisfação</p></div>
+</div>
+</section>
+
+<section>
+<h2>Domínio das Plataformas</h2>
+<div class="galeria">
+<img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113">
+<img src="https://images.unsplash.com/photo-1611162616805-6b3b2b7b5e75">
+<img src="https://images.unsplash.com/photo-1611162618071-b39a2ec055fb">
+<img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71">
+<img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0">
+<img src="https://images.unsplash.com/photo-1559027615-cd4628902d4a">
+</div>
+</section>
+
+<section id="planos">
+<h2>Planos de Crescimento</h2>
+
+<div class="planos">
+
+<div class="plano">
+<h3>Essencial</h3>
+<h2>R$ 300</h2>
+<p>Gestão + Postagens estratégicas</p>
+<a href="https://payment-link-v3.ton.com.br/pl_Aa0vnxMBwk84q5T3Xsr84zGL2g1om9Kq">Cartão</a>
+<a href="https://payment-link-v3.ton.com.br/pl_Aa0vnxMBwk84q5T3Xsr84zGL2g1om9Kq">PIX</a>
+</div>
+
+<div class="plano">
+<h3>Profissional</h3>
+<h2>R$ 500</h2>
+<p>Gestão + Edição + Estratégia</p>
+<a href="https://payment-link-v3.ton.com.br/pl_MBGAE7kbpQdVQnkS2uymJye8gYa5KzLr">Cartão</a>
+<a href="https://payment-link-v3.ton.com.br/pl_MBGAE7kbpQdVQnkS2uymJye8gYa5KzLr">PIX</a>
+</div>
+
+<div class="plano vip">
+<h3>Authority VIP</h3>
+<h2>R$ 1000</h2>
+<p>Dominação completa + Escala máxima</p>
+<a href="https://payment-link-v3.ton.com.br/pl_yY0kO5DqGaB2bDKU5GS73JKQRgx9jvbM">Cartão</a>
+<a href="https://payment-link-v3.ton.com.br/pl_yY0kO5DqGaB2bDKU5GS73JKQRgx9jvbM">PIX</a>
+</div>
+
+</div>
+
+<a href="https://wa.me/5561999999999" class="btn">Quero Dominar Minha Presença Digital</a>
+</section>
+
+<section>
+<h2>Empresas que Confiam</h2>
+<div class="clientes">
+<div class="card-cliente"><h4>Clínica Prime Saúde</h4><p>"Profissionalismo total."</p></div>
+<div class="card-cliente"><h4>Studio Fit Brasil</h4><p>"Organização e crescimento."</p></div>
+<div class="card-cliente"><h4>Consultoria Alpha</h4><p>"Estratégia real."</p></div>
+</div>
+</section>
 
 <footer>
-© 2026 LRC Authority Lab — High Performance Digital Authority
+<p>© 2026 LRC Authority Dominance</p>
 </footer>
 
+<a href="https://wa.me/5561999999999" class="whatsapp">WhatsApp</a>
+
 <script>
-const sections=document.querySelectorAll("section");
-window.addEventListener("scroll",()=>{
-sections.forEach(sec=>{
-if(sec.getBoundingClientRect().top<window.innerHeight-100){
-sec.classList.add("show");
+const counters = document.querySelectorAll('.numero');
+counters.forEach(counter => {
+const updateCount = () => {
+const target = +counter.getAttribute('data-target');
+const count = +counter.innerText;
+const inc = target / 200;
+if(count < target){
+counter.innerText = Math.ceil(count + inc);
+setTimeout(updateCount, 10);
+}else{
+counter.innerText = target;
 }
-});
+};
+updateCount();
 });
 </script>
 
