@@ -9,57 +9,29 @@
 body{
 margin:0;
 font-family: Arial, Helvetica, sans-serif;
-background:#0f0f0f;
+background: linear-gradient(135deg,#0a0f1f,#0f2027,#1a1a2e);
 color:white;
 text-align:center;
 }
 
 header{
-padding:60px 20px;
-background:linear-gradient(135deg,#111,#1c1c1c);
+padding:80px 20px;
 }
 
 h1{
-font-size:38px;
+font-size:42px;
 margin-bottom:10px;
 }
 
-p{
+.sub{
 color:#cfcfcf;
+font-size:18px;
 max-width:700px;
 margin:auto;
 }
 
-.btn{
-display:inline-block;
-margin:15px;
-padding:15px 30px;
-background:#25D366;
-color:white;
-text-decoration:none;
-border-radius:8px;
-font-weight:bold;
-transition:0.3s;
-}
-
-.btn:hover{
-transform:scale(1.05);
-}
-
-.btn-secundario{
-display:inline-block;
-margin:15px;
-padding:15px 30px;
-background:#ffffff;
-color:#000;
-text-decoration:none;
-border-radius:8px;
-font-weight:bold;
-transition:0.3s;
-}
-
 section{
-padding:60px 20px;
+padding:70px 20px;
 }
 
 .planos{
@@ -71,27 +43,99 @@ margin-top:40px;
 }
 
 .plano{
-background:#1c1c1c;
+background:#111827;
 padding:30px;
-width:280px;
-border-radius:12px;
-box-shadow:0 0 15px rgba(0,0,0,0.5);
+width:300px;
+border-radius:15px;
+box-shadow:0 0 25px rgba(0,255,150,0.15);
+transition:0.3s;
+position:relative;
 }
 
-.plano h3{
-margin-top:0;
+.plano:hover{
+transform:translateY(-10px);
+box-shadow:0 0 35px rgba(0,255,150,0.4);
+}
+
+.destaque{
+border:2px solid #00ff88;
+transform:scale(1.05);
+}
+
+.tag{
+position:absolute;
+top:-15px;
+left:50%;
+transform:translateX(-50%);
+background:#00ff88;
+color:black;
+padding:5px 15px;
+border-radius:20px;
+font-size:12px;
+font-weight:bold;
 }
 
 .preco{
 font-size:28px;
 font-weight:bold;
 margin:20px 0;
-color:#25D366;
+color:#00ff88;
+}
+
+ul{
+text-align:left;
+padding-left:20px;
+}
+
+.botao-cartao,.botao-pix{
+display:block;
+margin:10px auto;
+padding:12px;
+border-radius:8px;
+font-weight:bold;
+text-decoration:none;
+width:85%;
+}
+
+.botao-cartao{
+background:#16a34a;
+color:white;
+}
+
+.botao-pix{
+background:#00ff88;
+color:black;
+}
+
+.bloco{
+max-width:900px;
+margin:auto;
+line-height:1.7;
+color:#ddd;
+}
+
+.lista{
+text-align:left;
+max-width:700px;
+margin:30px auto;
+}
+
+.whatsapp{
+position:fixed;
+bottom:20px;
+right:20px;
+background:#25D366;
+color:white;
+padding:15px 18px;
+border-radius:50px;
+font-weight:bold;
+text-decoration:none;
+box-shadow:0 0 15px rgba(0,0,0,0.4);
 }
 
 footer{
 padding:30px;
-background:#111;
+background:#0f172a;
 color:#888;
 }
 </style>
@@ -101,79 +145,81 @@ color:#888;
 
 <header>
 <h1>LRC Authority Lab</h1>
-<p>
-Nós transformamos especialistas em autoridade digital.
-Você vende seu serviço. Nós cuidamos de todo o resto.
+<p class="sub">
+Seu perfil não precisa de mais posts.<br>
+Precisa de posicionamento estratégico e autoridade real.
 </p>
-
-<a href="https://wa.me/5561996052406" target="_blank" class="btn">
-Falar no WhatsApp
-</a>
-
-<a href="#planos" class="btn-secundario">
-Ver Planos e Preços
-</a>
 </header>
 
 <section>
-<h2>Você não precisa se preocupar com:</h2>
-<p>
-• Ideias de conteúdo<br>
-• Edição de vídeos<br>
-• Criação de posts<br>
-• Publicações estratégicas<br>
-• Gestão de comentários e mensagens<br>
-• Estratégia para vender seus serviços<br><br>
-Você foca em atender. A LRC cuida da sua autoridade.
-</p>
-</section>
-
-<section id="planos">
 <h2>Nossos Planos</h2>
 
 <div class="planos">
 
 <div class="plano">
 <h3>Plano Essencial</h3>
-<p>Ideal para quem está começando</p>
 <div class="preco">R$ 300 / mês</div>
-<p>
-✔ 8 conteúdos mensais<br>
-✔ Edição básica<br>
-✔ Planejamento simples<br>
-✔ Suporte estratégico
-</p>
+<ul>
+<li>Artes profissionais</li>
+<li>Copy estratégica</li>
+<li>Organização visual</li>
+</ul>
+<a href="https://payment-link-v3.ton.com.br/pl_9W8OMvdQYGeDLjlsdTzV63npaB7oXl2q" target="_blank" class="botao-cartao">💳 Pagar no Cartão</a>
+<a href="https://payment-link-v3.ton.com.br/pl_Aa0vnxMBwk84q5T3Xsr84zGL2g1om9Kq" target="_blank" class="botao-pix">⚡ Pagar via Pix</a>
 </div>
 
 <div class="plano">
 <h3>Plano Profissional</h3>
-<p>Para quem quer crescer de verdade</p>
 <div class="preco">R$ 500 / mês</div>
-<p>
-✔ 12 conteúdos mensais<br>
-✔ Edição avançada<br>
-✔ Estratégia de posicionamento<br>
-✔ Gestão de comentários<br>
-✔ Ideias semanais
-</p>
+<ul>
+<li>Planejamento mensal</li>
+<li>Estratégia de conteúdo</li>
+<li>Posicionamento de autoridade</li>
+</ul>
+<a href="https://payment-link-v3.ton.com.br/pl_rNpdzLkOYPVoRarIglfM2RBG6aj30AxW" target="_blank" class="botao-cartao">💳 Pagar no Cartão</a>
+<a href="https://payment-link-v3.ton.com.br/pl_MBGAE7kbpQdVQnkS2uymJye8gYa5KzLr" target="_blank" class="botao-pix">⚡ Pagar via Pix</a>
 </div>
 
-<div class="plano">
-<h3>Plano Autoridade</h3>
-<p>Para dominar o seu mercado</p>
+<div class="plano destaque">
+<div class="tag">⭐ MAIS RECOMENDADO</div>
+<h3>Plano Autoridade 🔥</h3>
 <div class="preco">R$ 1000 / mês</div>
-<p>
-✔ 20 conteúdos mensais<br>
-✔ Gestão completa das redes<br>
-✔ Estratégia focada em vendas<br>
-✔ Copy persuasiva<br>
-✔ Análise de métricas<br>
-✔ Prioridade no atendimento
-</p>
+<ul>
+<li>Estratégia personalizada</li>
+<li>Análise de concorrência</li>
+<li>Construção de identidade forte</li>
+<li>Direcionamento estratégico completo</li>
+</ul>
+<a href="https://payment-link-v3.ton.com.br/pl_3Xo1A0kQz6PNqXOfrCdLl9gyDerMKV4b" target="_blank" class="botao-cartao">💳 Pagar no Cartão</a>
+<a href="https://payment-link-v3.ton.com.br/pl_yY0kO5DqGaB2bDKU5GS73JKQRgx9jvbM" target="_blank" class="botao-pix">⚡ Pagar via Pix</a>
 </div>
 
 </div>
 </section>
+
+<section>
+<h2>Para quem é?</h2>
+<div class="lista">
+✔ Profissionais que querem se destacar<br><br>
+✔ Negócios que querem parecer maiores<br><br>
+✔ Marcas que querem autoridade real<br><br>
+✔ Quem quer vender com imagem forte
+</div>
+</section>
+
+<section>
+<h2>Por que escolher a LRC?</h2>
+<div class="bloco">
+Estratégia baseada em posicionamento.<br><br>
+Design focado em percepção de valor.<br><br>
+Construção de marca consistente.<br><br>
+Foco em autoridade e conversão.
+</div>
+</section>
+
+<a href="https://wa.me/5561996052406" target="_blank" class="whatsapp">
+💬 Fale no WhatsApp
+</a>
 
 <footer>
 © 2026 LRC Authority Lab - Todos os direitos reservados.
