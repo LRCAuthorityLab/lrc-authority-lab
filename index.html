@@ -6,67 +6,68 @@
 <title>LRC Authority Lab</title>
 
 <style>
+
 body{
 margin:0;
-font-family: Arial, Helvetica, sans-serif;
-background: linear-gradient(135deg,#050510,#0a0f1f,#111827);
+font-family:Arial, Helvetica, sans-serif;
 color:white;
 text-align:center;
 overflow-x:hidden;
+background: linear-gradient(-45deg,#0f0c29,#302b63,#24243e,#000000);
+background-size:400% 400%;
+animation: gradient 15s ease infinite;
 }
 
-header{
-padding:100px 20px;
-background: radial-gradient(circle at top,#111827,#050510);
-}
-
-h1{
-font-size:46px;
-margin-bottom:15px;
-}
-
-.sub{
-font-size:20px;
-color:#cfcfcf;
-max-width:750px;
-margin:auto;
-line-height:1.6;
+@keyframes gradient{
+0%{background-position:0% 50%;}
+50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
 }
 
 section{
-padding:80px 20px;
+padding:100px 20px;
+opacity:0;
+transform:translateY(40px);
+transition:1s;
 }
 
-h2{
-margin-bottom:40px;
-font-size:32px;
+section.show{
+opacity:1;
+transform:translateY(0);
 }
+
+h1{font-size:52px;}
+h2{font-size:36px;margin-bottom:40px;}
+.sub{font-size:22px;color:#ddd;max-width:800px;margin:auto;}
+
+header{padding:140px 20px;}
 
 .planos{
 display:flex;
 flex-wrap:wrap;
 justify-content:center;
-gap:30px;
+gap:35px;
 }
 
 .plano{
-background:#111827;
-padding:35px;
-width:320px;
+background:rgba(255,255,255,0.05);
+backdrop-filter:blur(15px);
+padding:40px;
+width:330px;
 border-radius:20px;
-box-shadow:0 0 25px rgba(0,255,150,0.15);
-transition:0.3s;
+transition:0.4s;
 position:relative;
+box-shadow:0 0 30px rgba(0,0,0,0.6);
 }
 
 .plano:hover{
-transform:translateY(-10px);
-box-shadow:0 0 35px rgba(0,255,150,0.4);
+transform:translateY(-15px);
+box-shadow:0 0 40px rgba(0,255,200,0.7);
 }
 
 .destaque{
-border:2px solid #00ff88;
-transform:scale(1.05);
+border:2px solid #00ffc3;
+transform:scale(1.08);
 }
 
 .tag{
@@ -74,56 +75,42 @@ position:absolute;
 top:-15px;
 left:50%;
 transform:translateX(-50%);
-background:#00ff88;
+background:#00ffc3;
 color:black;
 padding:6px 18px;
 border-radius:20px;
-font-size:13px;
 font-weight:bold;
+font-size:13px;
 }
 
 .preco{
-font-size:30px;
-font-weight:bold;
+font-size:32px;
 margin:20px 0;
-color:#00ff88;
+color:#00ffc3;
+font-weight:bold;
 }
 
-ul{
-text-align:left;
-padding-left:20px;
-line-height:1.6;
-}
+ul{text-align:left;line-height:1.6;}
 
-.botao-cartao,.botao-pix{
+.botao{
 display:block;
-margin:12px auto;
-padding:14px;
+margin:15px auto;
+padding:15px;
 border-radius:10px;
 font-weight:bold;
 text-decoration:none;
 width:90%;
+background:#00ffc3;
+color:black;
 transition:0.3s;
 }
 
-.botao-cartao{
-background:#16a34a;
-color:white;
-}
-
-.botao-pix{
-background:#00ff88;
-color:black;
-}
-
-.botao-cartao:hover,.botao-pix:hover{
-transform:scale(1.05);
-}
+.botao:hover{transform:scale(1.05);}
 
 .galeria{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:25px;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:30px;
 max-width:1200px;
 margin:auto;
 }
@@ -131,140 +118,242 @@ margin:auto;
 .galeria img{
 width:100%;
 border-radius:15px;
-box-shadow:0 0 25px rgba(0,0,0,0.6);
+box-shadow:0 0 30px rgba(0,0,0,0.8);
 transition:0.3s;
 }
 
-.galeria img:hover{
-transform:scale(1.05);
-}
+.galeria img:hover{transform:scale(1.08);}
 
-.depoimentos{
-max-width:900px;
+.clientes{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:30px;
+max-width:1000px;
 margin:auto;
-display:flex;
-flex-direction:column;
-gap:25px;
 }
 
-.depoimento{
-background:#111827;
+.clientes div{
+background:rgba(255,255,255,0.05);
 padding:25px;
-border-radius:15px;
-box-shadow:0 0 20px rgba(0,255,150,0.1);
+border-radius:12px;
+font-weight:bold;
 }
+
+.contadores{
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap:60px;
+font-size:28px;
+}
+
+.numero{
+font-size:48px;
+color:#00ffc3;
+font-weight:bold;
+}
+
+.cta{
+padding:120px 20px;
+background:rgba(0,0,0,0.6);
+}
+
+.cta h2{font-size:40px;}
 
 .whatsapp{
 position:fixed;
-bottom:20px;
-right:20px;
+bottom:25px;
+right:25px;
 background:#25D366;
 color:white;
-padding:15px 20px;
+padding:16px 22px;
 border-radius:50px;
 font-weight:bold;
 text-decoration:none;
-box-shadow:0 0 20px rgba(0,0,0,0.5);
+box-shadow:0 0 20px rgba(0,0,0,0.6);
 }
 
-footer{
-padding:40px;
-background:#050510;
-color:#777;
-margin-top:60px;
+footer{padding:50px;color:#aaa;}
+
+canvas{
+position:fixed;
+top:0;
+left:0;
+z-index:-1;
 }
+
 </style>
 </head>
-
 <body>
+
+<canvas id="particles"></canvas>
 
 <header>
 <h1>LRC Authority Lab</h1>
 <p class="sub">
 Você sem preocupação.<br>
-Posicionamento estratégico e autoridade real no digital.
+Nós cuidamos da sua autoridade e posicionamento digital.
 </p>
 </header>
 
 <section>
 <h2>Nossos Planos</h2>
-
 <div class="planos">
 
 <div class="plano">
-<h3>Plano Essencial</h3>
-<div class="preco">R$ 300 / mês</div>
+<h3>Essencial</h3>
+<div class="preco">R$ 300</div>
 <ul>
-<li>Artes profissionais</li>
-<li>Copy estratégica</li>
+<li>Artes estratégicas</li>
+<li>Copy profissional</li>
 <li>Organização visual</li>
-<li>Direcionamento básico</li>
 </ul>
-<a href="https://payment-link-v3.ton.com.br/pl_Aa0vnxMBwk84q5T3Xsr84zGL2g1om9Kq" target="_blank" class="botao-pix">⚡ Pagar via Pix</a>
+<a href="https://payment-link-v3.ton.com.br/pl_Aa0vnxMBwk84q5T3Xsr84zGL2g1om9Kq" class="botao">Pagar via Pix</a>
 </div>
 
 <div class="plano">
-<h3>Plano Profissional</h3>
-<div class="preco">R$ 500 / mês</div>
+<h3>Profissional</h3>
+<div class="preco">R$ 500</div>
 <ul>
 <li>Planejamento mensal</li>
 <li>Estratégia de conteúdo</li>
-<li>Posicionamento de autoridade</li>
-<li>Direcionamento estratégico</li>
+<li>Posicionamento digital</li>
 </ul>
-<a href="https://payment-link-v3.ton.com.br/pl_MBGAE7kbpQdVQnkS2uymJye8gYa5KzLr" target="_blank" class="botao-pix">⚡ Pagar via Pix</a>
+<a href="https://payment-link-v3.ton.com.br/pl_MBGAE7kbpQdVQnkS2uymJye8gYa5KzLr" class="botao">Pagar via Pix</a>
 </div>
 
 <div class="plano destaque">
-<div class="tag">⭐ MAIS RECOMENDADO</div>
-<h3>Plano Autoridade 🔥</h3>
-<div class="preco">R$ 1000 / mês</div>
+<div class="tag">MAIS ESCOLHIDO</div>
+<h3>Autoridade 🔥</h3>
+<div class="preco">R$ 1000</div>
 <ul>
 <li>Estratégia personalizada</li>
-<li>Análise de concorrência</li>
-<li>Construção de identidade forte</li>
-<li>Gestão estratégica avançada</li>
+<li>Análise de mercado</li>
+<li>Gestão completa</li>
+<li>Identidade forte</li>
 </ul>
-<a href="https://payment-link-v3.ton.com.br/pl_yY0kO5DqGaB2bDKU5GS73JKQRgx9jvbM" target="_blank" class="botao-pix">⚡ Pagar via Pix</a>
+<a href="https://payment-link-v3.ton.com.br/pl_yY0kO5DqGaB2bDKU5GS73JKQRgx9jvbM" class="botao">Pagar via Pix</a>
 </div>
 
 </div>
 </section>
 
 <section>
-<h2>Edições Profissionais</h2>
+<h2>Resultados em Números</h2>
+<div class="contadores">
+<div><div class="numero" data-target="120">0</div>Projetos</div>
+<div><div class="numero" data-target="35">0</div>Marcas</div>
+<div><div class="numero" data-target="98">0</div>% Satisfação</div>
+</div>
+</section>
+
+<section>
+<h2>Projetos & Edições</h2>
 <div class="galeria">
-<img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800">
 <img src="https://images.unsplash.com/photo-1492724441997-5dc865305da7?w=800">
-<img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=800">
 <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800">
+<img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800">
+<img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=800">
 <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=800">
-<img src="https://images.unsplash.com/photo-1492724441997-5dc865305da7?w=800">
+<img src="https://images.unsplash.com/photo-1487014679447-9f8336841d58?w=800">
 </div>
 </section>
 
 <section>
-<h2>O que dizem sobre a LRC</h2>
-<div class="depoimentos">
-<div class="depoimento">
-“Posicionamento muito mais profissional.”
-</div>
-<div class="depoimento">
-“Meu perfil passou a transmitir autoridade real.”
-</div>
-<div class="depoimento">
-“Estratégia totalmente diferente do comum.”
-</div>
+<h2>Empresas que confiaram</h2>
+<div class="clientes">
+<div>Vision Studio</div>
+<div>Prime Digital</div>
+<div>Alpha Media</div>
+<div>Connect Agency</div>
+<div>Black Growth</div>
+<div>Elevate Brand</div>
 </div>
 </section>
 
-<a href="https://wa.me/5561996052406" target="_blank" class="whatsapp">
-💬 Fale no WhatsApp
-</a>
+<section class="cta">
+<h2>Pronto para sair do amadorismo?</h2>
+<a href="https://payment-link-v3.ton.com.br/pl_yY0kO5DqGaB2bDKU5GS73JKQRgx9jvbM" class="botao">Quero minha autoridade</a>
+</section>
+
+<a href="https://wa.me/5599999999999" class="whatsapp">WhatsApp</a>
 
 <footer>
-© 2026 LRC Authority Lab - Todos os direitos reservados.
+© 2026 LRC Authority Lab
 </footer>
+
+<script>
+
+/* ANIMAÇÃO AO ROLAR */
+const sections=document.querySelectorAll("section");
+window.addEventListener("scroll",()=>{
+sections.forEach(sec=>{
+if(sec.getBoundingClientRect().top<window.innerHeight-100){
+sec.classList.add("show");
+}
+});
+});
+
+/* CONTADOR */
+const counters=document.querySelectorAll(".numero");
+counters.forEach(counter=>{
+const update=()=>{
+const target=+counter.getAttribute("data-target");
+const c=+counter.innerText;
+const inc=target/100;
+if(c<target){
+counter.innerText=Math.ceil(c+inc);
+setTimeout(update,20);
+}else{
+counter.innerText=target;
+}
+};
+update();
+});
+
+/* PARTÍCULAS */
+const canvas=document.getElementById("particles");
+const ctx=canvas.getContext("2d");
+canvas.width=window.innerWidth;
+canvas.height=window.innerHeight;
+
+let particles=[];
+for(let i=0;i<80;i++){
+particles.push({
+x:Math.random()*canvas.width,
+y:Math.random()*canvas.height,
+r:Math.random()*2,
+d:Math.random()*1
+});
+}
+
+function draw(){
+ctx.clearRect(0,0,canvas.width,canvas.height);
+ctx.fillStyle="rgba(0,255,200,0.5)";
+ctx.beginPath();
+for(let i=0;i<particles.length;i++){
+let p=particles[i];
+ctx.moveTo(p.x,p.y);
+ctx.arc(p.x,p.y,p.r,0,Math.PI*2,true);
+}
+ctx.fill();
+updateParticles();
+}
+
+function updateParticles(){
+for(let i=0;i<particles.length;i++){
+let p=particles[i];
+p.y+=p.d;
+if(p.y>canvas.height){
+p.y=0;
+p.x=Math.random()*canvas.width;
+}
+}
+}
+
+setInterval(draw,33);
+
+</script>
 
 </body>
 </html>
