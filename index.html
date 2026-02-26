@@ -11,206 +11,159 @@
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Montserrat',sans-serif;}
 
 body{
-background:#070b14;
+background:
+radial-gradient(circle at 20% 30%, rgba(255,215,0,0.15), transparent 40%),
+radial-gradient(circle at 80% 70%, rgba(0,150,255,0.15), transparent 40%),
+linear-gradient(135deg,#0a0f1f,#111827,#000);
 color:white;
 overflow-x:hidden;
 }
 
-/* FUNDO TECNOLÓGICO ANIMADO */
-body::before{
-content:'';
-position:fixed;
-width:200%;
-height:200%;
-background:
-radial-gradient(circle at 20% 30%,rgba(255,215,0,0.15),transparent 40%),
-radial-gradient(circle at 80% 70%,rgba(0,140,255,0.15),transparent 40%);
-animation:moveBg 18s infinite alternate;
-z-index:-1;
-}
-
-@keyframes moveBg{
-0%{transform:translate(0,0);}
-100%{transform:translate(-150px,-150px);}
-}
-
-/* HEADER */
 header{
 text-align:center;
-padding:120px 20px;
+padding:80px 20px 50px 20px;
 }
 
 header h1{
-font-size:65px;
+font-size:32px;
 font-weight:900;
 background:linear-gradient(45deg,#ffd700,#fff3b0,#b8860b);
 -webkit-background-clip:text;
 color:transparent;
-text-shadow:0 0 35px rgba(255,215,0,0.7);
+text-shadow:0 0 20px rgba(255,215,0,0.5);
 }
 
 header p{
-margin-top:25px;
-font-size:22px;
+margin-top:15px;
+font-size:16px;
 opacity:0.9;
 }
 
 .btn{
 display:inline-block;
-margin:15px;
-padding:16px 45px;
-border-radius:50px;
+margin:10px 5px;
+padding:12px 24px;
+border-radius:30px;
 text-decoration:none;
 font-weight:bold;
 background:linear-gradient(45deg,#ffd700,#d4af37);
 color:black;
-transition:0.3s;
-box-shadow:0 0 20px rgba(255,215,0,0.6);
-}
-
-.btn:hover{
-transform:scale(1.1);
-box-shadow:0 0 35px rgba(255,215,0,1);
 }
 
 section{
-padding:100px 20px;
+padding:60px 20px;
 text-align:center;
 }
 
 .highlight{
-font-size:28px;
-margin-bottom:30px;
+font-size:20px;
+margin-bottom:15px;
 color:#ffd700;
+font-weight:700;
 }
 
-/* CONTADORES */
 .contadores{
 display:flex;
-justify-content:center;
-gap:80px;
 flex-wrap:wrap;
-margin-top:50px;
+justify-content:center;
+gap:30px;
+margin-top:25px;
 }
 
 .numero{
-font-size:50px;
+font-size:30px;
 color:#ffd700;
 font-weight:900;
 }
 
-/* GALERIA */
+.redes{
+display:flex;
+justify-content:center;
+gap:25px;
+margin-top:20px;
+font-size:30px;
+}
+
 .galeria{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:25px;
-margin-top:50px;
+grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+gap:12px;
+margin-top:25px;
 }
 
 .galeria img{
 width:100%;
-border-radius:15px;
-transition:0.4s;
+border-radius:10px;
 }
 
-.galeria img:hover{
-transform:scale(1.08);
-}
-
-/* PLANOS */
 .planos{
 display:flex;
 flex-wrap:wrap;
 justify-content:center;
-gap:40px;
-margin-top:50px;
+gap:20px;
+margin-top:30px;
 }
 
 .plano{
 background:rgba(255,255,255,0.05);
-backdrop-filter:blur(20px);
-padding:35px;
-border-radius:20px;
-width:300px;
-transition:0.4s;
+padding:25px;
+border-radius:12px;
+width:270px;
 border:1px solid rgba(255,255,255,0.1);
-}
-
-.plano:hover{
-transform:translateY(-15px);
-box-shadow:0 0 35px rgba(255,215,0,0.5);
 }
 
 .vip{
 border:2px solid #ffd700;
-box-shadow:0 0 40px rgba(255,215,0,0.7);
+box-shadow:0 0 20px rgba(255,215,0,0.4);
 }
 
-.plano h3{
-color:#ffd700;
-}
-
-.plano h2{
-margin:15px 0;
-font-size:35px;
-}
+.plano h3{color:#ffd700;}
+.plano h2{margin:10px 0;}
 
 .plano a{
 display:block;
-margin-top:12px;
-padding:12px;
-background:linear-gradient(45deg,#ffd700,#fff3b0);
+margin-top:8px;
+padding:10px;
+background:#ffd700;
 color:black;
-border-radius:30px;
+border-radius:20px;
 text-decoration:none;
 font-weight:bold;
-transition:0.3s;
 }
 
-.plano a:hover{
-transform:scale(1.05);
-}
-
-/* CLIENTES */
-.clientes{
+.cards{
 display:flex;
-justify-content:center;
-gap:40px;
 flex-wrap:wrap;
-margin-top:60px;
+justify-content:center;
+gap:15px;
+margin-top:25px;
 }
 
-.card-cliente{
+.card{
 background:rgba(255,255,255,0.05);
-padding:25px;
-border-radius:15px;
-width:260px;
-transition:0.3s;
-}
-
-.card-cliente:hover{
-transform:scale(1.05);
+padding:15px;
+border-radius:10px;
+width:230px;
 }
 
 footer{
-padding:40px;
+padding:25px;
 text-align:center;
 background:#000;
-margin-top:80px;
+margin-top:40px;
+font-size:13px;
 }
 
-/* WHATSAPP */
 .whatsapp{
 position:fixed;
-bottom:20px;
-right:20px;
+bottom:15px;
+right:15px;
 background:#25D366;
-padding:15px 25px;
-border-radius:50px;
+padding:12px 16px;
+border-radius:30px;
 color:white;
-font-weight:bold;
 text-decoration:none;
-box-shadow:0 0 25px rgba(37,211,102,0.7);
+font-weight:bold;
 }
 </style>
 </head>
@@ -221,30 +174,52 @@ box-shadow:0 0 25px rgba(37,211,102,0.7);
 <h1>LRC AUTHORITY DOMINANCE</h1>
 <p>Você sem preocupação. Nós dominamos sua presença digital.</p>
 <a href="#planos" class="btn">Ver Planos</a>
-<a href="https://wa.me/5561999999999" class="btn">Falar no WhatsApp</a>
+<a href="https://wa.me/5561999999999" class="btn">WhatsApp</a>
 </header>
 
 <section>
-<h2 class="highlight">Foque no seu negócio. Nós cuidamos de tudo.</h2>
-<p>Criação, edição, estratégia, chat, publicações, ideias, crescimento e posicionamento.</p>
+<h2 class="highlight">Dominação Estratégica nas Redes Sociais</h2>
+<p>Instagram • TikTok • YouTube • Gestão Completa</p>
+
+<div class="redes">
+<span>📸</span>
+<span>🎵</span>
+<span>▶</span>
+</div>
 
 <div class="contadores">
-<div><div class="numero" data-target="120">0</div><p>Projetos</p></div>
-<div><div class="numero" data-target="35">0</div><p>Marcas</p></div>
-<div><div class="numero" data-target="98">0</div><p>% Satisfação</p></div>
+<div><div class="numero">120+</div><p>Projetos</p></div>
+<div><div class="numero">35+</div><p>Marcas</p></div>
+<div><div class="numero">98%</div><p>Satisfação</p></div>
 </div>
 </section>
 
 <section>
-<h2>Domínio das Plataformas</h2>
+<h2>Resultados Visuais</h2>
 <div class="galeria">
-<img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113">
-<img src="https://images.unsplash.com/photo-1611162616805-6b3b2b7b5e75">
-<img src="https://images.unsplash.com/photo-1611162618071-b39a2ec055fb">
-<img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71">
-<img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0">
-<img src="https://images.unsplash.com/photo-1559027615-cd4628902d4a">
+<img src="https://picsum.photos/300/500?random=11">
+<img src="https://picsum.photos/300/500?random=12">
+<img src="https://picsum.photos/300/500?random=13">
+<img src="https://picsum.photos/300/500?random=14">
+<img src="https://picsum.photos/300/500?random=15">
+<img src="https://picsum.photos/300/500?random=16">
 </div>
+</section>
+
+<section>
+<h2>Como Funciona</h2>
+<p>1️⃣ Planejamento estratégico</p>
+<p>2️⃣ Criação e edição profissional</p>
+<p>3️⃣ Publicação e monitoramento</p>
+<p>4️⃣ Escala e autoridade digital</p>
+</section>
+
+<section>
+<h2>Por Que Escolher a LRC</h2>
+<p>✔ Estratégia profissional</p>
+<p>✔ Posicionamento de autoridade</p>
+<p>✔ Crescimento estruturado</p>
+<p>✔ Gestão completa sem preocupação</p>
 </section>
 
 <section id="planos">
@@ -283,10 +258,10 @@ box-shadow:0 0 25px rgba(37,211,102,0.7);
 
 <section>
 <h2>Empresas que Confiam</h2>
-<div class="clientes">
-<div class="card-cliente"><h4>Clínica Prime Saúde</h4><p>"Profissionalismo total."</p></div>
-<div class="card-cliente"><h4>Studio Fit Brasil</h4><p>"Organização e crescimento."</p></div>
-<div class="card-cliente"><h4>Consultoria Alpha</h4><p>"Estratégia real."</p></div>
+<div class="cards">
+<div class="card"><h4>Clínica Prime Saúde</h4><p>"Organização total."</p></div>
+<div class="card"><h4>Studio Fit Brasil</h4><p>"Estratégia profissional."</p></div>
+<div class="card"><h4>Consultoria Alpha</h4><p>"Presença digital transformada."</p></div>
 </div>
 </section>
 
@@ -295,24 +270,6 @@ box-shadow:0 0 25px rgba(37,211,102,0.7);
 </footer>
 
 <a href="https://wa.me/5561999999999" class="whatsapp">WhatsApp</a>
-
-<script>
-const counters = document.querySelectorAll('.numero');
-counters.forEach(counter => {
-const updateCount = () => {
-const target = +counter.getAttribute('data-target');
-const count = +counter.innerText;
-const inc = target / 200;
-if(count < target){
-counter.innerText = Math.ceil(count + inc);
-setTimeout(updateCount, 10);
-}else{
-counter.innerText = target;
-}
-};
-updateCount();
-});
-</script>
 
 </body>
 </html>
