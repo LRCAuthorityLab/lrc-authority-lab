@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LRC Authority Lab</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+background:#0f0f12;
+color:white;
+}
+
+header{
+height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:20px;
+background:linear-gradient(135deg,#0f0f12,#1c1c22);
+}
+
+header h1{
+font-size:48px;
+max-width:900px;
+}
+
+header span{
+color:#00e0a4;
+}
+
+header p{
+margin-top:20px;
+color:#aaa;
+max-width:600px;
+}
+
+.btn{
+margin-top:30px;
+padding:15px 35px;
+background:#00e0a4;
+color:black;
+text-decoration:none;
+border-radius:30px;
+font-weight:bold;
+transition:0.3s;
+}
+
+.btn:hover{
+background:white;
+}
+
+section{
+padding:90px 20px;
+text-align:center;
+max-width:1100px;
+margin:auto;
+}
+
+.cards{
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap:30px;
+margin-top:40px;
+}
+
+.card{
+background:#1c1c22;
+padding:40px;
+width:320px;
+border-radius:15px;
+transition:0.3s;
+}
+
+.card:hover{
+transform:translateY(-10px);
+background:#24242c;
+}
+
+.price{
+font-size:24px;
+color:#00e0a4;
+margin:20px 0;
+}
+
+.highlight{
+border:2px solid #00e0a4;
+}
+
+footer{
+background:#111;
+padding:40px;
+text-align:center;
+color:#777;
+}
+
+/* CHAT */
+
+#lrc-chat {
+position: fixed;
+bottom: 30px;
+right: 30px;
+z-index: 9999;
+}
+
+#lrc-chat-button {
+width: 65px;
+height: 65px;
+background: #00e0a4;
+color: black;
+border-radius: 50%;
+display: flex;
+justify-content: center;
+align-items: center;
+font-size: 28px;
+cursor: pointer;
+box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+transition: 0.3s;
+}
+
+#lrc-chat-button:hover {
+transform: scale(1.1);
+background: white;
+}
+
+#lrc-chat-box {
+width: 320px;
+background: #1c1c22;
+border-radius: 15px;
+box-shadow: 0 15px 40px rgba(0,0,0,0.5);
+overflow: hidden;
+display: none;
+animation: fadeIn 0.4s ease;
+}
+
+#lrc-chat-header {
+background: #00e0a4;
+color: black;
+padding: 15px;
+font-weight: bold;
+display: flex;
+justify-content: space-between;
+align-items: center;
+}
+
+#lrc-chat-header span {
+cursor: pointer;
+}
+
+#lrc-chat-body {
+padding: 20px;
+color: white;
+font-size: 14px;
+line-height: 1.6;
+}
+
+.lrc-chat-btn {
+display: block;
+margin-top: 15px;
+padding: 12px;
+text-align: center;
+background: #00e0a4;
+color: black;
+text-decoration: none;
+border-radius: 8px;
+font-weight: bold;
+transition: 0.3s;
+}
+
+.lrc-chat-btn:hover {
+background: white;
+}
+
+@keyframes fadeIn {
+from { opacity: 0; transform: translateY(20px); }
+to { opacity: 1; transform: translateY(0); }
+}
+
+</style>
+</head>
+<body>
+
+<header>
+<h1>Transformamos Negócios de Serviços em <span>Autoridade Digital</span></h1>
+<p>A LRC Authority Lab constrói posicionamento estratégico, gera leads qualificados e transforma presença digital em faturamento.</p>
+<a href="https://wa.me/SEUNUMERO" class="btn">Solicitar Diagnóstico</a>
+</header>
+
+<section>
+<h2>O Que Fazemos</h2>
+<br>
+<p>✔ Estratégia de posicionamento<br>
+✔ Planejamento de conteúdo<br>
+✔ Produção e edição profissional<br>
+✔ Gestão de relacionamento (chat)<br>
+✔ Construção de autoridade<br>
+✔ Estrutura para geração de leads</p>
+</section>
+
+<section>
+<h2>Método L.R.C Authority System</h2>
+<br>
+<p><strong>L</strong> – Liderança digital no nicho<br>
+<strong>R</strong> – Relacionamento estratégico com leads<br>
+<strong>C</strong> – Conversão estruturada</p>
+</section>
+
+<section>
+<h2>Planos Estratégicos</h2>
+
+<div class="cards">
+
+<div class="card">
+<h3>Authority Start</h3>
+<p class="price">R$ 1.800/mês</p>
+<p>16 conteúdos estratégicos<br>
+4 vídeos de autoridade<br>
+Bio otimizada<br>
+Gestão parcial de mensagens</p>
+</div>
+
+<div class="card highlight">
+<h3>Authority Pro</h3>
+<p class="price">R$ 3.500/mês</p>
+<p>30 conteúdos estratégicos<br>
+12 vídeos profissionais<br>
+Gestão completa do chat<br>
+Relatório mensal</p>
+</div>
+
+<div class="card">
+<h3>Authority Elite</h3>
+<p class="price">R$ 6.000+/mês</p>
+<p>Gestão total<br>
+Estratégia personalizada<br>
+Funil de vendas<br>
+Branding completo</p>
+</div>
+
+</div>
+</section>
+
+<footer>
+© 2026 LRC Authority Lab — Lucas Ribeiro de Carvalho
+</footer>
+
+<!-- CHAT -->
+
+<div id="lrc-chat">
+    <div id="lrc-chat-button" onclick="toggleLRCChat()">💬</div>
+
+    <div id="lrc-chat-box">
+        <div id="lrc-chat-header">
+            LRC Authority Lab 🚀
+            <span onclick="toggleLRCChat()">✖</span>
+        </div>
+
+        <div id="lrc-chat-body">
+            <p><strong>Olá 👋</strong></p>
+            <p>Quer transformar seu negócio em autoridade digital?</p>
+
+            <a href="https://wa.me/SEUNUMERO?text=Olá%20vim%20pelo%20site%20e%20quero%20um%20diagnóstico"
+               target="_blank"
+               class="lrc-chat-btn">
+               Solicitar Diagnóstico
+            </a>
+        </div>
+    </div>
+</div>
+
+<script>
+function toggleLRCChat() {
+var chatBox = document.getElementById("lrc-chat-box");
+chatBox.style.display = chatBox.style.display === "block" ? "none" : "block";
+}
+</script>
+
+</body>
+</html>
