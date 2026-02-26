@@ -9,23 +9,106 @@
 
 body{
 margin:0;
-font-family:Arial, Helvetica, sans-serif;
+font-family: 'Segoe UI', sans-serif;
+background:#050816;
 color:white;
-text-align:center;
 overflow-x:hidden;
-background: linear-gradient(-45deg,#0f0c29,#302b63,#24243e,#000000);
-background-size:400% 400%;
-animation: gradient 15s ease infinite;
+text-align:center;
 }
 
-@keyframes gradient{
-0%{background-position:0% 50%;}
-50%{background-position:100% 50%;}
-100%{background-position:0% 50%;}
+/* FUNDO TECH GRID ANIMADO */
+
+body::before{
+content:"";
+position:fixed;
+width:200%;
+height:200%;
+background:
+linear-gradient(rgba(0,255,255,0.05) 1px, transparent 1px),
+linear-gradient(90deg, rgba(0,255,255,0.05) 1px, transparent 1px);
+background-size:60px 60px;
+transform:rotate(45deg);
+animation:gridMove 20s linear infinite;
+z-index:-2;
 }
+
+@keyframes gridMove{
+from{transform:translateY(0) rotate(45deg);}
+to{transform:translateY(-60px) rotate(45deg);}
+}
+
+/* LUZ DE FUNDO */
+
+body::after{
+content:"";
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:radial-gradient(circle at 50% 20%, rgba(255,215,0,0.15), transparent 60%);
+z-index:-1;
+}
+
+/* HEADER */
+
+header{
+padding:180px 20px 120px;
+}
+
+/* LOGO HOLOGRÁFICO */
+
+.logo{
+font-size:70px;
+font-weight:900;
+letter-spacing:4px;
+background:linear-gradient(90deg,#FFD700,#fff6c0,#FFD700,#fff6c0);
+background-size:300%;
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+animation:shine 6s linear infinite;
+text-transform:uppercase;
+text-shadow:0 0 30px rgba(255,215,0,0.6);
+}
+
+@keyframes shine{
+0%{background-position:0%}
+100%{background-position:300%}
+}
+
+.sub{
+margin-top:25px;
+font-size:22px;
+color:#ccc;
+max-width:750px;
+margin-left:auto;
+margin-right:auto;
+line-height:1.6;
+}
+
+/* BOTÃO HERO */
+
+.hero-btn{
+margin-top:40px;
+padding:18px 40px;
+background:linear-gradient(90deg,gold,#ffdf00);
+border:none;
+border-radius:40px;
+font-weight:bold;
+cursor:pointer;
+font-size:16px;
+transition:0.4s;
+}
+
+.hero-btn:hover{
+transform:scale(1.08);
+box-shadow:0 0 40px gold;
+}
+
+/* SEÇÕES */
 
 section{
-padding:100px 20px;
+padding:120px 20px;
 opacity:0;
 transform:translateY(40px);
 transition:1s;
@@ -36,80 +119,90 @@ opacity:1;
 transform:translateY(0);
 }
 
-h1{font-size:52px;}
-h2{font-size:36px;margin-bottom:40px;}
-.sub{font-size:22px;color:#ddd;max-width:800px;margin:auto;}
+h2{
+font-size:40px;
+margin-bottom:60px;
+color:gold;
+}
 
-header{padding:140px 20px;}
+/* PLANOS */
 
 .planos{
 display:flex;
 flex-wrap:wrap;
 justify-content:center;
-gap:35px;
+gap:40px;
 }
 
 .plano{
 background:rgba(255,255,255,0.05);
+border:1px solid rgba(255,215,0,0.3);
 backdrop-filter:blur(15px);
-padding:40px;
-width:330px;
-border-radius:20px;
+padding:45px;
+width:340px;
+border-radius:25px;
 transition:0.4s;
 position:relative;
-box-shadow:0 0 30px rgba(0,0,0,0.6);
 }
 
 .plano:hover{
 transform:translateY(-15px);
-box-shadow:0 0 40px rgba(0,255,200,0.7);
+box-shadow:0 0 40px gold;
 }
 
 .destaque{
-border:2px solid #00ffc3;
+border:2px solid gold;
 transform:scale(1.08);
+box-shadow:0 0 60px gold;
 }
 
 .tag{
 position:absolute;
-top:-15px;
+top:-18px;
 left:50%;
 transform:translateX(-50%);
-background:#00ffc3;
+background:gold;
 color:black;
-padding:6px 18px;
-border-radius:20px;
+padding:8px 20px;
+border-radius:30px;
 font-weight:bold;
 font-size:13px;
 }
 
 .preco{
-font-size:32px;
-margin:20px 0;
-color:#00ffc3;
+font-size:36px;
+margin:25px 0;
+color:gold;
 font-weight:bold;
 }
 
-ul{text-align:left;line-height:1.6;}
+ul{
+text-align:left;
+line-height:1.7;
+}
 
 .botao{
 display:block;
-margin:15px auto;
-padding:15px;
-border-radius:10px;
+margin:20px auto;
+padding:16px;
+border-radius:12px;
 font-weight:bold;
 text-decoration:none;
-width:90%;
-background:#00ffc3;
+width:95%;
+background:linear-gradient(90deg,gold,#ffdf00);
 color:black;
 transition:0.3s;
 }
 
-.botao:hover{transform:scale(1.05);}
+.botao:hover{
+transform:scale(1.05);
+}
+
+/* GALERIA */
 
 .galeria{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
 gap:30px;
 max-width:1200px;
 margin:auto;
@@ -117,48 +210,45 @@ margin:auto;
 
 .galeria img{
 width:100%;
-border-radius:15px;
-box-shadow:0 0 30px rgba(0,0,0,0.8);
+border-radius:20px;
+box-shadow:0 0 30px rgba(255,215,0,0.4);
 transition:0.3s;
 }
 
-.galeria img:hover{transform:scale(1.08);}
+.galeria img:hover{
+transform:scale(1.08);
+box-shadow:0 0 50px gold;
+}
+
+/* CLIENTES */
 
 .clientes{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-gap:30px;
+gap:35px;
 max-width:1000px;
 margin:auto;
 }
 
 .clientes div{
 background:rgba(255,255,255,0.05);
-padding:25px;
-border-radius:12px;
-font-weight:bold;
+padding:30px;
+border-radius:15px;
+border:1px solid rgba(255,215,0,0.3);
 }
 
-.contadores{
-display:flex;
-flex-wrap:wrap;
-justify-content:center;
-gap:60px;
-font-size:28px;
-}
-
-.numero{
-font-size:48px;
-color:#00ffc3;
-font-weight:bold;
-}
+/* CTA FINAL */
 
 .cta{
-padding:120px 20px;
+padding:150px 20px;
 background:rgba(0,0,0,0.6);
 }
 
-.cta h2{font-size:40px;}
+.cta h2{
+font-size:42px;
+}
+
+/* WHATSAPP */
 
 .whatsapp{
 position:fixed;
@@ -166,125 +256,40 @@ bottom:25px;
 right:25px;
 background:#25D366;
 color:white;
-padding:16px 22px;
+padding:18px 24px;
 border-radius:50px;
 font-weight:bold;
 text-decoration:none;
 box-shadow:0 0 20px rgba(0,0,0,0.6);
 }
 
-footer{padding:50px;color:#aaa;}
-
-canvas{
-position:fixed;
-top:0;
-left:0;
-z-index:-1;
+footer{
+padding:60px;
+color:#888;
 }
 
 </style>
 </head>
+
 <body>
 
-<canvas id="particles"></canvas>
-
 <header>
-<h1>LRC Authority Lab</h1>
+<div class="logo">LRC Authority Lab</div>
 <p class="sub">
-Você sem preocupação.<br>
-Nós cuidamos da sua autoridade e posicionamento digital.
+Autoridade. Estratégia. Posicionamento digital no mais alto nível.
 </p>
+<button class="hero-btn">Quero minha autoridade</button>
 </header>
 
-<section>
-<h2>Nossos Planos</h2>
-<div class="planos">
+<!-- Você pode manter aqui todas as seções anteriores (planos, galeria, clientes etc) -->
 
-<div class="plano">
-<h3>Essencial</h3>
-<div class="preco">R$ 300</div>
-<ul>
-<li>Artes estratégicas</li>
-<li>Copy profissional</li>
-<li>Organização visual</li>
-</ul>
-<a href="https://payment-link-v3.ton.com.br/pl_Aa0vnxMBwk84q5T3Xsr84zGL2g1om9Kq" class="botao">Pagar via Pix</a>
-</div>
-
-<div class="plano">
-<h3>Profissional</h3>
-<div class="preco">R$ 500</div>
-<ul>
-<li>Planejamento mensal</li>
-<li>Estratégia de conteúdo</li>
-<li>Posicionamento digital</li>
-</ul>
-<a href="https://payment-link-v3.ton.com.br/pl_MBGAE7kbpQdVQnkS2uymJye8gYa5KzLr" class="botao">Pagar via Pix</a>
-</div>
-
-<div class="plano destaque">
-<div class="tag">MAIS ESCOLHIDO</div>
-<h3>Autoridade 🔥</h3>
-<div class="preco">R$ 1000</div>
-<ul>
-<li>Estratégia personalizada</li>
-<li>Análise de mercado</li>
-<li>Gestão completa</li>
-<li>Identidade forte</li>
-</ul>
-<a href="https://payment-link-v3.ton.com.br/pl_yY0kO5DqGaB2bDKU5GS73JKQRgx9jvbM" class="botao">Pagar via Pix</a>
-</div>
-
-</div>
-</section>
-
-<section>
-<h2>Resultados em Números</h2>
-<div class="contadores">
-<div><div class="numero" data-target="120">0</div>Projetos</div>
-<div><div class="numero" data-target="35">0</div>Marcas</div>
-<div><div class="numero" data-target="98">0</div>% Satisfação</div>
-</div>
-</section>
-
-<section>
-<h2>Projetos & Edições</h2>
-<div class="galeria">
-<img src="https://images.unsplash.com/photo-1492724441997-5dc865305da7?w=800">
-<img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800">
-<img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800">
-<img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=800">
-<img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=800">
-<img src="https://images.unsplash.com/photo-1487014679447-9f8336841d58?w=800">
-</div>
-</section>
-
-<section>
-<h2>Empresas que confiaram</h2>
-<div class="clientes">
-<div>Vision Studio</div>
-<div>Prime Digital</div>
-<div>Alpha Media</div>
-<div>Connect Agency</div>
-<div>Black Growth</div>
-<div>Elevate Brand</div>
-</div>
-</section>
-
-<section class="cta">
-<h2>Pronto para sair do amadorismo?</h2>
-<a href="https://payment-link-v3.ton.com.br/pl_yY0kO5DqGaB2bDKU5GS73JKQRgx9jvbM" class="botao">Quero minha autoridade</a>
-</section>
-
-<a href="https://wa.me/5599999999999" class="whatsapp">WhatsApp</a>
+<a href="https://wa.me/5561996052406" class="whatsapp">WhatsApp</a>
 
 <footer>
-© 2026 LRC Authority Lab
+© 2026 LRC Authority Lab — High Performance Digital Authority
 </footer>
 
 <script>
-
-/* ANIMAÇÃO AO ROLAR */
 const sections=document.querySelectorAll("section");
 window.addEventListener("scroll",()=>{
 sections.forEach(sec=>{
@@ -293,66 +298,6 @@ sec.classList.add("show");
 }
 });
 });
-
-/* CONTADOR */
-const counters=document.querySelectorAll(".numero");
-counters.forEach(counter=>{
-const update=()=>{
-const target=+counter.getAttribute("data-target");
-const c=+counter.innerText;
-const inc=target/100;
-if(c<target){
-counter.innerText=Math.ceil(c+inc);
-setTimeout(update,20);
-}else{
-counter.innerText=target;
-}
-};
-update();
-});
-
-/* PARTÍCULAS */
-const canvas=document.getElementById("particles");
-const ctx=canvas.getContext("2d");
-canvas.width=window.innerWidth;
-canvas.height=window.innerHeight;
-
-let particles=[];
-for(let i=0;i<80;i++){
-particles.push({
-x:Math.random()*canvas.width,
-y:Math.random()*canvas.height,
-r:Math.random()*2,
-d:Math.random()*1
-});
-}
-
-function draw(){
-ctx.clearRect(0,0,canvas.width,canvas.height);
-ctx.fillStyle="rgba(0,255,200,0.5)";
-ctx.beginPath();
-for(let i=0;i<particles.length;i++){
-let p=particles[i];
-ctx.moveTo(p.x,p.y);
-ctx.arc(p.x,p.y,p.r,0,Math.PI*2,true);
-}
-ctx.fill();
-updateParticles();
-}
-
-function updateParticles(){
-for(let i=0;i<particles.length;i++){
-let p=particles[i];
-p.y+=p.d;
-if(p.y>canvas.height){
-p.y=0;
-p.x=Math.random()*canvas.width;
-}
-}
-}
-
-setInterval(draw,33);
-
 </script>
 
 </body>
