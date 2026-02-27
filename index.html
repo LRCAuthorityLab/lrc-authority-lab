@@ -1,480 +1,313 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LRC Authority Dominance | Tecnologia & Dominação Digital</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --gold: #ffd700;
-            --gold-bright: #fff3b0;
-            --gold-dark: #b8860b;
-            --bg-dark: #030508;
-            --glass: rgba(255, 255, 255, 0.03);
-            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Montserrat', sans-serif; scroll-behavior: smooth; }
+<title>LRC AGENCY | Criação de Sites & Crescimento Digital</title>
 
-        body {
-            background-color: var(--bg-dark);
-            color: white;
-            overflow-x: hidden;
-            line-height: 1.6;
-            position: relative;
-        }
+<meta name="description" content="LRC AGENCY - Criação de sites profissionais, gestão estratégica de redes sociais e crescimento digital.">
+<meta name="keywords" content="criação de sites, marketing digital, gestão de redes sociais, tráfego pago">
+<meta name="author" content="LRC Agency">
 
-        /* --- Fundo Tecnológico Flutuante --- */
-        body::before, body::after {
-            content: "";
-            position: fixed;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            z-index: -1;
-            opacity: 0.4;
-        }
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
 
-        body::before {
-            background-image: 
-                radial-gradient(var(--gold-dark) 1px, transparent 1px),
-                radial-gradient(var(--gold) 1px, transparent 1px);
-            background-size: 50px 50px;
-            background-position: 0 0, 25px 25px;
-            animation: floatingParticles 60s linear infinite;
-        }
+<style>
+:root{
+--gold:#ffd700;
+--gold-dark:#b8860b;
+--bg-dark:#030508;
+--glass:rgba(255,255,255,0.04);
+--transition:all 0.4s ease;
+}
 
-        body::after {
-            background: 
-                radial-gradient(circle at 20% 20%, rgba(0, 150, 255, 0.1), transparent 40%),
-                radial-gradient(circle at 80% 80%, rgba(255, 100, 0, 0.05), transparent 40%);
-        }
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Montserrat',sans-serif;
+scroll-behavior:smooth;
+}
 
-        @keyframes floatingParticles {
-            0% { background-position: 0 0, 25px 25px; }
-            100% { background-position: 500px 1000px, 525px 1025px; }
-        }
+body{
+background:var(--bg-dark);
+color:white;
+line-height:1.6;
+overflow-x:hidden;
+}
 
-        /* --- Estilos Gerais --- */
-        h1, h2, h3 { font-weight: 900; text-transform: uppercase; letter-spacing: -1px; }
-        
-        section { padding: 100px 20px; max-width: 1300px; margin: 0 auto; text-align: center; position: relative; z-index: 1; }
+section{
+padding:100px 20px;
+max-width:1200px;
+margin:auto;
+text-align:center;
+}
 
-        .highlight { font-size: 1.3rem; color: var(--gold); font-weight: 700; margin-bottom: 15px; display: block;}
+h1,h2,h3{
+font-weight:900;
+text-transform:uppercase;
+}
 
-        .btn {
-            display: inline-block;
-            margin: 10px;
-            padding: 18px 40px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 900;
-            text-transform: uppercase;
-            font-size: 0.9rem;
-            transition: var(--transition);
-            cursor: pointer;
-            position: relative;
-            overflow: hidden;
-        }
+.highlight{
+color:var(--gold);
+display:block;
+margin-bottom:15px;
+font-weight:700;
+}
 
-        .btn-gold {
-            background: linear-gradient(45deg, var(--gold), #d4af37);
-            color: #000;
-            box-shadow: 0 4px 20px rgba(255, 215, 0, 0.4);
-        }
+.btn{
+display:inline-block;
+padding:18px 40px;
+margin:10px;
+border-radius:50px;
+text-decoration:none;
+font-weight:900;
+transition:var(--transition);
+}
 
-        .btn-gold:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.6);
-        }
+.btn-gold{
+background:linear-gradient(45deg,var(--gold),#d4af37);
+color:black;
+}
 
-        /* --- Header --- */
-        header {
-            text-align: center;
-            padding: 150px 20px 80px;
-            position: relative;
-        }
+.btn-gold:hover{
+transform:translateY(-5px);
+box-shadow:0 10px 30px rgba(255,215,0,0.4);
+}
 
-        header h1 {
-            font-size: clamp(2.5rem, 10vw, 5rem);
-            background: linear-gradient(45deg, var(--gold), #fff, var(--gold-dark));
-            -webkit-background-clip: text;
-            color: transparent;
-            filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.5));
-            animation: titlePulse 3s infinite alternate;
-        }
+header{
+padding:160px 20px 100px;
+text-align:center;
+}
 
-        @keyframes titlePulse {
-            0% { filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.3)); }
-            100% { filter: drop-shadow(0 0 30px rgba(255, 215, 0, 0.7)); }
-        }
+header h1{
+font-size:clamp(2.5rem,8vw,5rem);
+background:linear-gradient(45deg,var(--gold),#fff,var(--gold-dark));
+-webkit-background-clip:text;
+color:transparent;
+}
 
-        header p {
-            margin: 25px auto;
-            max-width: 700px;
-            font-size: 1.2rem;
-            opacity: 0.9;
-            color: var(--gold-bright);
-        }
+header p{
+max-width:700px;
+margin:25px auto;
+opacity:0.9;
+}
 
-        /* --- Status Bar --- */
-        .contadores {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 30px;
-            margin-top: 50px;
-            background: var(--glass);
-            padding: 40px;
-            border-radius: 20px;
-            border: 1px solid rgba(255,255,255,0.05);
-            backdrop-filter: blur(10px);
-        }
+.grid{
+display:grid;
+gap:30px;
+margin-top:50px;
+}
 
-        .numero { font-size: 3.5rem; color: var(--gold); font-weight: 900; display: block; text-shadow: 0 0 15px var(--gold-dark); }
+.grid-3{
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+}
 
-        /* --- Galeria de Postagens (SIMULADA) --- */
-        .galeria-posts {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 20px;
-            margin-top: 50px;
-        }
+.card{
+background:var(--glass);
+padding:40px;
+border-radius:20px;
+border:1px solid rgba(255,255,255,0.05);
+transition:var(--transition);
+}
 
-        .post-card {
-            background: #000;
-            border-radius: 15px;
-            overflow: hidden;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: var(--transition);
-            position: relative;
-        }
+.card:hover{
+transform:translateY(-8px);
+border-color:var(--gold);
+}
 
-        .post-card:hover { transform: scale(1.03) translateY(-5px); border-color: var(--gold); box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+.planos{
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap:30px;
+margin-top:50px;
+}
 
-        .post-card img {
-            width: 100%;
-            height: 350px;
-            object-fit: cover;
-            filter: grayscale(20%);
-        }
+.plano{
+background:#05070a;
+padding:50px 30px;
+border-radius:20px;
+width:320px;
+border:1px solid rgba(255,255,255,0.05);
+display:flex;
+flex-direction:column;
+transition:0.4s;
+}
 
-        .post-info {
-            padding: 15px;
-            text-align: left;
-            font-size: 0.8rem;
-            background: linear-gradient(to top, #000, transparent);
-            position: absolute;
-            bottom: 0;
-            width: 100%;
-        }
+.plano:hover{
+transform:translateY(-10px);
+border-color:var(--gold);
+}
 
-        .post-plataforma {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background: rgba(0,0,0,0.7);
-            padding: 5px 10px;
-            border-radius: 20px;
-            font-size: 12px;
-            font-weight: bold;
-        }
+.plano.vip{
+border:2px solid var(--gold);
+box-shadow:0 0 30px rgba(255,215,0,0.2);
+}
 
-        .insta { color: #E1306C; border: 1px solid #E1306C; }
-        .tiktok { color: #00f2ea; border: 1px solid #00f2ea; }
-        .youtube { color: #ff0000; border: 1px solid #ff0000; }
+.plano h3{
+color:var(--gold);
+}
 
-        .post-stats { color: var(--gold); font-weight: bold; margin-top: 5px;}
+.plano h2{
+font-size:2.8rem;
+margin:20px 0;
+}
 
-        /* --- Empresas Fakes --- */
-        .empresas-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 30px;
-            margin-top: 50px;
-            align-items: center;
-        }
+.plano p{
+opacity:0.85;
+margin-bottom:30px;
+}
 
-        .empresa-logo {
-            background: var(--glass);
-            padding: 30px;
-            border-radius: 10px;
-            border: 1px solid rgba(255,255,255,0.05);
-            transition: 0.3s;
-            filter: grayscale(100%) opacity(0.6);
-        }
+.btn-plano{
+padding:15px;
+background:var(--gold);
+color:black;
+border-radius:10px;
+text-decoration:none;
+font-weight:800;
+margin-top:auto;
+}
 
-        .empresa-logo:hover { filter: grayscale(0%) opacity(1); border-color: var(--gold); background: rgba(255,255,255,0.01);}
+footer{
+padding:60px;
+background:#000;
+text-align:center;
+opacity:0.7;
+font-size:0.9rem;
+}
 
-        .empresa-logo span {
-            font-size: 1.2rem;
-            font-weight: 900;
-            color: white;
-            letter-spacing: -1px;
-        }
+.whatsapp{
+position:fixed;
+bottom:30px;
+right:30px;
+background:#25D366;
+width:65px;
+height:65px;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+color:white;
+text-decoration:none;
+font-size:28px;
+}
 
-        /* --- Depoimentos Fakes --- */
-        .depoimentos {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 50px;
-        }
+.fade-in{
+opacity:0;
+transform:translateY(30px);
+transition:0.8s ease;
+}
 
-        .depoimento-card {
-            background: var(--glass);
-            padding: 30px;
-            border-radius: 20px;
-            border: 1px solid rgba(255,255,255,0.05);
-            backdrop-filter: blur(5px);
-            text-align: left;
-            transition: var(--transition);
-        }
+.fade-in.visible{
+opacity:1;
+transform:translateY(0);
+}
 
-        .depoimento-card:hover { transform: translateY(-5px); border-color: var(--gold); }
+input{
+padding:15px;
+border-radius:8px;
+border:none;
+}
 
-        .cliente-perfil {
-            display: flex;
-            align-items: center;
-            margin-bottom: 20px;
-        }
-
-        .cliente-foto {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            background: #222;
-            margin-right: 15px;
-            border: 2px solid var(--gold);
-            object-fit: cover;
-        }
-
-        .cliente-info h4 { color: var(--gold); font-size: 1.1rem; }
-        .cliente-info p { font-size: 0.8rem; opacity: 0.7; }
-
-        /* --- Planos --- */
-        .planos {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 25px;
-            margin-top: 50px;
-        }
-
-        .plano {
-            background: #05070a;
-            padding: 50px 30px;
-            border-radius: 20px;
-            width: 350px;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            transition: var(--transition);
-            position: relative;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .plano:hover { transform: translateY(-10px) scale(1.02); border-color: var(--gold); }
-
-        .plano.vip {
-            border: 2px solid var(--gold);
-            box-shadow: 0 0 30px rgba(255, 215, 0, 0.2);
-        }
-
-        .plano.vip::before {
-            content: "TECNOLOGIA MÁXIMA";
-            position: absolute;
-            top: 15px;
-            right: -30px;
-            background: var(--gold);
-            color: black;
-            font-size: 10px;
-            font-weight: 900;
-            padding: 5px 40px;
-            transform: rotate(45deg);
-        }
-
-        .plano h3 { color: var(--gold); font-size: 1.3rem; letter-spacing: 2px; }
-        .plano h2 { font-size: 3.5rem; margin: 20px 0; font-weight: 900; text-shadow: 0 0 10px rgba(255,255,255,0.3); }
-        .plano h2 span { font-size: 1rem; opacity: 0.7; font-weight: normal;}
-        .plano p { margin-bottom: 30px; opacity: 0.8; min-height: 60px; }
-
-        .btn-plano {
-            padding: 15px;
-            background: var(--gold);
-            color: #000;
-            border-radius: 10px;
-            text-decoration: none;
-            font-weight: 800;
-            margin-top: auto;
-            transition: 0.3s;
-            text-align: center;
-        }
-
-        .btn-plano:hover { filter: brightness(1.2); transform: scale(1.05); }
-
-        /* --- Footer & Floating --- */
-        footer { padding: 60px; text-align: center; background: #000; border-top: 1px solid rgba(255,255,255,0.05); opacity: 0.7; font-size: 0.9rem; }
-
-        .whatsapp {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background: #25D366;
-            width: 65px;
-            height: 65px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            text-decoration: none;
-            font-size: 35px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
-            z-index: 1000;
-            transition: var(--transition);
-            border: 2px solid rgba(255,255,255,0.2);
-        }
-
-        .whatsapp:hover { transform: scale(1.1) rotate(15deg); background: #1ebd5a; }
-
-    </style>
+</style>
 </head>
 
 <body>
 
 <header>
-    <span class="highlight">O Futuro da Presença Digital</span>
-    <h1>LRC AUTHORITY DOMINANCE</h1>
-    <p>Não apenas gerenciamos. Nós usamos algoritmos avançados e edição de elite para forjar sua autoridade e dominar o mercado.</p>
-    <a href="#planos" class="btn btn-gold">Ativar Dominação</a>
-    <a href="https://wa.me/5561999999999" class="btn" style="border: 1px solid rgba(255,255,255,0.3); color: white;">Consultoria Tecnológica</a>
+<span class="highlight">Agência Estratégica de Crescimento Digital</span>
+<h1>LRC AGENCY</h1>
+<p>Criamos sites profissionais e estratégias digitais que transformam negócios comuns em marcas fortes e lucrativas.</p>
+<a href="#site300" class="btn btn-gold">Quero Meu Site Profissional</a>
+<a href="https://wa.me/5561996052406" class="btn" style="border:1px solid rgba(255,255,255,0.3);color:white;">Falar no WhatsApp</a>
 </header>
 
-<section id="resultados">
-    <h2>Resultados Algorítmicos</h2>
-    <p class="highlight">Como transformamos visualizações em autoridade</p>
-    
-    <div class="galeria-posts">
-        <div class="post-card">
-            <span class="post-plataforma insta">REELS</span>
-            <img src="https://picsum.photos/400/700?random=101" alt="Simulação Reels">
-            <div class="post-info">
-                <p>Edição Dinâmica • Ganho de Seguidores</p>
-                <p class="post-stats">🔥 1.2M Views • 85K Curtidas</p>
-            </div>
-        </div>
-
-        <div class="post-card">
-            <span class="post-plataforma tiktok">TIKTOK</span>
-            <img src="https://picsum.photos/400/700?random=102" alt="Simulação TikTok">
-            <div class="post-info">
-                <p>Trend Viral • Retenção Máxima</p>
-                <p class="post-stats">🚀 2.5M Views • 150K Shares</p>
-            </div>
-        </div>
-
-        <div class="post-card">
-            <span class="post-plataforma youtube">YOUTUBE</span>
-            <img src="https://picsum.photos/400/700?random=103" alt="Simulação YouTube">
-            <div class="post-info">
-                <p>Thumbnail High-CTR • SEO Avançado</p>
-                <p class="post-stats">▶ 500K Views • 40K Inscritos</p>
-            </div>
-        </div>
-
-        <div class="post-card">
-            <span class="post-plataforma insta">POST</span>
-            <img src="https://picsum.photos/400/700?random=104" alt="Simulação Insta">
-            <div class="post-info">
-                <p>Design Premium • Posicionamento VIP</p>
-                <p class="post-stats">💬 12K Salve • 900 Comentários</p>
-            </div>
-        </div>
-    </div>
+<section class="fade-in">
+<h2>Como Funciona</h2>
+<div class="grid grid-3">
+<div class="card"><h3>Diagnóstico</h3><p>Analisamos seu negócio e identificamos oportunidades reais.</p></div>
+<div class="card"><h3>Estratégia</h3><p>Criamos estrutura digital focada em conversão.</p></div>
+<div class="card"><h3>Execução</h3><p>Aplicamos design, posicionamento e crescimento.</p></div>
+</div>
 </section>
 
-<section id="empresas">
-    <h2>Empresas que Dominam com a LRC</h2>
-    <div class="empresas-grid">
-        <div class="empresa-logo"><span>NOVATECH Inc.</span></div>
-        <div class="empresa-logo"><span>CLÍNICA PRIME</span></div>
-        <div class="empresa-logo"><span>ALPHA CONSULT</span></div>
-        <div class="empresa-logo"><span>STUDIO FIT PRO</span></div>
-        <div class="empresa-logo"><span>E-COM SUPREME</span></div>
-    </div>
+<section id="site300" class="fade-in">
+<h2>Site Profissional em até 5 Dias por R$300</h2>
+<p class="highlight">Ideal para negócios locais, autônomos e marcas pessoais</p>
+
+<div class="grid grid-3">
+<div class="card"><h3>Design Profissional</h3><p>Visual moderno e responsivo.</p></div>
+<div class="card"><h3>Estrutura Estratégica</h3><p>Foco em conversão e geração de clientes.</p></div>
+<div class="card"><h3>Entrega Rápida</h3><p>Pronto em até 5 dias úteis.</p></div>
+</div>
+
+<br><br>
+
+<div class="card" style="max-width:600px;margin:auto;">
+<h3>Solicitar Meu Site Agora</h3>
+<form id="leadForm" style="display:flex;flex-direction:column;gap:15px;margin-top:20px;">
+<input type="text" id="nome" placeholder="Seu nome" required>
+<input type="text" id="negocio" placeholder="Tipo de negócio" required>
+<input type="text" id="whats" placeholder="Seu WhatsApp" required>
+<button type="submit" class="btn btn-gold">Quero Meu Site</button>
+</form>
+</div>
+
+<br><br>
+
+<a href="https://payment-link-v3.ton.com.br/pl_Aa0vnxMBwk84q5T3Xsr84zGL2g1om9Kq" class="btn btn-gold">Prefiro Pagar Agora R$300</a>
 </section>
 
-<section id="depoimentos">
-    <h2>Depoimentos de Autoridade</h2>
-    <div class="depoimentos">
-        <div class="depoimento-card">
-            <div class="cliente-perfil">
-                <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Carlos Silva" class="cliente-foto">
-                <div class="cliente-info">
-                    <h4>Carlos Lima</h4>
-                    <p>CEO, NovaTech</p>
-                </div>
-            </div>
-            <p>"A LRC não faz apenas posts. Eles criaram uma máquina de autoridade. Nosso faturamento triplicou após a gestão tecnológica deles."</p>
-        </div>
+<section id="planos" class="fade-in">
+<h2>Outros Planos</h2>
+<div class="planos">
 
-        <div class="depoimento-card">
-            <div class="cliente-perfil">
-                <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Mariana Costa" class="cliente-foto">
-                <div class="cliente-info">
-                    <h4>Mariana Costa</h4>
-                    <p>Influenciadora Fitness</p>
-                </div>
-            </div>
-            <p>"Meus vídeos nunca tiveram essa qualidade. A edição da LRC é cinematográfica e o engajamento explodiu. Dominação total!"</p>
-        </div>
+<div class="plano">
+<h3>Gestão Essencial</h3>
+<h2>R$ 300 <span style="font-size:1rem;">/mês</span></h2>
+<p>Gestão estratégica de redes sociais.</p>
+<a href="https://payment-link-v3.ton.com.br/pl_Aa0vnxMBwk84q5T3Xsr84zGL2g1om9Kq" class="btn-plano">Assinar Plano</a>
+</div>
 
-        <div class="depoimento-card">
-            <div class="cliente-perfil">
-                <img src="https://randomuser.me/api/portraits/men/55.jpg" alt="Dr. Roberto" class="cliente-foto">
-                <div class="cliente-info">
-                    <h4>Dr. Roberto Santos</h4>
-                    <p>Neurocirurgião</p>
-                </div>
-            </div>
-            <p>"Construir autoridade na medicina exige ética e estratégia. A LRC entendeu perfeitamente e hoje sou referência digital na minha área."</p>
-        </div>
-    </div>
-</section>
+<div class="plano vip">
+<h3>Authority PRO</h3>
+<h2>R$ 1000 <span style="font-size:1rem;">/mês</span></h2>
+<p>Gestão completa + tráfego pago + estratégia avançada.</p>
+<a href="https://payment-link-v3.ton.com.br/pl_yY0kO5DqGaB2bDKU5GS73JKQRgx9jvbM" class="btn-plano">Quero Escalar</a>
+</div>
 
-<section id="planos">
-    <h2>Ative Seu Nível de Dominação</h2>
-    <div class="planos">
-        <div class="plano">
-            <h3>Essencial</h3>
-            <h2>R$ 300 <span>/mês</span></h2>
-            <p>Gestão Algorítmica + 2 Postagens Estratégicas/semana.</p>
-            <a href="https://payment-link-v3.ton.com.br/pl_Aa0vnxMBwk84q5T3Xsr84zGL2g1om9Kq" class="btn-plano">Pagar com Cartão</a>
-            <a href="https://payment-link-v3.ton.com.br/pl_Aa0vnxMBwk84q5T3Xsr84zGL2g1om9Kq" class="btn-plano" style="background:transparent; border:1px solid var(--gold); color:var(--gold);">Pagar com PIX</a>
-        </div>
-
-        <div class="plano vip">
-            <h3>Authority VIP</h3>
-            <h2>R$ 1000 <span>/mês</span></h2>
-            <p>Dominação Completa: Edição Cinematográfica, Tráfego Pago e Escala de Autoridade.</p>
-            <a href="https://payment-link-v3.ton.com.br/pl_yY0kO5DqGaB2bDKU5GS73JKQRgx9jvbM" class="btn-plano">Pagar com Cartão</a>
-            <a href="https://payment-link-v3.ton.com.br/pl_yY0kO5DqGaB2bDKU5GS73JKQRgx9jvbM" class="btn-plano" style="background:transparent; border:1px solid var(--gold); color:var(--gold);">Pagar com PIX</a>
-        </div>
-
-        <div class="plano">
-            <h3>Profissional</h3>
-            <h2>R$ 500 <span>/mês</span></h2>
-            <p>Gestão Completa + Edição Premium de Reels/Shorts + Estratégia de SEO.</p>
-            <a href="https://payment-link-v3.ton.com.br/pl_MBGAE7kbpQdVQnkS2uymJye8gYa5KzLr" class="btn-plano">Pagar com Cartão</a>
-            <a href="https://payment-link-v3.ton.com.br/pl_MBGAE7kbpQdVQnkS2uymJye8gYa5KzLr" class="btn-plano" style="background:transparent; border:1px solid var(--gold); color:var(--gold);">Pagar com PIX</a>
-        </div>
-    </div>
+</div>
 </section>
 
 <footer>
-    <p>© 2026 LRC Authority Dominance • Tecnologia Avançada em Marketing Digital.</p>
+<p>© 2026 LRC AGENCY • Criação de Sites & Marketing Digital</p>
 </footer>
 
-<a href="https://wa.me/5561996052406" class="whatsapp" title="Falar com Especialista">🚀</a>
+<a href="https://wa.me/5561996052406" class="whatsapp">💬</a>
+
+<script>
+const observer = new IntersectionObserver(entries=>{
+entries.forEach(entry=>{
+if(entry.isIntersecting){
+entry.target.classList.add("visible");
+}
+});
+});
+document.querySelectorAll(".fade-in").forEach(el=>observer.observe(el));
+
+document.getElementById("leadForm").addEventListener("submit", function(e){
+e.preventDefault();
+let nome = document.getElementById("nome").value;
+let negocio = document.getElementById("negocio").value;
+let whats = document.getElementById("whats").value;
+
+let mensagem = `Olá, meu nome é ${nome}. Tenho um ${negocio} e quero contratar o Site Profissional por R$300. Meu WhatsApp é ${whats}.`;
+
+let url = "https://wa.me/5561996052406?text=" + encodeURIComponent(mensagem);
+window.open(url, "_blank");
+});
+</script>
 
 </body>
 </html>
