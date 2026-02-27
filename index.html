@@ -17,8 +17,7 @@
 --gold:#ffd700;
 --gold-dark:#b8860b;
 --bg-dark:#030508;
---glass:rgba(255,255,255,0.04);
---transition:all 0.4s ease;
+--transition:all .4s ease;
 }
 
 *{
@@ -30,10 +29,31 @@ scroll-behavior:smooth;
 }
 
 body{
-background:var(--bg-dark);
+background:#030508;
 color:white;
-line-height:1.6;
 overflow-x:hidden;
+position:relative;
+}
+
+/* FUNDO TECNOLÓGICO COM RAIOS */
+body::before{
+content:"";
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:
+linear-gradient(120deg, transparent 45%, rgba(0,150,255,0.12) 50%, transparent 55%),
+linear-gradient(60deg, transparent 45%, rgba(255,215,0,0.12) 50%, transparent 55%);
+background-size:300% 300%;
+animation:lightning 10s linear infinite;
+z-index:-1;
+}
+
+@keyframes lightning{
+0%{background-position:0% 50%;}
+100%{background-position:100% 50%;}
 }
 
 section{
@@ -50,14 +70,13 @@ text-transform:uppercase;
 
 .highlight{
 color:var(--gold);
-display:block;
 margin-bottom:15px;
-font-weight:700;
+display:block;
 }
 
 .btn{
 display:inline-block;
-padding:18px 40px;
+padding:16px 40px;
 margin:10px;
 border-radius:50px;
 text-decoration:none;
@@ -72,7 +91,7 @@ color:black;
 
 .btn-gold:hover{
 transform:translateY(-5px);
-box-shadow:0 10px 30px rgba(255,215,0,0.4);
+box-shadow:0 10px 25px rgba(255,215,0,0.4);
 }
 
 header{
@@ -97,23 +116,19 @@ opacity:0.9;
 display:grid;
 gap:30px;
 margin-top:50px;
-}
-
-.grid-3{
 grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
 }
 
 .card{
-background:var(--glass);
+background:rgba(255,255,255,0.05);
 padding:40px;
 border-radius:20px;
-border:1px solid rgba(255,255,255,0.05);
-transition:var(--transition);
+transition:.4s;
 }
 
 .card:hover{
 transform:translateY(-8px);
-border-color:var(--gold);
+border:1px solid var(--gold);
 }
 
 .planos{
@@ -129,10 +144,10 @@ background:#05070a;
 padding:50px 30px;
 border-radius:20px;
 width:320px;
-border:1px solid rgba(255,255,255,0.05);
 display:flex;
 flex-direction:column;
-transition:0.4s;
+transition:.4s;
+border:1px solid rgba(255,255,255,0.05);
 }
 
 .plano:hover{
@@ -145,19 +160,8 @@ border:2px solid var(--gold);
 box-shadow:0 0 30px rgba(255,215,0,0.2);
 }
 
-.plano h3{
-color:var(--gold);
-}
-
-.plano h2{
-font-size:2.8rem;
-margin:20px 0;
-}
-
-.plano p{
-opacity:0.85;
-margin-bottom:30px;
-}
+.plano h3{color:var(--gold);}
+.plano h2{margin:20px 0;font-size:2.5rem;}
 
 .btn-plano{
 padding:15px;
@@ -167,30 +171,7 @@ border-radius:10px;
 text-decoration:none;
 font-weight:800;
 margin-top:auto;
-}
-
-footer{
-padding:60px;
-background:#000;
-text-align:center;
-opacity:0.7;
-font-size:0.9rem;
-}
-
-.whatsapp{
-position:fixed;
-bottom:30px;
-right:30px;
-background:#25D366;
-width:65px;
-height:65px;
-border-radius:50%;
-display:flex;
-align-items:center;
-justify-content:center;
-color:white;
-text-decoration:none;
-font-size:28px;
+margin-bottom:10px;
 }
 
 .fade-in{
@@ -210,6 +191,28 @@ border-radius:8px;
 border:none;
 }
 
+footer{
+padding:50px;
+background:#000;
+text-align:center;
+opacity:.7;
+}
+
+.whatsapp{
+position:fixed;
+bottom:30px;
+right:30px;
+background:#25D366;
+width:65px;
+height:65px;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+color:white;
+font-size:28px;
+text-decoration:none;
+}
 </style>
 </head>
 
@@ -218,70 +221,79 @@ border:none;
 <header>
 <span class="highlight">Agência Estratégica de Crescimento Digital</span>
 <h1>LRC AGENCY</h1>
-<p>Criamos sites profissionais e estratégias digitais que transformam negócios comuns em marcas fortes e lucrativas.</p>
+<p>Criamos sites profissionais e estratégias digitais que transformam negócios em marcas fortes e lucrativas.</p>
 <a href="#site300" class="btn btn-gold">Quero Meu Site Profissional</a>
 <a href="https://wa.me/5561996052406" class="btn" style="border:1px solid rgba(255,255,255,0.3);color:white;">Falar no WhatsApp</a>
 </header>
 
 <section class="fade-in">
 <h2>Como Funciona</h2>
-<div class="grid grid-3">
-<div class="card"><h3>Diagnóstico</h3><p>Analisamos seu negócio e identificamos oportunidades reais.</p></div>
-<div class="card"><h3>Estratégia</h3><p>Criamos estrutura digital focada em conversão.</p></div>
-<div class="card"><h3>Execução</h3><p>Aplicamos design, posicionamento e crescimento.</p></div>
+<div class="grid">
+<div class="card"><h3>Diagnóstico</h3><p>Analisamos seu negócio e criamos a melhor estratégia digital.</p></div>
+<div class="card"><h3>Estratégia</h3><p>Estruturamos posicionamento e conversão.</p></div>
+<div class="card"><h3>Execução</h3><p>Design, crescimento e autoridade aplicada.</p></div>
 </div>
 </section>
 
 <section id="site300" class="fade-in">
-<h2>Site Profissional em até 5 Dias por R$300</h2>
-<p class="highlight">Ideal para negócios locais, autônomos e marcas pessoais</p>
+<h2>Site Profissional por R$300</h2>
+<p class="highlight">Entrega em até 5 dias úteis</p>
 
-<div class="grid grid-3">
-<div class="card"><h3>Design Profissional</h3><p>Visual moderno e responsivo.</p></div>
-<div class="card"><h3>Estrutura Estratégica</h3><p>Foco em conversão e geração de clientes.</p></div>
-<div class="card"><h3>Entrega Rápida</h3><p>Pronto em até 5 dias úteis.</p></div>
+<div class="grid">
+<div class="card">Design moderno e responsivo</div>
+<div class="card">Estrutura focada em conversão</div>
+<div class="card">Ideal para negócios locais</div>
 </div>
 
 <br><br>
 
 <div class="card" style="max-width:600px;margin:auto;">
-<h3>Solicitar Meu Site Agora</h3>
+<h3>Solicitar Atendimento</h3>
 <form id="leadForm" style="display:flex;flex-direction:column;gap:15px;margin-top:20px;">
 <input type="text" id="nome" placeholder="Seu nome" required>
 <input type="text" id="negocio" placeholder="Tipo de negócio" required>
 <input type="text" id="whats" placeholder="Seu WhatsApp" required>
-<button type="submit" class="btn btn-gold">Quero Meu Site</button>
+<button type="submit" class="btn btn-gold">Falar com Especialista</button>
 </form>
 </div>
 
 <br><br>
 
-<a href="https://payment-link-v3.ton.com.br/pl_Aa0vnxMBwk84q5T3Xsr84zGL2g1om9Kq" class="btn btn-gold">Prefiro Pagar Agora R$300</a>
+<a href="https://payment-link-v3.ton.com.br/pl_Aa0vnxMBwk84q5T3Xsr84zGL2g1om9Kq" class="btn btn-gold">Pagar com Cartão</a>
+<a href="https://payment-link-v3.ton.com.br/pl_Aa0vnxMBwk84q5T3Xsr84zGL2g1om9Kq" class="btn btn-gold">Pagar com PIX</a>
 </section>
 
 <section id="planos" class="fade-in">
-<h2>Outros Planos</h2>
+<h2>Planos Mensais</h2>
+
 <div class="planos">
 
 <div class="plano">
 <h3>Gestão Essencial</h3>
-<h2>R$ 300 <span style="font-size:1rem;">/mês</span></h2>
+<h2>R$ 300</h2>
 <p>Gestão estratégica de redes sociais.</p>
-<a href="https://payment-link-v3.ton.com.br/pl_Aa0vnxMBwk84q5T3Xsr84zGL2g1om9Kq" class="btn-plano">Assinar Plano</a>
+<a href="https://payment-link-v3.ton.com.br/pl_Aa0vnxMBwk84q5T3Xsr84zGL2g1om9Kq" class="btn-plano">Assinar</a>
+</div>
+
+<div class="plano">
+<h3>Profissional</h3>
+<h2>R$ 500</h2>
+<p>Gestão + edição premium + estratégia de crescimento.</p>
+<a href="https://payment-link-v3.ton.com.br/pl_MBGAE7kbpQdVQnkS2uymJye8gYa5KzLr" class="btn-plano">Assinar</a>
 </div>
 
 <div class="plano vip">
 <h3>Authority PRO</h3>
-<h2>R$ 1000 <span style="font-size:1rem;">/mês</span></h2>
-<p>Gestão completa + tráfego pago + estratégia avançada.</p>
-<a href="https://payment-link-v3.ton.com.br/pl_yY0kO5DqGaB2bDKU5GS73JKQRgx9jvbM" class="btn-plano">Quero Escalar</a>
+<h2>R$ 1000</h2>
+<p>Gestão completa + tráfego pago + escala avançada.</p>
+<a href="https://payment-link-v3.ton.com.br/pl_yY0kO5DqGaB2bDKU5GS73JKQRgx9jvbM" class="btn-plano">Assinar</a>
 </div>
 
 </div>
 </section>
 
 <footer>
-<p>© 2026 LRC AGENCY • Criação de Sites & Marketing Digital</p>
+© 2026 LRC AGENCY • Criação de Sites & Marketing Digital
 </footer>
 
 <a href="https://wa.me/5561996052406" class="whatsapp">💬</a>
