@@ -253,7 +253,6 @@ transition:1s;
 opacity:1;
 transform:translateY(0);
 }
-  /* ====================== CONTADORES ====================== */
 
 /* ====================== CONTADORES ====================== */
 
@@ -288,7 +287,8 @@ border-color:var(--gold-strong);
 .depo-card img{
 width:100%;
 border-radius:15px;
-filter:blur(6px);
+/* REMOVIDO O BLUR PARA FICAR NÍTIDO */
+filter: none; 
 }
 
 .depo-text{
@@ -296,6 +296,26 @@ margin-top:15px;
 font-weight:600;
 color:#ccc;
 font-size:0.95rem;
+}
+
+/* ====================== ESTILO ADICIONAL FUNDADOR ====================== */
+.founder-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    margin-top: 40px;
+}
+.founder-img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: 4px solid var(--gold-strong);
+    object-fit: cover;
+    box-shadow: 0 0 30px rgba(255, 215, 0, 0.3);
+}
+@media(min-width: 768px) {
+    .founder-container { flex-direction: row; text-align: left; justify-content: center; }
 }
 
 /* ====================== PLANOS ====================== */
@@ -419,7 +439,8 @@ opacity:.6;
 
 <header class="reveal">
 <h1>VOCÊ NÃO PRECISA DE MAIS UM SITE.<br>VOCÊ PRECISA DE DOMINAÇÃO DIGITAL.</h1>
-<p>Eu não entrego apenas páginas. Eu construo estrutura estratégica, posicionamento de autoridade e crescimento real para o seu negócio.</p>
+<p>Eu não entrego apenas páginas.
+Eu construo estrutura estratégica, posicionamento de autoridade e crescimento real para o seu negócio.</p>
 <a href="#site300" class="btn btn-red">QUERO ESTRUTURA AGORA</a>
 <a href="#planos" class="btn btn-gold">VER PLANOS</a>
 </header>
@@ -439,9 +460,11 @@ opacity:.6;
 <section class="reveal">
 <h2>Processo Estratégico</h2>
 <div class="grid">
-<div class="card"><h3>1. Diagnóstico</h3><p>Análise completa do seu negócio.</p></div>
+<div class="card"><h3>1.
+Diagnóstico</h3><p>Análise completa do seu negócio.</p></div>
 <div class="card"><h3>2. Estrutura</h3><p>Criação do site estratégico.</p></div>
-<div class="card"><h3>3. Otimização</h3><p>Melhorias contínuas e ajustes.</p></div>
+<div class="card"><h3>3.
+Otimização</h3><p>Melhorias contínuas e ajustes.</p></div>
 </div>
 </section>
 
@@ -452,7 +475,14 @@ opacity:.6;
 
 <section class="reveal">
 <h2>Sobre o Fundador</h2>
-<p class="sub">Eu ajudo empresas a saírem do amadorismo digital e entrarem no nível profissional. Meu foco é crescimento, autoridade e estrutura estratégica.</p>
+<div class="founder-container">
+    <img src="fundador.jpg" alt="Lucas - Fundador" class="founder-img">
+    <div class="founder-text">
+        <p class="sub"><strong>LUCAS (LRC AGENCY)</strong></p>
+        <p class="sub">Eu ajudo empresas a saírem do amadorismo digital e entrarem no nível profissional. [span_4](start_span)Meu foco é crescimento, autoridade e estrutura estratégica.[span_4](end_span)</p>
+        <p class="sub">Estou constantemente <strong>me atualizando sobre os mercados globais</strong> e novas tecnologias para trazer o que há de mais avançado para o seu negócio. Além disso, estou <strong>sempre à disposição de meus clientes</strong> para garantir suporte total.</p>
+    </div>
+</div>
 </section>
 
 <section class="reveal">
@@ -469,27 +499,24 @@ opacity:.6;
 <div class="depoimentos">
 
 <div class="depo-card">
-<img src="9C71F252-7B6C-4979-BC11-5579F47AFC0E.jpeg">
-<img src="img/9C71F252-7B6C-4979-BC11-5579F47AFC0E.jpeg" alt="Depoimento 1">
+<img src="9C71F252-7B6C-4979-BC11-5579F47AFC0E.jpeg" alt="Depoimento 1">
 <div class="depo-text">“Que maravilha! Gostei! Obrigado Lucas.”</div>
 </div>
 
 <div class="depo-card">
-<img src="BE42A601-0BEC-4754-911E-DC1D48137BAC.jpeg">
-<img src="img/BE42A601-0BEC-4754-911E-DC1D48137BAC.jpeg" alt="Depoimento 2">
+<img src="BE42A601-0BEC-4754-911E-DC1D48137BAC.jpeg" alt="Depoimento 2">
 <div class="depo-text">“Gostei! Obrigado Lucas.”</div>
 </div>
 
 <div class="depo-card">
-<img src="B1F55EEF-9B22-444A-969D-810384A55B50.jpeg">
-<img src="img/B1F55EEF-9B22-444A-969D-810384A55B50.jpeg" alt="Depoimento 3">
+<img src="B1F55EEF-9B22-444A-969D-810384A55B50.jpeg" alt="Depoimento 3">
 <div class="depo-text">“Check ✔”</div>
 </div>
 
 <div class="depo-card">
-<img src="E149E871-1B06-4C1A-80D7-7463BE6CDCBD.jpeg">
-<img src="img/E149E871-1B06-4C1A-80D7-7463BE6CDCBD.jpeg" alt="Depoimento 4">
-<div class="depo-text">“Mano que top! 2300 visualizações. Parabéns!”</div>
+<img src="E149E871-1B06-4C1A-80D7-7463BE6CDCBD.jpeg" alt="Depoimento 4">
+<div class="depo-text">“Mano que top!
+2300 visualizações. Parabéns!”</div>
 </div>
 
 </div>
@@ -542,7 +569,8 @@ opacity:.6;
 <div class="plano vip">
 <h3>Authority PRO</h3>
 <h2>R$1000</h2>
-<p>Estratégia completa + posicionamento avançado.</p>
+<p>Estratégia completa + 
+posicionamento avançado.</p>
 <a href="https://payment-link-v3.ton.com.br/pl_yY0kO5DqGaB2bDKU5GS73JKQRgx9jvbM" class="btn-plano">Assinar</a>
 </div>
 
@@ -551,7 +579,8 @@ opacity:.6;
 
 <section class="reveal">
 <h2>Garantia de Estrutura Profissional</h2>
-<p class="sub">Você não recebe apenas um site. Você recebe acompanhamento estratégico e suporte direto comigo.</p>
+<p class="sub">Você não recebe apenas um site.
+Você recebe acompanhamento estratégico e suporte direto comigo.</p>
 </section>
 
 <section class="reveal">
@@ -559,7 +588,8 @@ opacity:.6;
 <div class="grid">
 <div class="card">
 <h3>Posso pedir alterações?</h3>
-<p>Sim. Ajustes fazem parte da estrutura.</p>
+<p>Sim.
+Ajustes fazem parte da estrutura.</p>
 </div>
 <div class="card">
 <h3>Em quanto tempo fica pronto?</h3>
@@ -591,7 +621,6 @@ opacity:.6;
 window.addEventListener("load",()=>{
 document.getElementById("loader").style.display="none";
 });
-
 /* PROGRESS BAR */
 window.addEventListener("scroll",()=>{
 let scrollTop=document.documentElement.scrollTop;
@@ -612,7 +641,6 @@ reveals[i].classList.add("active");
 }
 }
 window.addEventListener("scroll",reveal);
-
 /* CONTADOR */
 const counters=document.querySelectorAll(".counter");
 counters.forEach(counter=>{
@@ -642,7 +670,6 @@ topBtn.style.display="none";
 topBtn.onclick=function(){
 window.scrollTo({top:0,behavior:"smooth"});
 };
-
 /* FORM WHATSAPP */
 document.getElementById("leadForm").addEventListener("submit",function(e){
 e.preventDefault();
@@ -653,7 +680,6 @@ let mensagem=`Olá, meu nome é ${nome}. Tenho um ${negocio} e quero contratar o
 let url="https://wa.me/5561996052406?text="+encodeURIComponent(mensagem);
 window.open(url,"_blank");
 });
-
 </script>
 
 </body>
