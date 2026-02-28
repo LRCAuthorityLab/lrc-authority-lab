@@ -287,8 +287,7 @@ border-color:var(--gold-strong);
 .depo-card img{
 width:100%;
 border-radius:15px;
-/* REMOVIDO O BLUR PARA FICAR NÍTIDO */
-filter: none; 
+filter: none; /* IMAGENS NÍTIDAS AGORA */
 }
 
 .depo-text{
@@ -298,7 +297,7 @@ color:#ccc;
 font-size:0.95rem;
 }
 
-/* ====================== ESTILO ADICIONAL FUNDADOR ====================== */
+/* ESTILO FUNDADOR */
 .founder-container {
     display: flex;
     flex-direction: column;
@@ -479,8 +478,8 @@ Otimização</h3><p>Melhorias contínuas e ajustes.</p></div>
     <img src="fundador.jpg" alt="Lucas - Fundador" class="founder-img">
     <div class="founder-text">
         <p class="sub"><strong>LUCAS (LRC AGENCY)</strong></p>
-        <p class="sub">Eu ajudo empresas a saírem do amadorismo digital e entrarem no nível profissional. [span_4](start_span)Meu foco é crescimento, autoridade e estrutura estratégica.[span_4](end_span)</p>
-        <p class="sub">Estou constantemente <strong>me atualizando sobre os mercados globais</strong> e novas tecnologias para trazer o que há de mais avançado para o seu negócio. Além disso, estou <strong>sempre à disposição de meus clientes</strong> para garantir suporte total.</p>
+        <p class="sub">Eu ajudo empresas a saírem do amadorismo digital e entrarem no nível profissional. Meu foco é crescimento e autoridade.</p>
+        <p class="sub">Estou constantemente <strong>me atualizando sobre os mercados globais</strong> e estou <strong>sempre à disposição</strong> dos meus clientes.</p>
     </div>
 </div>
 </section>
@@ -515,8 +514,7 @@ Otimização</h3><p>Melhorias contínuas e ajustes.</p></div>
 
 <div class="depo-card">
 <img src="E149E871-1B06-4C1A-80D7-7463BE6CDCBD.jpeg" alt="Depoimento 4">
-<div class="depo-text">“Mano que top!
-2300 visualizações. Parabéns!”</div>
+<div class="depo-text">“Mano que top! 2300 visualizações. Parabéns!”</div>
 </div>
 
 </div>
@@ -569,8 +567,7 @@ Otimização</h3><p>Melhorias contínuas e ajustes.</p></div>
 <div class="plano vip">
 <h3>Authority PRO</h3>
 <h2>R$1000</h2>
-<p>Estratégia completa + 
-posicionamento avançado.</p>
+<p>Estratégia completa + posicionamento avançado.</p>
 <a href="https://payment-link-v3.ton.com.br/pl_yY0kO5DqGaB2bDKU5GS73JKQRgx9jvbM" class="btn-plano">Assinar</a>
 </div>
 
@@ -579,8 +576,7 @@ posicionamento avançado.</p>
 
 <section class="reveal">
 <h2>Garantia de Estrutura Profissional</h2>
-<p class="sub">Você não recebe apenas um site.
-Você recebe acompanhamento estratégico e suporte direto comigo.</p>
+<p class="sub">Você não recebe apenas um site. Você recebe acompanhamento estratégico e suporte direto comigo.</p>
 </section>
 
 <section class="reveal">
@@ -588,8 +584,7 @@ Você recebe acompanhamento estratégico e suporte direto comigo.</p>
 <div class="grid">
 <div class="card">
 <h3>Posso pedir alterações?</h3>
-<p>Sim.
-Ajustes fazem parte da estrutura.</p>
+<p>Sim. Ajustes fazem parte da estrutura.</p>
 </div>
 <div class="card">
 <h3>Em quanto tempo fica pronto?</h3>
@@ -616,12 +611,10 @@ Ajustes fazem parte da estrutura.</p>
 <a href="https://wa.me/5561996052406" class="whatsapp">💬</a>
 
 <script>
-
-/* LOADER */
 window.addEventListener("load",()=>{
 document.getElementById("loader").style.display="none";
 });
-/* PROGRESS BAR */
+
 window.addEventListener("scroll",()=>{
 let scrollTop=document.documentElement.scrollTop;
 let scrollHeight=document.documentElement.scrollHeight-document.documentElement.clientHeight;
@@ -629,7 +622,6 @@ let progress=(scrollTop/scrollHeight)*100;
 document.getElementById("progressBar").style.width=progress+"%";
 });
 
-/* REVEAL */
 function reveal(){
 let reveals=document.querySelectorAll(".reveal");
 for(let i=0;i<reveals.length;i++){
@@ -641,7 +633,7 @@ reveals[i].classList.add("active");
 }
 }
 window.addEventListener("scroll",reveal);
-/* CONTADOR */
+
 const counters=document.querySelectorAll(".counter");
 counters.forEach(counter=>{
 const update=()=>{
@@ -658,7 +650,6 @@ counter.innerText=target;
 update();
 });
 
-/* BOTÃO TOPO */
 const topBtn=document.getElementById("topBtn");
 window.onscroll=function(){
 if(document.documentElement.scrollTop>400){
@@ -670,7 +661,7 @@ topBtn.style.display="none";
 topBtn.onclick=function(){
 window.scrollTo({top:0,behavior:"smooth"});
 };
-/* FORM WHATSAPP */
+
 document.getElementById("leadForm").addEventListener("submit",function(e){
 e.preventDefault();
 let nome=document.getElementById("nome").value;
