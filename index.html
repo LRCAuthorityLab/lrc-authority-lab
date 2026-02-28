@@ -1,18 +1,28 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>LRC AGENCY | Estrutura Digital de Alta Performance</title>
 
-<meta name="description" content="LRC AGENCY - Estrutura digital profissional e posicionamento estratégico.">
-<meta property="og:title" content="LRC AGENCY - Estrutura Digital Profissional">
-<meta property="og:type" content="website">
+<meta name="description" content="LRC AGENCY - Estrutura digital agressiva, criação de sites profissionais e posicionamento de autoridade.">
+<meta name="keywords" content="criação de sites, marketing digital, funil de vendas, estrutura digital">
+<meta name="author" content="LRC AGENCY">
 
+<meta property="og:title" content="LRC AGENCY - Estrutura Digital Profissional">
+<meta property="og:description" content="Transforme seu negócio em autoridade digital com estrutura estratégica.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://via.placeholder.com/1200x630">
+
+<link rel="icon" href="https://via.placeholder.com/32">
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&display=swap" rel="stylesheet">
 
 <style>
+
+/* ====================== CONFIG MASTER ====================== */
+
 :root{
 --gold:#d4af37;
 --gold-strong:#ffd700;
@@ -34,7 +44,39 @@ color:#fff;
 overflow-x:hidden;
 }
 
-/* LOADER */
+/* ====================== BARRA PROGRESSO ====================== */
+
+#progressBar{
+position:fixed;
+top:0;
+left:0;
+height:4px;
+width:0%;
+background:linear-gradient(90deg,var(--gold-strong),var(--gold));
+z-index:9999;
+}
+
+/* ====================== FUNDO LUXO ====================== */
+
+body::before{
+content:"";
+position:fixed;
+width:100%;
+height:100%;
+background:
+radial-gradient(circle at 20% 30%, rgba(212,175,55,0.15), transparent 40%),
+radial-gradient(circle at 80% 70%, rgba(255,0,0,0.1), transparent 40%);
+animation:lux 12s linear infinite;
+z-index:-1;
+}
+
+@keyframes lux{
+0%{filter:hue-rotate(0deg);}
+100%{filter:hue-rotate(360deg);}
+}
+
+/* ====================== LOADER ====================== */
+
 #loader{
 position:fixed;
 width:100%;
@@ -43,12 +85,12 @@ background:#000;
 display:flex;
 justify-content:center;
 align-items:center;
-z-index:9999;
+z-index:10000;
 }
 
 .loader-circle{
-width:60px;
-height:60px;
+width:70px;
+height:70px;
 border:6px solid #222;
 border-top:6px solid var(--gold-strong);
 border-radius:50%;
@@ -59,16 +101,24 @@ animation:spin 1s linear infinite;
 100%{transform:rotate(360deg);}
 }
 
-/* NAV */
+/* ====================== NAVBAR ====================== */
+
 nav{
 position:fixed;
 top:0;
 width:100%;
-background:#000;
+background:rgba(0,0,0,0.95);
 padding:18px 60px;
 display:flex;
 justify-content:space-between;
+align-items:center;
 z-index:1000;
+}
+
+nav strong{
+color:var(--gold-strong);
+font-size:1.2rem;
+letter-spacing:2px;
 }
 
 nav a{
@@ -76,6 +126,11 @@ color:#fff;
 text-decoration:none;
 margin-left:25px;
 font-weight:600;
+transition:.3s;
+}
+
+nav a:hover{
+color:var(--gold-strong);
 }
 
 nav .cta{
@@ -84,195 +139,521 @@ color:#000;
 padding:10px 25px;
 border-radius:40px;
 font-weight:800;
+box-shadow:0 0 15px rgba(255,215,0,0.5);
 }
 
-/* HERO */
+/* ====================== HERO ====================== */
+
 header{
-padding:220px 20px 160px;
+padding:240px 20px 180px;
 text-align:center;
 }
 
 header h1{
-font-size:clamp(2.5rem,6vw,4.5rem);
-color:var(--gold-strong);
+font-size:clamp(2.5rem,6vw,5rem);
+background:linear-gradient(45deg,var(--gold-strong),#fff,var(--gold));
+-webkit-background-clip:text;
+color:transparent;
 font-weight:900;
+text-transform:uppercase;
 }
 
 header p{
-max-width:800px;
-margin:30px auto;
+max-width:900px;
+margin:35px auto;
+font-size:1.2rem;
 color:#ccc;
+line-height:1.6;
 }
 
-/* SECTIONS */
-section{
-padding:120px 20px;
-max-width:1200px;
-margin:auto;
-text-align:center;
-}
+/* ====================== BOTÕES PREMIUM ====================== */
 
-h2{
-font-size:2.5rem;
-margin-bottom:25px;
-color:var(--gold-strong);
-}
-
-.grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-gap:35px;
-margin-top:60px;
-}
-
-.card{
-background:rgba(255,255,255,0.05);
-padding:40px;
-border-radius:20px;
-transition:.3s;
-}
-
-.card:hover{
-transform:translateY(-8px);
-border:1px solid var(--gold-strong);
-}
-
-/* DEPOIMENTOS */
-.depoimentos{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-gap:30px;
-margin-top:60px;
-}
-
-.depo-card{
-background:rgba(255,255,255,0.05);
-padding:20px;
-border-radius:20px;
-}
-
-.depo-card img{
-width:100%;
-border-radius:15px;
-}
-
-/* BOTÕES */
 .btn{
 display:inline-block;
-padding:18px 45px;
-margin:10px;
+padding:20px 50px;
+margin:15px;
 border-radius:50px;
 text-decoration:none;
 font-weight:800;
+transition:.3s;
+letter-spacing:1px;
 }
 
 .btn-gold{
 background:var(--gold-strong);
 color:#000;
+box-shadow:0 0 20px rgba(255,215,0,0.5);
 }
 
 .btn-red{
 background:var(--red);
 color:#fff;
+box-shadow:0 0 15px rgba(255,0,0,0.4);
 }
 
-/* FOOTER */
-footer{
-text-align:center;
-padding:40px;
-background:#000;
+.btn:hover{
+transform:scale(1.07);
 }
+
+/* ====================== SEÇÕES ====================== */
+
+section{
+padding:140px 20px;
+max-width:1300px;
+margin:auto;
+text-align:center;
+}
+
+h2{
+font-size:2.8rem;
+margin-bottom:25px;
+text-transform:uppercase;
+color:var(--gold-strong);
+}
+
+.sub{
+max-width:850px;
+margin:auto;
+color:#bbb;
+line-height:1.7;
+}
+
+/* ====================== CARDS ====================== */
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:35px;
+margin-top:70px;
+}
+
+.card{
+background:rgba(255,255,255,0.04);
+padding:45px;
+border-radius:20px;
+border:1px solid rgba(255,215,0,0.1);
+transition:.4s;
+}
+
+.card:hover{
+transform:translateY(-12px);
+border-color:var(--gold-strong);
+box-shadow:0 0 25px rgba(255,215,0,0.2);
+}
+
+/* ====================== REVEAL ====================== */
+
+.reveal{
+opacity:0;
+transform:translateY(40px);
+transition:1s;
+}
+
+.reveal.active{
+opacity:1;
+transform:translateY(0);
+}
+  /* ====================== CONTADORES ====================== */
+
+/* ====================== CONTADORES ====================== */
+
+.counter{
+font-size:3.5rem;
+font-weight:900;
+color:var(--gold-strong);
+}
+
+/* ====================== DEPOIMENTOS ====================== */
+
+.depoimentos{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:35px;
+margin-top:70px;
+}
+
+.depo-card{
+background:rgba(255,255,255,0.05);
+padding:25px;
+border-radius:20px;
+border:1px solid rgba(255,215,0,0.1);
+transition:.4s;
+}
+
+.depo-card:hover{
+transform:translateY(-10px);
+border-color:var(--gold-strong);
+}
+
+.depo-card img{
+width:100%;
+border-radius:15px;
+filter:blur(6px);
+}
+
+.depo-text{
+margin-top:15px;
+font-weight:600;
+color:#ccc;
+font-size:0.95rem;
+}
+
+/* ====================== PLANOS ====================== */
+
+.planos{
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap:45px;
+margin-top:80px;
+}
+
+.plano{
+background:#0d0d0d;
+padding:60px 40px;
+border-radius:25px;
+width:340px;
+display:flex;
+flex-direction:column;
+border:1px solid rgba(255,215,0,0.1);
+transition:.4s;
+}
+
+.plano:hover{
+transform:translateY(-15px);
+box-shadow:0 0 30px rgba(255,215,0,0.3);
+}
+
+.plano.vip{
+border:2px solid var(--gold-strong);
+box-shadow:0 0 40px rgba(255,215,0,0.4);
+}
+
+.plano h2{
+color:var(--gold-strong);
+margin:25px 0;
+font-size:2.3rem;
+}
+
+.btn-plano{
+padding:15px;
+background:var(--gold-strong);
+color:#000;
+border-radius:12px;
+text-decoration:none;
+font-weight:800;
+margin-top:auto;
+}
+
+/* ====================== FORM ====================== */
+
+form{
+display:flex;
+flex-direction:column;
+gap:15px;
+max-width:550px;
+margin:50px auto;
+}
+
+input{
+padding:18px;
+border-radius:10px;
+border:none;
+font-size:1rem;
+}
+
+/* ====================== TOPO & WHATS ====================== */
+
+#topBtn{
+position:fixed;
+bottom:110px;
+right:30px;
+background:var(--gold-strong);
+color:#000;
+padding:14px 18px;
+border-radius:50%;
+cursor:pointer;
+display:none;
+font-weight:900;
+}
+
+.whatsapp{
+position:fixed;
+bottom:30px;
+right:30px;
+background:#25D366;
+width:75px;
+height:75px;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:32px;
+color:white;
+text-decoration:none;
+}
+
+footer{
+padding:70px;
+background:#000;
+text-align:center;
+opacity:.6;
+}
+
 </style>
 </head>
 
 <body>
 
-<div id="loader">
-<div class="loader-circle"></div>
-</div>
+<div id="progressBar"></div>
+<div id="loader"><div class="loader-circle"></div></div>
 
 <nav>
-<strong style="color:#ffd700;">LRC AGENCY</strong>
+<div><strong>LRC AGENCY</strong></div>
 <div>
-<a href="#servicos">Serviços</a>
-<a href="#valores">Valores</a>
-<a href="#depoimentos">Depoimentos</a>
-<a href="#contato" class="cta">Contato</a>
+<a href="#site300">Site 300</a>
+<a href="#planos">Planos</a>
+<a href="#contato" class="cta">Contratar</a>
 </div>
 </nav>
 
-<header>
-<h1>ESTRUTURA DIGITAL DE ALTA PERFORMANCE</h1>
-<p>Transformamos empresas comuns em autoridades digitais.</p>
-<a href="#contato" class="btn btn-gold">QUERO CRESCER</a>
+<header class="reveal">
+<h1>VOCÊ NÃO PRECISA DE MAIS UM SITE.<br>VOCÊ PRECISA DE DOMINAÇÃO DIGITAL.</h1>
+<p>Eu não entrego apenas páginas. Eu construo estrutura estratégica, posicionamento de autoridade e crescimento real para o seu negócio.</p>
+<a href="#site300" class="btn btn-red">QUERO ESTRUTURA AGORA</a>
+<a href="#planos" class="btn btn-gold">VER PLANOS</a>
 </header>
 
-<section id="servicos">
-<h2>Serviços</h2>
+<section class="reveal">
+<h2>Para Quem É</h2>
+<p class="sub">Para empresários que querem crescimento real, posicionamento forte e presença digital profissional.</p>
+
 <div class="grid">
-<div class="card">
-<h3>Criação de Sites</h3>
-<p>Sites rápidos e profissionais.</p>
-</div>
-<div class="card">
-<h3>Posicionamento Digital</h3>
-<p>Autoridade e presença estratégica.</p>
-</div>
-<div class="card">
-<h3>Estrutura de Vendas</h3>
-<p>Funis e processos que geram resultado.</p>
-</div>
+<div class="card">✔ Para quem quer autoridade digital</div>
+<div class="card">✔ Para quem quer conversão e estrutura</div>
+<div class="card">✔ Para quem quer acompanhamento real</div>
+<div class="card">❌ Não é para quem busca apenas algo barato</div>
 </div>
 </section>
 
-<section id="valores">
-<h2>Investimento</h2>
+<section class="reveal">
+<h2>Processo Estratégico</h2>
 <div class="grid">
-<div class="card">
-<h3>Start</h3>
-<p style="font-size:26px;color:#ffd700;font-weight:800;">R$ 497</p>
+<div class="card"><h3>1. Diagnóstico</h3><p>Análise completa do seu negócio.</p></div>
+<div class="card"><h3>2. Estrutura</h3><p>Criação do site estratégico.</p></div>
+<div class="card"><h3>3. Otimização</h3><p>Melhorias contínuas e ajustes.</p></div>
 </div>
-<div class="card">
-<h3>Profissional</h3>
-<p style="font-size:26px;color:#ffd700;font-weight:800;">R$ 997</p>
-</div>
-<div class="card">
-<h3>Elite</h3>
-<p style="font-size:26px;color:#ffd700;font-weight:800;">R$ 1.997</p>
-</div>
-</div>
-<p style="margin-top:40px;">PIX: SUA CHAVE AQUI</p>
 </section>
 
-<section id="depoimentos">
+<section class="reveal">
+<h2>Antes e Depois</h2>
+<p class="sub">Negócio comum → Estrutura profissional e posicionamento forte.</p>
+</section>
+
+<section class="reveal">
+<h2>Sobre o Fundador</h2>
+<p class="sub">Eu ajudo empresas a saírem do amadorismo digital e entrarem no nível profissional. Meu foco é crescimento, autoridade e estrutura estratégica.</p>
+</section>
+
+<section class="reveal">
+<h2>Números</h2>
+<div class="grid">
+<div class="card"><div class="counter" data-target="50">0</div><p>Projetos</p></div>
+<div class="card"><div class="counter" data-target="100">0</div><p>% Compromisso</p></div>
+<div class="card"><div class="counter" data-target="5">0</div><p>Dias Entrega</p></div>
+</div>
+</section>
+
+<section class="reveal">
 <h2>Depoimentos</h2>
 <div class="depoimentos">
-<div class="depo-card"><img src="img/depo1.jpeg"></div>
-<div class="depo-card"><img src="img/depo2.jpeg"></div>
-<div class="depo-card"><img src="img/depo3.jpeg"></div>
-<div class="depo-card"><img src="img/depo4.jpeg"></div>
+
+<div class="depo-card">
+<img src="9C71F252-7B6C-4979-BC11-5579F47AFC0E.jpeg">
+<img src="img/9C71F252-7B6C-4979-BC11-5579F47AFC0E.jpeg" alt="Depoimento 1">
+<div class="depo-text">“Que maravilha! Gostei! Obrigado Lucas.”</div>
+</div>
+
+<div class="depo-card">
+<img src="BE42A601-0BEC-4754-911E-DC1D48137BAC.jpeg">
+<img src="img/BE42A601-0BEC-4754-911E-DC1D48137BAC.jpeg" alt="Depoimento 2">
+<div class="depo-text">“Gostei! Obrigado Lucas.”</div>
+</div>
+
+<div class="depo-card">
+<img src="B1F55EEF-9B22-444A-969D-810384A55B50.jpeg">
+<img src="img/B1F55EEF-9B22-444A-969D-810384A55B50.jpeg" alt="Depoimento 3">
+<div class="depo-text">“Check ✔”</div>
+</div>
+
+<div class="depo-card">
+<img src="E149E871-1B06-4C1A-80D7-7463BE6CDCBD.jpeg">
+<img src="img/E149E871-1B06-4C1A-80D7-7463BE6CDCBD.jpeg" alt="Depoimento 4">
+<div class="depo-text">“Mano que top! 2300 visualizações. Parabéns!”</div>
+</div>
+
 </div>
 </section>
 
-<section>
-<h2>Sobre o Fundador</h2>
-<img src="img/fundador.png" style="width:260px;border-radius:20px;margin:30px auto;display:block;">
-<p>Sou Lucas Ribeiro, fundador da LRC Agency. Sempre me atualizando sobre mercados globais e estratégias digitais.</p>
+<section id="site300" class="reveal">
+<h2>Site Profissional R$300</h2>
+<p class="sub">Entrega em até 5 dias. Estrutura estratégica, visual profissional e foco em conversão.</p>
+
+<a href="https://payment-link-v3.ton.com.br/pl_Aa0vnxMBwk84q5T3Xsr84zGL2g1om9Kq" class="btn btn-gold">Pagar no Cartão</a>
+<a href="https://payment-link-v3.ton.com.br/pl_Aa0vnxMBwk84q5T3Xsr84zGL2g1om9Kq" class="btn btn-red">Pagar no PIX</a>
+
+<form id="leadForm">
+<input type="text" id="nome" placeholder="Seu nome" required>
+<input type="text" id="negocio" placeholder="Seu negócio" required>
+<input type="text" id="whats" placeholder="Seu WhatsApp" required>
+<button type="submit" class="btn btn-gold">Falar Comigo Agora</button>
+</form>
 </section>
 
-<section id="contato">
-<h2>Contato</h2>
-<a href="https://wa.me/SEUNUMERO" class="btn btn-gold">FALAR NO WHATSAPP</a>
+<section class="reveal">
+<h2>O Que Acontece Depois da Compra?</h2>
+<div class="grid">
+<div class="card">Você recebe contato direto comigo.</div>
+<div class="card">Realizamos o diagnóstico do seu negócio.</div>
+<div class="card">Desenvolvo sua estrutura profissional.</div>
+<div class="card">Você recebe acompanhamento e ajustes.</div>
+</div>
+</section>
+
+<section id="planos" class="reveal">
+<h2>Planos Mensais</h2>
+
+<div class="planos">
+
+<div class="plano">
+<h3>Essencial</h3>
+<h2>R$300</h2>
+<p>Manutenção e ajustes básicos.</p>
+<a href="https://payment-link-v3.ton.com.br/pl_Aa0vnxMBwk84q5T3Xsr84zGL2g1om9Kq" class="btn-plano">Assinar</a>
+</div>
+
+<div class="plano">
+<h3>Profissional</h3>
+<h2>R$500</h2>
+<p>Gestão estratégica e melhorias constantes.</p>
+<a href="https://payment-link-v3.ton.com.br/pl_MBGAE7kbpQdVQnkS2uymJye8gYa5KzLr" class="btn-plano">Assinar</a>
+</div>
+
+<div class="plano vip">
+<h3>Authority PRO</h3>
+<h2>R$1000</h2>
+<p>Estratégia completa + posicionamento avançado.</p>
+<a href="https://payment-link-v3.ton.com.br/pl_yY0kO5DqGaB2bDKU5GS73JKQRgx9jvbM" class="btn-plano">Assinar</a>
+</div>
+
+</div>
+</section>
+
+<section class="reveal">
+<h2>Garantia de Estrutura Profissional</h2>
+<p class="sub">Você não recebe apenas um site. Você recebe acompanhamento estratégico e suporte direto comigo.</p>
+</section>
+
+<section class="reveal">
+<h2>Perguntas Frequentes</h2>
+<div class="grid">
+<div class="card">
+<h3>Posso pedir alterações?</h3>
+<p>Sim. Ajustes fazem parte da estrutura.</p>
+</div>
+<div class="card">
+<h3>Em quanto tempo fica pronto?</h3>
+<p>Até 5 dias úteis.</p>
+</div>
+<div class="card">
+<h3>Terei suporte?</h3>
+<p>Contato direto comigo.</p>
+</div>
+</div>
+</section>
+
+<section id="contato" class="reveal">
+<h2>Vagas Limitadas</h2>
+<p class="sub">Atendo poucos clientes por vez para manter qualidade máxima.</p>
+<a href="#site300" class="btn btn-red">COMEÇAR AGORA</a>
 </section>
 
 <footer>
-© 2026 LRC AGENCY
+© 2026 LRC AGENCY • Estrutura Digital de Alta Performance
 </footer>
 
+<div id="topBtn">↑</div>
+<a href="https://wa.me/5561996052406" class="whatsapp">💬</a>
+
 <script>
-window.addEventListener("load",function(){
+
+/* LOADER */
+window.addEventListener("load",()=>{
 document.getElementById("loader").style.display="none";
 });
+
+/* PROGRESS BAR */
+window.addEventListener("scroll",()=>{
+let scrollTop=document.documentElement.scrollTop;
+let scrollHeight=document.documentElement.scrollHeight-document.documentElement.clientHeight;
+let progress=(scrollTop/scrollHeight)*100;
+document.getElementById("progressBar").style.width=progress+"%";
+});
+
+/* REVEAL */
+function reveal(){
+let reveals=document.querySelectorAll(".reveal");
+for(let i=0;i<reveals.length;i++){
+let windowHeight=window.innerHeight;
+let elementTop=reveals[i].getBoundingClientRect().top;
+if(elementTop<windowHeight-100){
+reveals[i].classList.add("active");
+}
+}
+}
+window.addEventListener("scroll",reveal);
+
+/* CONTADOR */
+const counters=document.querySelectorAll(".counter");
+counters.forEach(counter=>{
+const update=()=>{
+const target=+counter.getAttribute("data-target");
+const count=+counter.innerText;
+const inc=target/100;
+if(count<target){
+counter.innerText=Math.ceil(count+inc);
+setTimeout(update,20);
+}else{
+counter.innerText=target;
+}
+};
+update();
+});
+
+/* BOTÃO TOPO */
+const topBtn=document.getElementById("topBtn");
+window.onscroll=function(){
+if(document.documentElement.scrollTop>400){
+topBtn.style.display="block";
+}else{
+topBtn.style.display="none";
+}
+};
+topBtn.onclick=function(){
+window.scrollTo({top:0,behavior:"smooth"});
+};
+
+/* FORM WHATSAPP */
+document.getElementById("leadForm").addEventListener("submit",function(e){
+e.preventDefault();
+let nome=document.getElementById("nome").value;
+let negocio=document.getElementById("negocio").value;
+let whats=document.getElementById("whats").value;
+let mensagem=`Olá, meu nome é ${nome}. Tenho um ${negocio} e quero contratar o Site Profissional por R$300. Meu WhatsApp é ${whats}.`;
+let url="https://wa.me/5561996052406?text="+encodeURIComponent(mensagem);
+window.open(url,"_blank");
+});
+
 </script>
 
 </body>
