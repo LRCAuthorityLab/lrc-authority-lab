@@ -1,28 +1,18 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>LRC AGENCY | Estrutura Digital de Alta Performance</title>
 
-<meta name="description" content="LRC AGENCY - Estrutura digital agressiva, criação de sites profissionais e posicionamento de autoridade.">
-<meta name="keywords" content="criação de sites, marketing digital, funil de vendas, estrutura digital">
-<meta name="author" content="LRC AGENCY">
-
+<meta name="description" content="LRC AGENCY - Estrutura digital profissional e posicionamento estratégico.">
 <meta property="og:title" content="LRC AGENCY - Estrutura Digital Profissional">
-<meta property="og:description" content="Transforme seu negócio em autoridade digital com estrutura estratégica.">
 <meta property="og:type" content="website">
-<meta property="og:image" content="https://via.placeholder.com/1200x630">
 
-<link rel="icon" href="https://via.placeholder.com/32">
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&display=swap" rel="stylesheet">
 
 <style>
-
-/* ====================== CONFIG MASTER ====================== */
-
 :root{
 --gold:#d4af37;
 --gold-strong:#ffd700;
@@ -44,39 +34,7 @@ color:#fff;
 overflow-x:hidden;
 }
 
-/* ====================== BARRA PROGRESSO ====================== */
-
-#progressBar{
-position:fixed;
-top:0;
-left:0;
-height:4px;
-width:0%;
-background:linear-gradient(90deg,var(--gold-strong),var(--gold));
-z-index:9999;
-}
-
-/* ====================== FUNDO LUXO ====================== */
-
-body::before{
-content:"";
-position:fixed;
-width:100%;
-height:100%;
-background:
-radial-gradient(circle at 20% 30%, rgba(212,175,55,0.15), transparent 40%),
-radial-gradient(circle at 80% 70%, rgba(255,0,0,0.1), transparent 40%);
-animation:lux 12s linear infinite;
-z-index:-1;
-}
-
-@keyframes lux{
-0%{filter:hue-rotate(0deg);}
-100%{filter:hue-rotate(360deg);}
-}
-
-/* ====================== LOADER ====================== */
-
+/* LOADER */
 #loader{
 position:fixed;
 width:100%;
@@ -85,12 +43,12 @@ background:#000;
 display:flex;
 justify-content:center;
 align-items:center;
-z-index:10000;
+z-index:9999;
 }
 
 .loader-circle{
-width:70px;
-height:70px;
+width:60px;
+height:60px;
 border:6px solid #222;
 border-top:6px solid var(--gold-strong);
 border-radius:50%;
@@ -101,24 +59,16 @@ animation:spin 1s linear infinite;
 100%{transform:rotate(360deg);}
 }
 
-/* ====================== NAVBAR ====================== */
-
+/* NAV */
 nav{
 position:fixed;
 top:0;
 width:100%;
-background:rgba(0,0,0,0.95);
+background:#000;
 padding:18px 60px;
 display:flex;
 justify-content:space-between;
-align-items:center;
 z-index:1000;
-}
-
-nav strong{
-color:var(--gold-strong);
-font-size:1.2rem;
-letter-spacing:2px;
 }
 
 nav a{
@@ -126,11 +76,6 @@ color:#fff;
 text-decoration:none;
 margin-left:25px;
 font-weight:600;
-transition:.3s;
-}
-
-nav a:hover{
-color:var(--gold-strong);
 }
 
 nav .cta{
@@ -139,149 +84,71 @@ color:#000;
 padding:10px 25px;
 border-radius:40px;
 font-weight:800;
-box-shadow:0 0 15px rgba(255,215,0,0.5);
 }
 
-/* ====================== HERO ====================== */
-
+/* HERO */
 header{
-padding:240px 20px 180px;
+padding:220px 20px 160px;
 text-align:center;
 }
 
 header h1{
-font-size:clamp(2.5rem,6vw,5rem);
-background:linear-gradient(45deg,var(--gold-strong),#fff,var(--gold));
--webkit-background-clip:text;
-color:transparent;
+font-size:clamp(2.5rem,6vw,4.5rem);
+color:var(--gold-strong);
 font-weight:900;
-text-transform:uppercase;
 }
 
 header p{
-max-width:900px;
-margin:35px auto;
-font-size:1.2rem;
+max-width:800px;
+margin:30px auto;
 color:#ccc;
-line-height:1.6;
 }
 
-/* ====================== BOTÕES PREMIUM ====================== */
-
-.btn{
-display:inline-block;
-padding:20px 50px;
-margin:15px;
-border-radius:50px;
-text-decoration:none;
-font-weight:800;
-transition:.3s;
-letter-spacing:1px;
-}
-
-.btn-gold{
-background:var(--gold-strong);
-color:#000;
-box-shadow:0 0 20px rgba(255,215,0,0.5);
-}
-
-.btn-red{
-background:var(--red);
-color:#fff;
-box-shadow:0 0 15px rgba(255,0,0,0.4);
-}
-
-.btn:hover{
-transform:scale(1.07);
-}
-
-/* ====================== SEÇÕES ====================== */
-
+/* SECTIONS */
 section{
-padding:140px 20px;
-max-width:1300px;
+padding:120px 20px;
+max-width:1200px;
 margin:auto;
 text-align:center;
 }
 
 h2{
-font-size:2.8rem;
+font-size:2.5rem;
 margin-bottom:25px;
-text-transform:uppercase;
 color:var(--gold-strong);
 }
-
-.sub{
-max-width:850px;
-margin:auto;
-color:#bbb;
-line-height:1.7;
-}
-
-/* ====================== CARDS ====================== */
 
 .grid{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
 gap:35px;
-margin-top:70px;
+margin-top:60px;
 }
 
 .card{
-background:rgba(255,255,255,0.04);
-padding:45px;
+background:rgba(255,255,255,0.05);
+padding:40px;
 border-radius:20px;
-border:1px solid rgba(255,215,0,0.1);
-transition:.4s;
+transition:.3s;
 }
 
 .card:hover{
-transform:translateY(-12px);
-border-color:var(--gold-strong);
-box-shadow:0 0 25px rgba(255,215,0,0.2);
+transform:translateY(-8px);
+border:1px solid var(--gold-strong);
 }
 
-/* ====================== REVEAL ====================== */
-
-.reveal{
-opacity:0;
-transform:translateY(40px);
-transition:1s;
-}
-
-.reveal.active{
-opacity:1;
-transform:translateY(0);
-}
-
-/* ====================== CONTADORES ====================== */
-
-.counter{
-font-size:3.5rem;
-font-weight:900;
-color:var(--gold-strong);
-}
-
-/* ====================== DEPOIMENTOS ====================== */
-
+/* DEPOIMENTOS */
 .depoimentos{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-gap:35px;
-margin-top:70px;
+gap:30px;
+margin-top:60px;
 }
 
 .depo-card{
 background:rgba(255,255,255,0.05);
-padding:25px;
+padding:20px;
 border-radius:20px;
-border:1px solid rgba(255,215,0,0.1);
-transition:.4s;
-}
-
-.depo-card:hover{
-transform:translateY(-10px);
-border-color:var(--gold-strong);
 }
 
 .depo-card img{
@@ -289,226 +156,123 @@ width:100%;
 border-radius:15px;
 }
 
-.depo-text{
-margin-top:15px;
-font-weight:600;
-color:#ccc;
-font-size:0.95rem;
+/* BOTÕES */
+.btn{
+display:inline-block;
+padding:18px 45px;
+margin:10px;
+border-radius:50px;
+text-decoration:none;
+font-weight:800;
+}
+
+.btn-gold{
+background:var(--gold-strong);
+color:#000;
+}
+
+.btn-red{
+background:var(--red);
+color:#fff;
+}
+
+/* FOOTER */
+footer{
+text-align:center;
+padding:40px;
+background:#000;
 }
 </style>
 </head>
 
 <body>
 
-<div id="progressBar"></div>
-
 <div id="loader">
 <div class="loader-circle"></div>
 </div>
 
-<!-- ================= NAV ================= -->
-
 <nav>
-<strong>LRC AGENCY</strong>
+<strong style="color:#ffd700;">LRC AGENCY</strong>
 <div>
 <a href="#servicos">Serviços</a>
-<a href="#resultados">Resultados</a>
+<a href="#valores">Valores</a>
 <a href="#depoimentos">Depoimentos</a>
 <a href="#contato" class="cta">Contato</a>
 </div>
 </nav>
 
-<!-- ================= HERO ================= -->
-
 <header>
 <h1>ESTRUTURA DIGITAL DE ALTA PERFORMANCE</h1>
-<p>
-Transformamos empresas comuns em autoridades digitais através de posicionamento estratégico,
-estrutura profissional e execução de alto nível.
-</p>
-
+<p>Transformamos empresas comuns em autoridades digitais.</p>
 <a href="#contato" class="btn btn-gold">QUERO CRESCER</a>
-<a href="#servicos" class="btn btn-red">VER SERVIÇOS</a>
 </header>
 
-<!-- ================= SERVIÇOS ================= -->
-
-<section id="servicos" class="reveal">
+<section id="servicos">
 <h2>Serviços</h2>
-<p class="sub">
-Criamos estruturas digitais que posicionam sua marca no nível profissional.
-</p>
-
 <div class="grid">
 <div class="card">
 <h3>Criação de Sites</h3>
-<p>Sites profissionais, rápidos e estruturados para conversão.</p>
+<p>Sites rápidos e profissionais.</p>
 </div>
-
 <div class="card">
 <h3>Posicionamento Digital</h3>
-<p>Autoridade, presença estratégica e construção de marca.</p>
+<p>Autoridade e presença estratégica.</p>
 </div>
-
 <div class="card">
 <h3>Estrutura de Vendas</h3>
-<p>Funis, páginas estratégicas e processos que geram resultado.</p>
+<p>Funis e processos que geram resultado.</p>
 </div>
 </div>
 </section>
 
-<!-- ================= RESULTADOS ================= -->
-
-<section id="resultados" class="reveal">
-<h2>Resultados</h2>
-
+<section id="valores">
+<h2>Investimento</h2>
 <div class="grid">
-<div>
-<div class="counter" data-target="120">0</div>
-<p>Projetos Entregues</p>
+<div class="card">
+<h3>Start</h3>
+<p style="font-size:26px;color:#ffd700;font-weight:800;">R$ 497</p>
 </div>
-
-<div>
-<div class="counter" data-target="98">0</div>
-<p>Clientes Satisfeitos (%)</p>
+<div class="card">
+<h3>Profissional</h3>
+<p style="font-size:26px;color:#ffd700;font-weight:800;">R$ 997</p>
 </div>
-
-<div>
-<div class="counter" data-target="5">0</div>
-<p>Anos de Estudo Estratégico</p>
+<div class="card">
+<h3>Elite</h3>
+<p style="font-size:26px;color:#ffd700;font-weight:800;">R$ 1.997</p>
 </div>
 </div>
+<p style="margin-top:40px;">PIX: SUA CHAVE AQUI</p>
 </section>
 
-<!-- ================= DEPOIMENTOS ================= -->
-
-<section id="depoimentos" class="reveal">
+<section id="depoimentos">
 <h2>Depoimentos</h2>
-
 <div class="depoimentos">
-
-<div class="depo-card">
-<img src="img/depo1.jpeg" alt="Depoimento 1">
-<div class="depo-text">“Que maravilha! Gostei! Obrigado Lucas.”</div>
-</div>
-
-<div class="depo-card">
-<img src="img/depo2.jpeg" alt="Depoimento 2">
-<div class="depo-text">“Gostei! Obrigado Lucas.”</div>
-</div>
-
-<div class="depo-card">
-<img src="img/depo3.jpeg" alt="Depoimento 3">
-<div class="depo-text">“Check ✔”</div>
-</div>
-
-<div class="depo-card">
-<img src="img/depo4.jpeg" alt="Depoimento 4">
-<div class="depo-text">“Mano que top! 2300 visualizações. Parabéns!”</div>
-</div>
-
+<div class="depo-card"><img src="img/depo1.jpeg"></div>
+<div class="depo-card"><img src="img/depo2.jpeg"></div>
+<div class="depo-card"><img src="img/depo3.jpeg"></div>
+<div class="depo-card"><img src="img/depo4.jpeg"></div>
 </div>
 </section>
-<!-- ================= SOBRE O FUNDADOR ================= -->
 
-<section class="reveal">
+<section>
 <h2>Sobre o Fundador</h2>
-
-<img src="img/fundador.png"
-style="width:260px;
-border-radius:20px;
-margin:40px auto;
-display:block;
-box-shadow:0 0 40px rgba(212,175,55,0.4);">
-
-<p class="sub">
-Sou Lucas Ribeiro, fundador da LRC Agency.  
-Estou constantemente me atualizando sobre os mercados globais,
-estratégias digitais e tendências de posicionamento online.
-
-<br><br>
-
-Acredito que autoridade se constrói com conhecimento, estratégia e execução de alto nível.
-Meu compromisso é entregar estruturas digitais de alta performance
-e estar sempre à disposição dos meus clientes,
-oferecendo suporte estratégico e acompanhamento contínuo para crescimento real no mercado.
-</p>
-
+<img src="img/fundador.png" style="width:260px;border-radius:20px;margin:30px auto;display:block;">
+<p>Sou Lucas Ribeiro, fundador da LRC Agency. Sempre me atualizando sobre mercados globais e estratégias digitais.</p>
 </section>
 
-<!-- ================= CONTATO ================= -->
-
-<section id="contato" class="reveal">
+<section id="contato">
 <h2>Contato</h2>
-<p class="sub">
-Pronto para elevar sua empresa ao nível profissional?
-Entre em contato agora mesmo.
-</p>
-
-<a href="https://wa.me/SEUNUMEROAQUI" class="btn btn-gold">
-FALAR NO WHATSAPP
-</a>
+<a href="https://wa.me/SEUNUMERO" class="btn btn-gold">FALAR NO WHATSAPP</a>
 </section>
 
-<!-- ================= FOOTER ================= -->
-
-<footer style="text-align:center;padding:40px 20px;background:#000;border-top:1px solid rgba(255,215,0,0.1);">
-<p style="color:#888;font-size:14px;">
-© 2026 LRC AGENCY - Todos os direitos reservados.
-</p>
+<footer>
+© 2026 LRC AGENCY
 </footer>
 
-<!-- ================= SCRIPTS ================= -->
-
 <script>
-
-// Loader
 window.addEventListener("load",function(){
 document.getElementById("loader").style.display="none";
 });
-
-// Scroll Reveal
-const reveals=document.querySelectorAll(".reveal");
-
-function revealOnScroll(){
-reveals.forEach(el=>{
-const windowHeight=window.innerHeight;
-const elementTop=el.getBoundingClientRect().top;
-if(elementTop < windowHeight - 100){
-el.classList.add("active");
-}
-});
-}
-
-window.addEventListener("scroll",revealOnScroll);
-
-// Progress Bar
-window.addEventListener("scroll",()=>{
-const scrollTop=document.documentElement.scrollTop;
-const scrollHeight=document.documentElement.scrollHeight - document.documentElement.clientHeight;
-const progress=(scrollTop/scrollHeight)*100;
-document.getElementById("progressBar").style.width=progress+"%";
-});
-
-// Contadores Animados
-const counters=document.querySelectorAll(".counter");
-
-counters.forEach(counter=>{
-const update=()=>{
-const target=+counter.getAttribute("data-target");
-const count=+counter.innerText;
-const increment=target/200;
-
-if(count < target){
-counter.innerText=Math.ceil(count+increment);
-setTimeout(update,10);
-}else{
-counter.innerText=target;
-}
-};
-update();
-});
-
 </script>
 
 </body>
