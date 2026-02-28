@@ -287,7 +287,7 @@ border-color:var(--gold-strong);
 .depo-card img{
 width:100%;
 border-radius:15px;
-filter: none; /* IMAGENS NÍTIDAS AGORA */
+filter:none; /* REMOVIDO BLUR */
 }
 
 .depo-text{
@@ -297,7 +297,7 @@ color:#ccc;
 font-size:0.95rem;
 }
 
-/* ESTILO FUNDADOR */
+/* ====================== ESTILO FUNDADOR ====================== */
 .founder-container {
     display: flex;
     flex-direction: column;
@@ -306,8 +306,8 @@ font-size:0.95rem;
     margin-top: 40px;
 }
 .founder-img {
-    width: 200px;
-    height: 200px;
+    width: 220px;
+    height: 220px;
     border-radius: 50%;
     border: 4px solid var(--gold-strong);
     object-fit: cover;
@@ -459,11 +459,9 @@ Eu construo estrutura estratégica, posicionamento de autoridade e crescimento r
 <section class="reveal">
 <h2>Processo Estratégico</h2>
 <div class="grid">
-<div class="card"><h3>1.
-Diagnóstico</h3><p>Análise completa do seu negócio.</p></div>
+<div class="card"><h3>1. Diagnóstico</h3><p>Análise completa do seu negócio.</p></div>
 <div class="card"><h3>2. Estrutura</h3><p>Criação do site estratégico.</p></div>
-<div class="card"><h3>3.
-Otimização</h3><p>Melhorias contínuas e ajustes.</p></div>
+<div class="card"><h3>3. Otimização</h3><p>Melhorias contínuas e ajustes.</p></div>
 </div>
 </section>
 
@@ -611,10 +609,13 @@ Otimização</h3><p>Melhorias contínuas e ajustes.</p></div>
 <a href="https://wa.me/5561996052406" class="whatsapp">💬</a>
 
 <script>
+
+/* LOADER */
 window.addEventListener("load",()=>{
 document.getElementById("loader").style.display="none";
 });
 
+/* PROGRESS BAR */
 window.addEventListener("scroll",()=>{
 let scrollTop=document.documentElement.scrollTop;
 let scrollHeight=document.documentElement.scrollHeight-document.documentElement.clientHeight;
@@ -622,6 +623,7 @@ let progress=(scrollTop/scrollHeight)*100;
 document.getElementById("progressBar").style.width=progress+"%";
 });
 
+/* REVEAL */
 function reveal(){
 let reveals=document.querySelectorAll(".reveal");
 for(let i=0;i<reveals.length;i++){
@@ -634,6 +636,7 @@ reveals[i].classList.add("active");
 }
 window.addEventListener("scroll",reveal);
 
+/* CONTADOR */
 const counters=document.querySelectorAll(".counter");
 counters.forEach(counter=>{
 const update=()=>{
@@ -650,6 +653,7 @@ counter.innerText=target;
 update();
 });
 
+/* BOTÃO TOPO */
 const topBtn=document.getElementById("topBtn");
 window.onscroll=function(){
 if(document.documentElement.scrollTop>400){
@@ -662,6 +666,7 @@ topBtn.onclick=function(){
 window.scrollTo({top:0,behavior:"smooth"});
 };
 
+/* FORM WHATSAPP */
 document.getElementById("leadForm").addEventListener("submit",function(e){
 e.preventDefault();
 let nome=document.getElementById("nome").value;
