@@ -1,318 +1,222 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NexusTech | Agência de IA & Marketing</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700;900&display=swap" rel="stylesheet">
+    <title>LRC AGENCY | Estrutura Digital de Alta Performance</title>
+    <meta name="description" content="LRC AGENCY - Estrutura digital agressiva, criação de sites profissionais e posicionamento de autoridade.">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;800;900&display=swap" rel="stylesheet">
+
     <style>
-        /* Variáveis de Cores e Estilo */
+        /* ====================== CONFIG MASTER ====================== */
         :root {
             --bg-color: #050505;
-            --text-color: #ffffff;
-            --primary: #8a2be2; /* Roxo Neon */
-            --secondary: #00ffff; /* Ciano Neon */
-            --glass-bg: rgba(255, 255, 255, 0.05);
-            --glass-border: rgba(255, 255, 255, 0.1);
+            --gold: #d4af37;
+            --gold-strong: #ffd700;
+            --red: #ff2e2e;
+            --glass-bg: rgba(255, 255, 255, 0.03);
+            --glass-border: rgba(212, 175, 55, 0.2);
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Inter', sans-serif;
-            scroll-behavior: smooth;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Montserrat', sans-serif; scroll-behavior: smooth; }
+        body { background-color: var(--bg-color); color: #fff; overflow-x: hidden; }
 
-        body {
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            overflow-x: hidden;
-        }
+        /* ====================== EFEITOS VISUAIS ====================== */
+        #progressBar { position: fixed; top: 0; left: 0; height: 4px; width: 0%; background: linear-gradient(90deg, var(--gold-strong), var(--gold)); z-index: 9999; }
+        
+        .bg-glow { position: fixed; width: 600px; height: 600px; background: radial-gradient(circle, var(--gold) 0%, transparent 70%); top: -200px; left: -200px; filter: blur(150px); opacity: 0.15; z-index: -1; animation: pulse 10s infinite alternate; }
+        .bg-glow-2 { position: fixed; width: 500px; height: 500px; background: radial-gradient(circle, var(--red) 0%, transparent 70%); bottom: -100px; right: -100px; filter: blur(150px); opacity: 0.1; z-index: -1; animation: pulse 15s infinite alternate-reverse; }
+        @keyframes pulse { 0% { transform: scale(1); opacity: 0.1; } 100% { transform: scale(1.2); opacity: 0.2; } }
 
-        /* Efeito de Fundo Desfocado */
-        .bg-glow {
-            position: fixed;
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, var(--primary) 0%, transparent 70%);
-            top: -200px;
-            left: -200px;
-            filter: blur(150px);
-            opacity: 0.4;
-            z-index: -1;
-            animation: pulse 10s infinite alternate;
-        }
+        /* ====================== NAVBAR ====================== */
+        nav { position: fixed; top: 0; width: 100%; padding: 20px 5%; display: flex; justify-content: space-between; align-items: center; background: rgba(5, 5, 5, 0.7); backdrop-filter: blur(15px); border-bottom: 1px solid var(--glass-border); z-index: 1000; }
+        nav strong { color: var(--gold-strong); font-size: 1.5rem; letter-spacing: 2px; font-weight: 900; }
+        nav div a { color: #fff; text-decoration: none; margin-left: 25px; font-weight: 600; transition: .3s; }
+        nav div a:hover { color: var(--gold-strong); }
+        .cta { background: linear-gradient(45deg, var(--gold-strong), var(--gold)); color: #000 !important; padding: 10px 25px; border-radius: 40px; font-weight: 800; box-shadow: 0 0 15px rgba(255, 215, 0, 0.3); }
 
-        .bg-glow-2 {
-            position: fixed;
-            width: 500px;
-            height: 500px;
-            background: radial-gradient(circle, var(--secondary) 0%, transparent 70%);
-            bottom: -100px;
-            right: -100px;
-            filter: blur(150px);
-            opacity: 0.3;
-            z-index: -1;
-            animation: pulse 15s infinite alternate-reverse;
-        }
+        /* ====================== HERO ====================== */
+        header { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 0 20px; }
+        header h1 { font-size: clamp(2.5rem, 6vw, 4.5rem); font-weight: 900; text-transform: uppercase; line-height: 1.1; margin-bottom: 20px; background: linear-gradient(to right, #fff, #aaa); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        header h1 span { background: linear-gradient(45deg, var(--gold-strong), var(--gold)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        header p { max-width: 800px; margin: 20px auto 40px; font-size: 1.2rem; color: #ccc; line-height: 1.6; }
+        
+        /* ====================== BOTÕES ====================== */
+        .btn { padding: 18px 45px; margin: 10px; border-radius: 50px; text-decoration: none; font-weight: 800; transition: .3s; text-transform: uppercase; letter-spacing: 1px; display: inline-block; }
+        .btn-gold { background: linear-gradient(45deg, var(--gold-strong), var(--gold)); color: #000; box-shadow: 0 0 20px rgba(255, 215, 0, 0.4); }
+        .btn-red { background: linear-gradient(45deg, var(--red), #cc0000); color: #fff; box-shadow: 0 0 20px rgba(255, 0, 0, 0.4); }
+        .btn:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(255, 215, 0, 0.6); }
 
-        @keyframes pulse {
-            0% { transform: scale(1); opacity: 0.3; }
-            100% { transform: scale(1.2); opacity: 0.5; }
-        }
+        /* ====================== SEÇÕES & CARDS (GLASSMORPHISM) ====================== */
+        section { padding: 120px 5%; max-width: 1300px; margin: auto; text-align: center; }
+        h2 { font-size: 3rem; margin-bottom: 20px; text-transform: uppercase; color: var(--gold-strong); font-weight: 900; }
+        .sub { max-width: 850px; margin: auto; color: #bbb; font-size: 1.1rem; line-height: 1.7; margin-bottom: 50px; }
+        
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
+        .card { background: var(--glass-bg); padding: 40px; border-radius: 20px; border: 1px solid var(--glass-border); backdrop-filter: blur(10px); transition: .4s; }
+        .card:hover { transform: translateY(-10px); border-color: var(--gold-strong); box-shadow: 0 10px 30px rgba(255, 215, 0, 0.15); background: rgba(255, 255, 255, 0.06); }
+        .card h3 { color: var(--gold); margin-bottom: 15px; font-size: 1.5rem; }
 
-        /* Navbar Glassmorphism */
-        header {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            padding: 20px 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: rgba(5, 5, 5, 0.7);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid var(--glass-border);
-            z-index: 1000;
-        }
+        /* ====================== FUNDADOR ====================== */
+        .founder-container { display: flex; flex-direction: column; align-items: center; gap: 40px; margin-top: 40px; background: var(--glass-bg); border: 1px solid var(--glass-border); padding: 50px; border-radius: 30px; }
+        @media(min-width: 768px) { .founder-container { flex-direction: row; text-align: left; } }
+        .founder-img { width: 250px; height: 250px; border-radius: 50%; border: 4px solid var(--gold-strong); object-fit: cover; box-shadow: 0 0 40px rgba(255, 215, 0, 0.4); }
+        .founder-text p { font-size: 1.1rem; margin-bottom: 15px; color: #ccc; }
+        .founder-text strong { color: var(--gold-strong); }
 
-        .logo {
-            font-size: 24px;
-            font-weight: 900;
-            letter-spacing: 2px;
-            background: linear-gradient(45deg, var(--primary), var(--secondary));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
+        /* ====================== PLANOS ====================== */
+        .planos { display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; }
+        .plano { background: rgba(10, 10, 10, 0.8); padding: 50px 30px; border-radius: 25px; width: 320px; display: flex; flex-direction: column; border: 1px solid var(--glass-border); transition: .4s; position: relative; overflow: hidden; }
+        .plano.vip { border: 2px solid var(--gold-strong); transform: scale(1.05); box-shadow: 0 0 40px rgba(255, 215, 0, 0.2); }
+        .plano:hover { transform: translateY(-10px); border-color: var(--gold-strong); }
+        .plano.vip:hover { transform: scale(1.05) translateY(-10px); }
+        .plano h3 { font-size: 1.5rem; color: #fff; }
+        .plano h2 { font-size: 3rem; margin: 20px 0; color: var(--gold-strong); }
+        .plano p { color: #aaa; margin-bottom: 30px; flex-grow: 1; }
+        .btn-plano { padding: 15px; background: transparent; color: var(--gold-strong); border: 2px solid var(--gold-strong); border-radius: 12px; text-decoration: none; font-weight: 800; transition: .3s; }
+        .plano.vip .btn-plano, .plano:hover .btn-plano { background: var(--gold-strong); color: #000; }
 
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 30px;
-        }
+        /* ====================== FORMULÁRIO ====================== */
+        form { display: flex; flex-direction: column; gap: 15px; max-width: 500px; margin: 40px auto; background: var(--glass-bg); padding: 30px; border-radius: 20px; border: 1px solid var(--glass-border); }
+        input { padding: 18px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.1); background: rgba(0,0,0,0.5); color: #fff; font-size: 1rem; outline: none; transition: .3s; }
+        input:focus { border-color: var(--gold-strong); box-shadow: 0 0 10px rgba(255,215,0,0.2); }
 
-        nav a {
-            color: var(--text-color);
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-
-        nav a:hover {
-            color: var(--secondary);
-        }
-
-        /* Hero Section */
-        .hero {
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 0 20px;
-        }
-
-        .hero h1 {
-            font-size: 5rem;
-            font-weight: 900;
-            line-height: 1.1;
-            margin-bottom: 20px;
-            background: linear-gradient(to right, #fff, #aaa);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            opacity: 0;
-            transform: translateY(30px);
-            animation: fadeUp 1s ease forwards 0.2s;
-        }
-
-        .hero h1 span {
-            background: linear-gradient(45deg, var(--primary), var(--secondary));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            color: #aaa;
-            max-width: 600px;
-            margin-bottom: 40px;
-            opacity: 0;
-            transform: translateY(30px);
-            animation: fadeUp 1s ease forwards 0.4s;
-        }
-
-        .btn {
-            padding: 15px 40px;
-            font-size: 1.1rem;
-            font-weight: 700;
-            color: #fff;
-            background: linear-gradient(45deg, var(--primary), var(--secondary));
-            border: none;
-            border-radius: 30px;
-            cursor: pointer;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            box-shadow: 0 0 20px rgba(138, 43, 226, 0.4);
-            transition: transform 0.3s, box-shadow 0.3s;
-            opacity: 0;
-            transform: translateY(30px);
-            animation: fadeUp 1s ease forwards 0.6s;
-            text-decoration: none;
-        }
-
-        .btn:hover {
-            transform: scale(1.05) translateY(-3px);
-            box-shadow: 0 0 30px rgba(0, 255, 255, 0.6);
-        }
-
-        /* Services Section */
-        .services {
-            padding: 100px 5%;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 3rem;
-            margin-bottom: 60px;
-            font-weight: 900;
-        }
-
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-
-        .card {
-            background: var(--glass-bg);
-            border: 1px solid var(--glass-border);
-            border-radius: 20px;
-            padding: 40px;
-            transition: transform 0.4s, background 0.4s;
-            position: relative;
-            overflow: hidden;
-            opacity: 0; /* Para animação de scroll */
-            transform: translateY(50px);
-        }
-
-        .card.visible {
-            opacity: 1;
-            transform: translateY(0);
-            transition: opacity 0.8s ease, transform 0.8s ease;
-        }
-
-        .card::before {
-            content: '';
-            position: absolute;
-            top: 0; left: -100%; width: 100%; height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
-            transition: left 0.5s;
-        }
-
-        .card:hover::before {
-            left: 100%;
-        }
-
-        .card:hover {
-            transform: translateY(-10px);
-            background: rgba(255, 255, 255, 0.1);
-            border-color: var(--primary);
-            box-shadow: 0 10px 30px rgba(138, 43, 226, 0.2);
-        }
-
-        .card h3 {
-            font-size: 1.8rem;
-            margin-bottom: 15px;
-            color: var(--secondary);
-        }
-
-        .card p {
-            color: #ccc;
-            line-height: 1.6;
-        }
-
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 40px;
-            border-top: 1px solid var(--glass-border);
-            margin-top: 50px;
-            color: #777;
-        }
-
-        /* Animações Keyframes */
-        @keyframes fadeUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Responsividade */
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 3rem; }
-            nav ul { display: none; /* Em um site real, aqui entraria um menu hamburguer */ }
-        }
+        /* ====================== REVEAL & EXTRAS ====================== */
+        .reveal { opacity: 0; transform: translateY(50px); transition: 0.8s ease-out; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+        footer { padding: 40px; background: #000; text-align: center; color: #555; border-top: 1px solid var(--glass-border); }
+        .whatsapp { position: fixed; bottom: 30px; right: 30px; background: #25D366; width: 65px; height: 65px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 30px; color: white; text-decoration: none; box-shadow: 0 0 20px rgba(37, 211, 102, 0.5); z-index: 1000; transition: .3s; }
+        .whatsapp:hover { transform: scale(1.1); }
     </style>
 </head>
 <body>
 
+    <div id="progressBar"></div>
     <div class="bg-glow"></div>
     <div class="bg-glow-2"></div>
 
-    <header>
-        <div class="logo">NEXUS</div>
-        <nav>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#servicos">Serviços</a></li>
-                <li><a href="#contato">Contato</a></li>
-            </ul>
-        </nav>
+    <nav>
+        <strong>LRC AGENCY</strong>
+        <div>
+            <a href="#site300">Site 300</a>
+            <a href="#planos">Planos</a>
+            <a href="#contato" class="cta">Contratar</a>
+        </div>
+    </nav>
+
+    <header class="reveal active">
+        <h1>VOCÊ NÃO PRECISA DE MAIS UM SITE.<br><span>VOCÊ PRECISA DE DOMINAÇÃO DIGITAL.</span></h1>
+        <p>Eu não entrego apenas páginas. Eu construo estrutura estratégica, posicionamento de autoridade e crescimento real para o seu negócio.</p>
+        <div>
+            <a href="#site300" class="btn btn-red">QUERO ESTRUTURA AGORA</a>
+            <a href="#planos" class="btn btn-gold">VER PLANOS</a>
+        </div>
     </header>
 
-    <section class="hero" id="home">
-        <h1>O Futuro do seu <br><span>Negócio Digital</span></h1>
-        <p>Desenvolvemos soluções em Inteligência Artificial, Criação de Sites de Alta Performance e Estratégias de Marketing que dominam o mercado.</p>
-        <a href="#servicos" class="btn">Inicie seu Projeto</a>
+    <section class="reveal">
+        <h2>Para Quem É</h2>
+        <p class="sub">Para empresários que querem crescimento real e presença digital profissional.</p>
+        <div class="grid">
+            <div class="card"><h3>✔ Autoridade</h3><p>Para quem quer dominar o mercado digital.</p></div>
+            <div class="card"><h3>✔ Conversão</h3><p>Estruturas focadas em transformar cliques em clientes.</p></div>
+            <div class="card"><h3>✔ Acompanhamento</h3><p>Suporte direto com um especialista.</p></div>
+        </div>
     </section>
 
-    <section class="services" id="servicos">
-        <h2 class="section-title">Nossa Expertise</h2>
-        <div class="grid">
-            <div class="card">
-                <h3>Soluções em I.A.</h3>
-                <p>Automatize processos, crie assistentes virtuais inteligentes e tome decisões baseadas em dados com nossos algoritmos de ponta.</p>
+    <section class="reveal">
+        <h2>Sobre o Fundador</h2>
+        <div class="founder-container">
+            <img src="image.png" alt="Lucas - Fundador LRC AGENCY" class="founder-img">
+            <div class="founder-text">
+                <h2>LUCAS RIBEIRO DE CARVALHO</h2>
+                <p><strong>CEO LRC AGENCY</strong></p>
+                <p>Eu ajudo empresas a saírem do amadorismo digital e entrarem no nível profissional. Meu foco é crescimento e autoridade.</p>
+                <p>Estou constantemente me atualizando sobre os mercados globais e estou sempre à disposição dos meus clientes.</p>
             </div>
-            <div class="card">
-                <h3>Desenvolvimento Web</h3>
-                <p>Sites ultra-rápidos, responsivos e com design imersivo. Focados em conversão e na melhor experiência para o seu usuário.</p>
+        </div>
+    </section>
+
+    <section id="site300" class="reveal">
+        <h2>Site Profissional R$300</h2>
+        <p class="sub">Entrega em até 5 dias. Estrutura estratégica, visual profissional e foco em conversão.</p>
+        
+        <form id="leadForm">
+            <input type="text" id="nome" placeholder="Seu nome" required>
+            <input type="text" id="negocio" placeholder="Seu negócio" required>
+            <input type="text" id="whats" placeholder="Seu WhatsApp" required>
+            <button type="submit" class="btn btn-gold" style="width: 100%; border:none; cursor:pointer;">Falar Comigo Agora</button>
+        </form>
+
+        <div style="margin-top: 30px;">
+            <a href="https://payment-link-v3.ton.com.br/pl_Aa0vnxMBwk84q5T3Xsr84zGL2g1om9Kq" class="btn btn-gold">Pagar no Cartão</a>
+            <a href="https://payment-link-v3.ton.com.br/pl_Aa0vnxMBwk84q5T3Xsr84zGL2g1om9Kq" class="btn btn-red">Pagar no PIX</a>
+        </div>
+    </section>
+
+    <section id="planos" class="reveal">
+        <h2>Planos de Acompanhamento</h2>
+        <p class="sub">Escale seu negócio com gestão e otimização contínua.</p>
+        <div class="planos">
+            <div class="plano">
+                <h3>Essencial</h3>
+                <h2>R$300<span>/mês</span></h2>
+                <p>Manutenção e ajustes básicos para manter sua estrutura rodando perfeitamente.</p>
+                <a href="https://payment-link-v3.ton.com.br/pl_Aa0vnxMBwk84q5T3Xsr84zGL2g1om9Kq" class="btn-plano">Assinar</a>
             </div>
-            <div class="card">
-                <h3>Marketing Growth</h3>
-                <p>Estratégias de tráfego, SEO e conteúdo projetadas para escalar sua marca de forma agressiva e inteligente no ambiente digital.</p>
+            <div class="plano vip">
+                <h3>Authority PRO</h3>
+                <h2>R$1000<span>/mês</span></h2>
+                <p>Estratégia completa, posicionamento avançado e crescimento agressivo.</p>
+                <a href="https://payment-link-v3.ton.com.br/pl_yY0kO5DqGaB2bDKU5GS73JKQRgx9jvbM" class="btn-plano">Assinar VIP</a>
+            </div>
+            <div class="plano">
+                <h3>Profissional</h3>
+                <h2>R$500<span>/mês</span></h2>
+                <p>Gestão estratégica e melhorias constantes na sua captação de clientes.</p>
+                <a href="https://payment-link-v3.ton.com.br/pl_MBGAE7kbpQdVQnkS2uymJye8gYa5KzLr" class="btn-plano">Assinar</a>
             </div>
         </div>
     </section>
 
     <footer id="contato">
-        <p>&copy; 2026 NexusTech Agency. Todos os direitos reservados.</p>
+        © 2026 LRC AGENCY • Estrutura Digital de Alta Performance
     </footer>
 
+    <a href="https://wa.me/5561996052406" class="whatsapp">💬</a>
+
     <script>
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
+        /* PROGRESS BAR */
+        window.addEventListener("scroll", () => {
+            let scrollTop = document.documentElement.scrollTop;
+            let scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            let progress = (scrollTop / scrollHeight) * 100;
+            document.getElementById("progressBar").style.width = progress + "%";
+        });
+
+        /* REVEAL ANIMATION */
+        function reveal() {
+            let reveals = document.querySelectorAll(".reveal");
+            for (let i = 0; i < reveals.length; i++) {
+                let windowHeight = window.innerHeight;
+                let elementTop = reveals[i].getBoundingClientRect().top;
+                if (elementTop < windowHeight - 100) {
+                    reveals[i].classList.add("active");
                 }
-            });
-        }, { threshold: 0.1 });
+            }
+        }
+        window.addEventListener("scroll", reveal);
+        window.addEventListener("load", reveal); // Ativa no carregamento inicial
 
-        const cards = document.querySelectorAll('.card');
-        cards.forEach((card) => observer.observe(card));
+        /* FORM WHATSAPP */
+        document.getElementById("leadForm").addEventListener("submit", function(e) {
+            e.preventDefault();
+            let nome = document.getElementById("nome").value;
+            let negocio = document.getElementById("negocio").value;
+            let whats = document.getElementById("whats").value;
+            let mensagem = `Fala Lucas! Meu nome é ${nome}. Tenho um(a) ${negocio} e quero contratar a Estrutura Profissional. Meu WhatsApp é ${whats}.`;
+            let url = "https://wa.me/5561996052406?text=" + encodeURIComponent(mensagem);
+            window.open(url, "_blank");
+        });
     </script>
-
 </body>
 </html>
