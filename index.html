@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>StockDemand | Plataforma ERP Enterprise</title>
+    <title>StockDemand | Plataforma ERP Enterprise Ultimate</title>
     <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#07090F">
     <link rel="apple-touch-icon" href="icon-192.png">
@@ -33,6 +33,7 @@
             
             --orange-alert: #FFB300;
             --red-danger: #FF3366;
+            --purple-neon: #9D00FF;
             --text-light: #F0F4F8;
             --text-muted: #94A3B8;
             
@@ -86,6 +87,7 @@
         .sidebar { 
             width: 280px; background: var(--bg-panel); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
             border-right: 1px solid var(--glass-border); display: flex; flex-direction: column; padding: 25px 0; z-index: 100; transition: left 0.4s ease; box-shadow: 5px 0 30px rgba(0,0,0,0.5);
+            overflow-y: auto;
         }
         .logo-container { padding: 0 25px 30px; text-align: center; border-bottom: 1px solid var(--glass-border); }
         .logo-container h1 { color: var(--cyan-neon); font-size: 28px; text-shadow: var(--cyan-glow); letter-spacing: -0.5px; }
@@ -97,7 +99,7 @@
         .efficiency-bar { width: 100%; height: 6px; background: rgba(255,255,255,0.1); border-radius: 10px; margin-top: 10px; overflow: hidden; }
         .efficiency-fill { height: 100%; background: var(--green-neon); width: 98%; box-shadow: var(--green-glow); }
 
-        .nav-menu { flex-grow: 1; padding: 15px 0; overflow-y: auto; }
+        .nav-menu { flex-grow: 1; padding: 15px 0; }
         .nav-item { padding: 16px 25px; cursor: pointer; color: var(--text-muted); transition: var(--transition-smooth); display: flex; align-items: center; gap: 15px; font-weight: 500; font-size: 14px; position: relative; }
         .nav-item::before { content: ''; position: absolute; left: 0; top: 0; height: 100%; width: 0; background: var(--cyan-neon); transition: var(--transition-smooth); opacity: 0; }
         .nav-item:hover { color: var(--text-light); background: linear-gradient(90deg, rgba(0,240,255,0.1) 0%, transparent 100%); }
@@ -140,6 +142,8 @@
         .neon-cyan { color: var(--cyan-neon); text-shadow: var(--cyan-glow); }
         .neon-magenta { color: var(--magenta-neon); text-shadow: var(--magenta-glow); }
         .neon-red { color: var(--red-danger); text-shadow: 0 0 15px rgba(255, 51, 102, 0.4); }
+        .neon-orange { color: var(--orange-alert); text-shadow: 0 0 15px rgba(255, 179, 0, 0.4); }
+        .neon-purple { color: var(--purple-neon); text-shadow: 0 0 15px rgba(157, 0, 255, 0.4); }
 
         /* =========================================
            FILTROS, TABELAS E BADGES
@@ -161,12 +165,13 @@
         .bg-cyan { background: rgba(0, 240, 255, 0.1); color: var(--cyan-neon); border: 1px solid rgba(0, 240, 255, 0.3); }
         .bg-red { background: rgba(255, 51, 102, 0.1); color: var(--red-danger); border: 1px solid rgba(255, 51, 102, 0.3); }
         .bg-orange { background: rgba(255, 179, 0, 0.1); color: var(--orange-alert); border: 1px solid rgba(255, 179, 0, 0.3); }
+        .bg-purple { background: rgba(157, 0, 255, 0.1); color: var(--purple-neon); border: 1px solid rgba(157, 0, 255, 0.3); }
 
         /* =========================================
            BOTÕES E FORMULÁRIOS
         ========================================= */
         button { font-family: 'Inter', sans-serif; }
-        .btn-neon, .btn-neon-green, .btn-neon-magenta, .btn-neon-red {
+        .btn-neon, .btn-neon-green, .btn-neon-magenta, .btn-neon-red, .btn-neon-orange {
             background: rgba(0,0,0,0.4); padding: 12px 24px; border-radius: 8px; cursor: pointer; font-weight: 600; font-size: 13px; text-transform: uppercase; letter-spacing: 1px; transition: var(--transition-smooth); position: relative; overflow: hidden; display: inline-flex; align-items: center; justify-content: center; gap: 8px;
         }
         .btn-neon { color: var(--cyan-neon); border: 1px solid var(--cyan-neon); }
@@ -181,15 +186,18 @@
         .btn-neon-red { color: var(--red-danger); border: 1px solid var(--red-danger); }
         .btn-neon-red:hover { background: var(--red-danger); color: #000; box-shadow: 0 0 15px rgba(255, 51, 102, 0.4); }
 
+        .btn-neon-orange { color: var(--orange-alert); border: 1px solid var(--orange-alert); }
+        .btn-neon-orange:hover { background: var(--orange-alert); color: #000; box-shadow: 0 0 15px rgba(255, 179, 0, 0.4); }
+
         .btn-solid-green { background: var(--green-neon); color: #000; border: none; box-shadow: var(--green-glow); padding: 16px; font-size: 16px; font-weight: bold; width: 100%; border-radius: 8px; cursor: pointer; text-transform: uppercase; transition: var(--transition-smooth); }
         .btn-solid-green:hover { transform: scale(1.02); box-shadow: 0 0 25px rgba(0, 255, 102, 0.6); }
 
         .btn-loading { pointer-events: none; opacity: 0.8; }
-        .btn-loading::after { content: ''; width: 14px; height: 14px; border: 2px solid #000; border-top-color: transparent; border-radius: 50%; animation: spin 0.8s linear infinite; margin-left: 8px; }
+        .btn-loading::after { content: ''; width: 14px; height: 14px; border: 2px solid currentColor; border-top-color: transparent; border-radius: 50%; animation: spin 0.8s linear infinite; margin-left: 8px; }
 
         .modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); z-index: 2000; justify-content: center; align-items: center; opacity: 0; transition: opacity 0.3s ease; }
         .modal-overlay.active { display: flex; opacity: 1; }
-        .modal-content { background: #0A0D14; border: 1px solid rgba(0,240,255,0.3); border-radius: 16px; padding: 40px; width: 95%; max-width: 500px; box-shadow: 0 20px 60px rgba(0,0,0,0.8), 0 0 40px rgba(0,240,255,0.1); transform: scale(0.95); transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+        .modal-content { background: #0A0D14; border: 1px solid rgba(0,240,255,0.3); border-radius: 16px; padding: 40px; width: 95%; max-width: 500px; box-shadow: 0 20px 60px rgba(0,0,0,0.8), 0 0 40px rgba(0,240,255,0.1); transform: scale(0.95); transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); max-height: 90vh; overflow-y: auto; }
         .modal-overlay.active .modal-content { transform: scale(1); }
         
         .form-group { margin-bottom: 20px; }
@@ -232,6 +240,14 @@
             .search-bar { flex-direction: column; align-items: stretch; }
             .modal-content { padding: 25px; }
         }
+        
+        /* Ocultar elementos na impressão */
+        @media print {
+            body * { visibility: hidden; }
+            #cupom-print, #cupom-print * { visibility: visible; color: black !important; font-family: monospace; }
+            #cupom-print { position: absolute; left: 0; top: 0; width: 300px; background: white; padding: 10px; }
+            .no-print { display: none !important; }
+        }
     </style>
 </head>
 <body>
@@ -239,7 +255,7 @@
     <!-- TELA DE CARREGAMENTO -->
     <div id="splash-screen">
         <div class="loader-ring"></div>
-        <div class="splash-text">Inicializando ERP B2B</div>
+        <div class="splash-text">Iniciando Motor ERP B2B</div>
     </div>
 
     <!-- CABEÇALHO MOBILE -->
@@ -252,51 +268,54 @@
     <aside class="sidebar" id="sidebar">
         <div class="logo-container">
             <h1>StockDemand</h1>
-            <p>ERP ENTERPRISE EDITION</p>
+            <p>ERP ENTERPRISE V5.0</p>
         </div>
         
         <div class="user-profile" onclick="switchTab('config')">
             <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=StockDemandAdmin&backgroundColor=07090F" alt="Avatar">
-            <h4 style="color: white; font-size: 15px; font-weight: 600;">Lucas Carvalho</h4>
+            <h4 style="color: white; font-size: 15px; font-weight: 600;">Fernando Rocha</h4>
             <p style="color: var(--text-muted); font-size: 11px; margin-top: 4px;">CEO / Admin Master</p>
             <div class="efficiency-bar"><div class="efficiency-fill"></div></div>
-            <span class="efficiency-badge" style="margin-top: 8px;">Eficiência Operacional: 98.5%</span>
+            <span class="efficiency-badge" style="margin-top: 8px;">Eficiência: 99.2%</span>
         </div>
 
         <nav class="nav-menu">
-            <div class="nav-title">Operação & Analytics</div>
+            <div class="nav-title">Inteligência Estratégica</div>
             <div class="nav-item active" onclick="switchTab('dashboard')">
-                <span style="font-size: 18px;">📊</span> Cockpit Estratégico
+                <span style="font-size: 18px;">📊</span> Cockpit Geral
             </div>
+            <div class="nav-item" onclick="switchTab('marketing')">
+                <span style="font-size: 18px;">📱</span> Marketing & Growth
+            </div>
+
+            <div class="nav-divider"></div>
+            <div class="nav-title">Motor Operacional</div>
             <div class="nav-item" onclick="switchTab('pdv')">
-                <span style="font-size: 18px;">🛒</span> PDV / Frente de Caixa
+                <span style="font-size: 18px;">🛒</span> PDV Integrado
+            </div>
+            <div class="nav-item" onclick="switchTab('estoque')">
+                <span style="font-size: 18px;">📦</span> Armazém PEPS
+            </div>
+            <div class="nav-item" onclick="switchTab('logistica')">
+                <span style="font-size: 18px;">🚚</span> Frota & Entregas
             </div>
             
             <div class="nav-divider"></div>
-            <div class="nav-title">Gestão B2B</div>
-            <div class="nav-item" onclick="switchTab('estoque')">
-                <span style="font-size: 18px;">📦</span> Gestão de Estoque
-            </div>
+            <div class="nav-title">Gestão e Conformidade</div>
             <div class="nav-item" onclick="switchTab('financeiro')">
-                <span style="font-size: 18px;">💰</span> Módulo Financeiro
+                <span style="font-size: 18px;">💰</span> DRE Financeiro
             </div>
             <div class="nav-item" onclick="switchTab('crm')">
-                <span style="font-size: 18px;">👥</span> CRM & Fornecedores
+                <span style="font-size: 18px;">🤝</span> CRM B2B / SLA
             </div>
             <div class="nav-item" onclick="switchTab('rh')">
-                <span style="font-size: 18px;">🧑‍💻</span> Equipe & Acessos
+                <span style="font-size: 18px;">🧑‍💻</span> Equipe & IAM
             </div>
-            
-            <div class="nav-divider"></div>
-            <div class="nav-title">Conformidade</div>
             <div class="nav-item" onclick="switchTab('hub')">
-                <span style="font-size: 18px;">🤝</span> Hub Serviços (ODS 17)
+                <span style="font-size: 18px;">🌱</span> Hub ESG (ODS 17)
             </div>
             <div class="nav-item" onclick="switchTab('auditoria')">
-                <span style="font-size: 18px;">🛡️</span> Compliance & Auditoria
-            </div>
-            <div class="nav-item" onclick="switchTab('config')">
-                <span style="font-size: 18px;">⚙️</span> Configurações API
+                <span style="font-size: 18px;">🛡️</span> Block-Auditoria
             </div>
         </nav>
     </aside>
@@ -310,64 +329,103 @@
         <section id="dashboard" class="tab-content active">
             <div class="header">
                 <div>
-                    <h2>Visão Geral do ERP</h2>
-                    <p>Métricas financeiras, operacionais e vendas atualizadas em tempo real.</p>
+                    <h2>Cockpit Executivo</h2>
+                    <p>Visão 360º de todas as métricas críticas de operação.</p>
                 </div>
                 <div class="header-actions">
-                    <button class="btn-neon" onclick="simularAcao(this, 'Gerando PDF...', 'Relatório Baixado!')">📄 Exportar DRE (PDF)</button>
-                    <button class="btn-neon-green" onclick="switchTab('pdv')">🛒 Iniciar Venda</button>
+                    <button class="btn-neon" onclick="simularAcao(this, 'Gerando...', 'Baixado!')">📄 Exportar DRE (PDF)</button>
+                    <button class="btn-neon-green" onclick="switchTab('pdv')">🛒 Iniciar Venda Caixa</button>
                 </div>
             </div>
             
             <div class="dashboard-grid">
                 <div class="glass-card">
-                    <div class="card-title">Faturamento Hoje</div>
+                    <div class="card-title">Faturamento Diário</div>
                     <div class="card-value neon-green" id="dash-faturamento">R$ 0,00</div>
-                    <div style="margin-top: 10px; font-size: 12px; color: var(--green-neon);">Integração PDV Ativa</div>
+                    <div style="margin-top: 10px; font-size: 12px; color: var(--green-neon);">+ Sincronizado com PDV</div>
                 </div>
                 <div class="glass-card">
-                    <div class="card-title">Capital em Estoque</div>
-                    <div class="card-value neon-cyan" id="dash-valor">R$ 0,00</div>
-                    <div style="margin-top: 10px; font-size: 12px; color: var(--green-neon);">↑ 4.2% vs Mês Anterior</div>
+                    <div class="card-title">Capital em Estoque Físico</div>
+                    <div class="card-value neon-cyan" id="dash-valor-estoque">R$ 0,00</div>
+                    <div style="margin-top: 10px; font-size: 12px; color: var(--text-muted);">Cálculo base PEPS</div>
                 </div>
                 <div class="glass-card">
-                    <div class="card-title">Contas a Receber</div>
-                    <div class="card-value neon-cyan" id="dash-receber">R$ 15.420,00</div>
-                    <div style="margin-top: 10px; font-size: 12px; color: var(--text-muted);">Próximos 7 dias</div>
+                    <div class="card-title">Despesas & Custos (SaaS)</div>
+                    <div class="card-value neon-magenta" id="dash-despesas">R$ 0,00</div>
+                    <div style="margin-top: 10px; font-size: 12px; color: var(--text-muted);">Atualizado em tempo real</div>
                 </div>
-                <div class="glass-card" style="border-color: rgba(255,0,255,0.3);">
-                    <div class="card-title">Contas a Pagar (Risco)</div>
-                    <div class="card-value neon-magenta">R$ 8.945,00</div>
-                    <div style="margin-top: 10px; font-size: 12px; color: var(--magenta-neon);">3 Boletos Vencendo Hoje</div>
+                <div class="glass-card" style="border-color: rgba(255,179,0,0.3);">
+                    <div class="card-title">Entregas Pendentes (Last Mile)</div>
+                    <div class="card-value neon-orange" id="dash-entregas">0</div>
+                    <div style="margin-top: 10px; font-size: 12px; color: var(--orange-alert);">Aguardando despacho Logístico</div>
                 </div>
             </div>
             
             <div class="dashboard-grid charts">
                 <div class="glass-card">
-                    <div class="card-title">Projeção de Faturamento e Consumo</div>
+                    <div class="card-title">Análise de Receita (Real vs Projetada)</div>
                     <div style="height: 250px; width: 100%; position: relative;">
                         <canvas id="vendasChart"></canvas>
                     </div>
                 </div>
                 <div class="glass-card">
-                    <div class="card-title" style="color: var(--orange-alert);">Central de Ações do ERP</div>
+                    <div class="card-title" style="color: var(--cyan-neon);">Central de Automações Preditivas</div>
                     
-                    <div style="background: rgba(255,0,255,0.05); border: 1px solid rgba(255,0,255,0.2); padding: 15px; margin-bottom: 12px; border-radius: 8px; transition: 0.3s; cursor: pointer;" onclick="switchTab('estoque')">
+                    <div style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); padding: 15px; margin-bottom: 12px; border-radius: 8px;">
                         <div style="display: flex; justify-content: space-between;">
-                            <span style="font-size: 13px; font-weight: 600;">Estoque: Lote #089 (Leite)</span>
-                            <span class="badge bg-magenta">Vence em 3d</span>
+                            <span style="font-size: 13px; font-weight: 600; color: white;">Gatilho Despacho Logístico</span>
+                            <span class="badge bg-green">Ativo</span>
                         </div>
+                        <p style="font-size: 12px; color: var(--text-muted); margin-top: 5px;">Se aprovado no PDV, gera rota na Frota.</p>
                     </div>
 
-                    <div style="background: rgba(255,179,0,0.05); border: 1px solid rgba(255,179,0,0.2); padding: 15px; margin-bottom: 12px; border-radius: 8px; transition: 0.3s; cursor: pointer;" onclick="switchTab('crm')">
+                    <div style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); padding: 15px; margin-bottom: 12px; border-radius: 8px;">
                         <div style="display: flex; justify-content: space-between;">
-                            <span style="font-size: 13px; font-weight: 600;">Fornecedor: Ambev</span>
-                            <span class="badge bg-orange">Ruptura Iminente</span>
+                            <span style="font-size: 13px; font-weight: 600; color: white;">Smart Compras CRM</span>
+                            <span class="badge bg-green">Ativo</span>
                         </div>
+                        <p style="font-size: 12px; color: var(--text-muted); margin-top: 5px; margin-bottom: 10px;">Cotar IA Fornecedor se Estoque < 5 un.</p>
                     </div>
-                    
-                    <button class="btn-neon-cyan" style="width: 100%; padding: 12px; font-size: 12px; background: rgba(0,240,255,0.1); border: 1px solid var(--cyan-neon); color: var(--cyan-neon); border-radius: 8px; cursor: pointer; text-transform: uppercase;" onclick="simularAcao(this, 'Processando IA...', 'Análise Concluída!')">Rodar Análise Preditiva de IA</button>
                 </div>
+            </div>
+        </section>
+
+        <!-- ====================================
+             ABA: MARKETING & GROWTH
+        ==================================== -->
+        <section id="marketing" class="tab-content">
+            <div class="header">
+                <div>
+                    <h2>Hub de Growth e Tráfego Social</h2>
+                    <p>Controle do Custo de Aquisição de Clientes B2B e conversões online.</p>
+                </div>
+                <div class="header-actions">
+                    <button class="btn-neon-magenta" onclick="simularAcao(this, 'Sincronizando Meta...', 'Dados Puxados!')">🔄 Sincronizar Meta Ads</button>
+                </div>
+            </div>
+
+            <div class="dashboard-grid">
+                <div class="glass-card">
+                    <div class="card-title">Alcance Social (@fernandorochats)</div>
+                    <div class="card-value neon-purple">22.4K</div>
+                </div>
+                <div class="glass-card">
+                    <div class="card-title">CAC Consolidado</div>
+                    <div class="card-value neon-cyan">R$ 18,50</div>
+                </div>
+                <div class="glass-card">
+                    <div class="card-title">Leads Qualificados</div>
+                    <div class="card-value neon-green">342</div>
+                </div>
+            </div>
+
+            <div class="glass-card table-container">
+                <table id="tabela-mkt">
+                    <thead><tr><th>Identificador da Campanha</th><th>Plataforma Fonte</th><th>Orçamento Alocado</th><th>CPA Atualizado</th><th>Status Engine</th></tr></thead>
+                    <tbody id="tbody-mkt">
+                        <!-- JS -->
+                    </tbody>
+                </table>
             </div>
         </section>
 
@@ -377,166 +435,168 @@
         <section id="pdv" class="tab-content">
             <div class="header" style="margin-bottom: 20px;">
                 <div>
-                    <h2>Frente de Caixa (PDV Integrado)</h2>
-                    <p>Bipe os produtos para venda. O estoque será deduzido automaticamente.</p>
+                    <h2>Frente de Caixa (Interconectado)</h2>
+                    <p>Venda e baixe o estoque. Gera receita financeira e despacha logística (opcional).</p>
                 </div>
             </div>
 
             <div class="dashboard-grid pdv">
-                <!-- Esquerda: Lista de Produtos Bipados -->
+                <!-- Carrinho -->
                 <div class="glass-card" style="display: flex; flex-direction: column; height: 600px;">
                     <div class="search-bar" style="margin-bottom: 15px; background: rgba(0,0,0,0.5);">
-                        <input type="text" id="pdv-busca" placeholder="Bipe o código de barras ou digite o SKU..." onkeypress="if(event.key === 'Enter') buscarProdutoPDV()">
-                        <button class="btn-neon-green" onclick="buscarProdutoPDV()">Adicionar</button>
+                        <input type="text" id="pdv-busca" placeholder="Bipe o SKU ou digite o nome do produto cadastrado..." onkeypress="if(event.key === 'Enter') buscarProdutoPDV()">
+                        <button class="btn-neon-green" onclick="buscarProdutoPDV()">Bipar Produto</button>
                     </div>
                     
                     <div class="table-container" style="flex-grow: 1; overflow-y: auto; border: 1px solid var(--glass-border); border-radius: 8px; background: rgba(0,0,0,0.3);">
                         <table style="min-width: 100%;">
                             <thead style="position: sticky; top: 0; background: var(--bg-panel); z-index: 1;">
-                                <tr>
-                                    <th>Item</th>
-                                    <th>Qtd</th>
-                                    <th>Vlr Unit.</th>
-                                    <th>Subtotal</th>
-                                    <th>Ação</th>
-                                </tr>
+                                <tr><th>Produto SKU</th><th>Qtd</th><th>Unit. Varejo</th><th>Subtotal Calc.</th><th>Excluir</th></tr>
                             </thead>
-                            <tbody id="tabela-pdv">
-                                <!-- Preenchido via JS -->
+                            <tbody id="tabela-pdv-cart">
+                                <!-- JS -->
                             </tbody>
                         </table>
                     </div>
                 </div>
 
-                <!-- Direita: Resumo e Pagamento -->
+                <!-- Painel de Fechamento -->
                 <div class="glass-card" style="display: flex; flex-direction: column; justify-content: space-between; height: 600px; background: linear-gradient(180deg, rgba(15,20,30,0.8) 0%, rgba(5,7,11,0.9) 100%);">
                     <div>
-                        <h3 style="color: var(--cyan-neon); border-bottom: 1px solid var(--glass-border); padding-bottom: 15px; margin-bottom: 20px; text-transform: uppercase; font-size: 14px;">Resumo da Venda</h3>
+                        <h3 style="color: var(--cyan-neon); border-bottom: 1px solid var(--glass-border); padding-bottom: 15px; margin-bottom: 20px; text-transform: uppercase; font-size: 14px;">Resumo Financeiro</h3>
                         
                         <div style="display: flex; justify-content: space-between; margin-bottom: 15px; font-size: 14px; color: var(--text-muted);">
-                            <span>Subtotal Itens:</span>
-                            <span id="pdv-subtotal">R$ 0,00</span>
+                            <span>Itens:</span><span id="pdv-subtotal">R$ 0,00</span>
                         </div>
                         <div style="display: flex; justify-content: space-between; margin-bottom: 15px; font-size: 14px; color: var(--text-muted);">
-                            <span>Descontos:</span>
-                            <span style="color: var(--green-neon);">- R$ 0,00</span>
-                        </div>
-                        <div style="display: flex; justify-content: space-between; margin-bottom: 15px; font-size: 14px; color: var(--text-muted);">
-                            <span>Impostos (NF-e):</span>
-                            <span>R$ 0,00</span>
+                            <span>Taxas:</span><span>R$ 0,00</span>
                         </div>
                         
                         <hr style="border: none; border-top: 1px dashed var(--glass-border); margin: 25px 0;">
                         
                         <div style="text-align: right;">
-                            <span style="font-size: 12px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px;">Total a Pagar</span>
+                            <span style="font-size: 12px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px;">A Receber</span>
                             <div class="neon-green" id="pdv-total" style="font-size: 48px; font-weight: bold; line-height: 1.1; margin-top: 5px;">R$ 0,00</div>
                         </div>
                     </div>
                     
                     <div>
                         <div class="form-group" style="margin-bottom: 15px;">
+                            <label>Meio de Pagamento Primário</label>
                             <select id="pdv-pagamento" style="background: rgba(0,0,0,0.8);">
-                                <option value="pix">PIX (Aprovação Instantânea)</option>
-                                <option value="credito">Cartão de Crédito</option>
-                                <option value="debito">Cartão de Débito</option>
-                                <option value="dinheiro">Dinheiro Físico</option>
+                                <option value="PIX">PIX Instântaneo</option>
+                                <option value="Credito">Cartão Crédito/Link</option>
+                                <option value="Boleto">Faturado 30dd</option>
                             </select>
                         </div>
-                        <button class="btn-solid-green" onclick="finalizarVenda()">Finalizar Venda B2B</button>
+
+                        <div class="form-group" style="margin-bottom: 20px; background: rgba(0,255,102,0.05); padding: 15px; border-radius: 8px; border: 1px solid rgba(0,255,102,0.2);">
+                            <label style="display: flex; align-items: center; gap: 10px; cursor: pointer; color: white; font-size: 13px; margin: 0;">
+                                <input type="checkbox" id="pdv-despacho" style="width: auto;" checked>
+                                Injetar Rota na Logística (Despacho Delivery)
+                            </label>
+                        </div>
+                        <button class="btn-solid-green" onclick="finalizarVendaPDV()">Confirmar Liquidação B2B</button>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- ====================================
-             ABA: FINANCEIRO (NOVA)
-        ==================================== -->
-        <section id="financeiro" class="tab-content">
-            <div class="header">
-                <div>
-                    <h2>Módulo Financeiro Central</h2>
-                    <p>Controle de DRE, Fluxo de Caixa, Contas a Pagar e Receber.</p>
-                </div>
-                <div class="header-actions">
-                    <button class="btn-neon-green" onclick="simularAcao(this, 'Processando...', 'Lançamento Adicionado!')">➕ Novo Lançamento</button>
-                </div>
-            </div>
-
-            <div class="dashboard-grid" style="grid-template-columns: repeat(3, 1fr);">
-                <div class="glass-card" style="border-top: 3px solid var(--green-neon);">
-                    <div class="card-title">Receitas Realizadas (Mês)</div>
-                    <div class="card-value neon-green" id="fin-receitas">R$ 0,00</div>
-                </div>
-                <div class="glass-card" style="border-top: 3px solid var(--red-danger);">
-                    <div class="card-title">Despesas Pagas (Mês)</div>
-                    <div class="card-value neon-red" id="fin-despesas">R$ 0,00</div>
-                </div>
-                <div class="glass-card" style="border-top: 3px solid var(--cyan-neon); background: rgba(0,240,255,0.05);">
-                    <div class="card-title">Saldo Operacional Livre</div>
-                    <div class="card-value neon-cyan" id="fin-saldo">R$ 0,00</div>
-                </div>
-            </div>
-
-            <div class="glass-card table-container">
-                <h3 style="color: var(--text-light); font-size: 16px; margin-bottom: 20px;">Livro Razão (Últimas Movimentações)</h3>
-                <table id="tabela-financeiro">
-                    <thead>
-                        <tr>
-                            <th>Data/Hora</th>
-                            <th>Descrição / Origem</th>
-                            <th>Categoria</th>
-                            <th>Tipo</th>
-                            <th>Valor (R$)</th>
-                            <th>Status ERP</th>
-                        </tr>
-                    </thead>
-                    <tbody id="tbody-financeiro">
-                        <!-- Renderizado via JS -->
-                    </tbody>
-                </table>
-            </div>
-        </section>
-
-        <!-- ====================================
-             ABA: ESTOQUE
+             ABA: ESTOQUE FÍSICO
         ==================================== -->
         <section id="estoque" class="tab-content">
             <div class="header">
                 <div>
-                    <h2>Gestão de Estoque e Compras</h2>
-                    <p>Controle físico, lotes PEPS e custo de mercadoria vendida (CMV).</p>
+                    <h2>Motor de Armazenagem e PEPS</h2>
+                    <p>Controle base de todo o ERP. Ações aqui refletem financeiramente.</p>
                 </div>
                 <div class="header-actions">
-                    <button class="btn-neon-magenta" onclick="openModal('modal-add')">✍️ Entrada Manual</button>
-                    <button class="btn-neon-green" onclick="simularAcao(this, 'Lendo Câmera...', 'NFe Importada!')">📷 Bipar NFe (XML)</button>
+                    <button class="btn-neon-magenta" onclick="openModal('modal-add-estoque')">➕ Alimentar Estoque Manual</button>
                 </div>
-            </div>
-
-            <div class="search-bar">
-                <input type="text" id="input-busca" placeholder="Pesquisar por SKU, Nome ou Lote..." onkeyup="filtrarEstoque()">
-                <select id="select-status" onchange="filtrarEstoque()">
-                    <option value="todos">Todos os Status</option>
-                    <option value="ok">No Prazo (Seguro)</option>
-                    <option value="atencao">Atenção Crítica</option>
-                </select>
-                <button class="btn-neon" onclick="filtrarEstoque()">🔍 Filtrar Dados</button>
             </div>
 
             <div class="glass-card table-container">
                 <table id="tabela-principal">
                     <thead>
                         <tr>
-                            <th>Identificação do Produto</th>
-                            <th>Lote / Rastreabilidade</th>
-                            <th>Qtd. Físico</th>
-                            <th>Custo Financeiro Total</th>
-                            <th>Ciclo de Vida (PEPS)</th>
-                            <th style="text-align: right;">Ações B2B</th>
+                            <th>Nomenclatura (SKU)</th>
+                            <th>Código Lote (Rastreio)</th>
+                            <th>Volume Saldo Físico</th>
+                            <th>Custo Financeiro Aquis.</th>
+                            <th>Preço Varejo Param.</th>
+                            <th style="text-align: right;">Ações Overrides</th>
                         </tr>
                     </thead>
-                    <tbody id="tabela-estoque">
-                        <!-- Renderizado via JS -->
+                    <tbody id="tbody-estoque">
+                        <!-- JS -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- ====================================
+             ABA: LOGÍSTICA & FROTA (NOVA)
+        ==================================== -->
+        <section id="logistica" class="tab-content">
+            <div class="header">
+                <div>
+                    <h2>Malha de Roteirização Logística</h2>
+                    <p>Pedidos gerados no PDV aguardam alocação de motorista aqui.</p>
+                </div>
+                <div class="header-actions">
+                    <button class="btn-neon-orange" onclick="simularAcao(this, 'Calculando IA...', 'Rotas Enxutas!')">🗺️ Otimização de Rota IA</button>
+                </div>
+            </div>
+
+            <div class="glass-card table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Código Emissão Fiscal</th>
+                            <th>Identificador Cliente</th>
+                            <th>Alocação Transporte</th>
+                            <th>Lead Time (Previsão)</th>
+                            <th>Status Tracking</th>
+                            <th style="text-align: right;">Ação</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tbody-logistica">
+                        <!-- JS -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- ====================================
+             ABA: FINANCEIRO DRE
+        ==================================== -->
+        <section id="financeiro" class="tab-content">
+            <div class="header">
+                <div>
+                    <h2>Painel de Tesouraria Integrada</h2>
+                    <p>Receitas de Venda (PDV) e Despesas de Compras/Marketing.</p>
+                </div>
+                <div class="header-actions">
+                    <button class="btn-neon-green" onclick="openModal('modal-add-despesa')">💸 Registrar Despesa Avulsa</button>
+                    <button class="btn-neon-cyan" onclick="exportarCSV('ERP_Financeiro.csv', dbFinanceiro)">⬇️ Download Base XLSX</button>
+                </div>
+            </div>
+
+            <div class="glass-card table-container">
+                <h3 style="color: var(--text-light); font-size: 14px; margin-bottom: 15px;">Livro Razão de Lançamentos</h3>
+                <table id="tabela-financeiro">
+                    <thead>
+                        <tr>
+                            <th>Data Operação</th>
+                            <th>Memo / Histórico</th>
+                            <th>Centro de Custo</th>
+                            <th>Natureza da Conta</th>
+                            <th>Montante (R$)</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tbody-financeiro">
+                        <!-- JS -->
                     </tbody>
                 </table>
             </div>
@@ -548,121 +608,86 @@
         <section id="crm" class="tab-content">
             <div class="header">
                 <div>
-                    <h2>CRM de Fornecedores B2B</h2>
-                    <p>Gestão de parceiros comerciais, avaliação de SLA e cotações automáticas.</p>
+                    <h2>Pipeline CRM & Supply Chain</h2>
+                    <p>Gerenciamento de nível de serviço (SLA) de provedores de suprimentos.</p>
                 </div>
                 <div class="header-actions">
-                    <button class="btn-neon-cyan" onclick="simularAcao(this, 'Importando...', 'Fornecedores Sincronizados!')">🔄 Sincronizar Receita Federal</button>
+                    <button class="btn-neon-cyan" onclick="simularAcao(this, 'Puxando CNPJs...', 'Receita Federal Sincronizada!')">🔄 Sync Receita Federal</button>
                 </div>
             </div>
 
             <div class="glass-card table-container">
                 <table>
-                    <thead>
-                        <tr>
-                            <th>Razão Social (Fornecedor)</th>
-                            <th>Categoria Principal</th>
-                            <th>Contato Padrão</th>
-                            <th>Avaliação (SLA)</th>
-                            <th style="text-align: right;">Ação Estratégica</th>
-                        </tr>
-                    </thead>
-                    <tbody id="tbody-crm">
-                        <!-- Renderizado via JS -->
-                    </tbody>
+                    <thead><tr><th>Razão Social Homologada</th><th>Segmento Atuação</th><th>Canal de Atendimento</th><th>Score SLA (Motor)</th><th>Disparo Cotação</th></tr></thead>
+                    <tbody id="tbody-crm"></tbody>
                 </table>
             </div>
         </section>
 
         <!-- ====================================
-             ABA: GESTÃO DE EQUIPE (RH) (NOVA)
+             ABA: RH & ACESSOS (NOVA)
         ==================================== -->
         <section id="rh" class="tab-content">
             <div class="header">
                 <div>
-                    <h2>Gestão de Equipe e Acessos</h2>
-                    <p>Controle de permissões do sistema, auditoria de ponto e produtividade.</p>
-                </div>
-                <div class="header-actions">
-                    <button class="btn-neon-green" onclick="simularAcao(this, 'Processando...', 'Convite Enviado!')">📧 Convidar Colaborador</button>
+                    <h2>Identity Access Management (IAM)</h2>
+                    <p>Controle restrito de acesso aos módulos do ERP por nível hierárquico.</p>
                 </div>
             </div>
-
             <div class="glass-card table-container">
                 <table>
-                    <thead>
-                        <tr>
-                            <th>Colaborador</th>
-                            <th>Cargo / Departamento</th>
-                            <th>Nível de Acesso ERP</th>
-                            <th>Último Login Seguro</th>
-                            <th>Status</th>
-                        </tr>
-                    </thead>
-                    <tbody id="tbody-rh">
-                        <!-- Renderizado via JS -->
-                    </tbody>
+                    <thead><tr><th>Identidade Colaborador</th><th>Designação</th><th>Privilégio Sistêmico</th><th>Sessão Ativa</th><th>Auditoria Ponto</th></tr></thead>
+                    <tbody id="tbody-rh"></tbody>
                 </table>
             </div>
         </section>
 
         <!-- ====================================
-             ABA: HUB B2B
+             ABA: HUB B2B / ESG
         ==================================== -->
         <section id="hub" class="tab-content">
             <div class="header">
                 <div>
-                    <h2>Marketplace de Serviços (ODS 17)</h2>
-                    <p>Conecte-se com fornecedores locais sustentáveis. Split de pagamento nativo.</p>
+                    <h2>Marketplace Sustentável (Integração ODS 17)</h2>
+                    <p>Liquidação via Split de Pagamento direto no Financeiro.</p>
                 </div>
             </div>
             
-            <div class="dashboard-grid" style="grid-template-columns: repeat(3, 1fr);">
-                <!-- Card 1 -->
+            <div class="dashboard-grid">
+                <!-- Card Serviço Externo -->
                 <div class="glass-card" style="display: flex; flex-direction: column; justify-content: space-between;">
                     <div>
-                        <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 15px;">
-                            <div style="font-size: 40px; background: rgba(0,255,102,0.1); width: 60px; height: 60px; display: flex; align-items: center; justify-content: center; border-radius: 12px; border: 1px solid rgba(0,255,102,0.3);">♻️</div>
-                            <span class="badge bg-green">Selo Eco-Verde</span>
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                            <div style="font-size: 35px;">♻️</div>
+                            <span class="badge bg-green">Selo BioDiesel</span>
                         </div>
-                        <h3 style="font-size: 18px; margin-bottom: 8px;">Logística Reversa Óleo</h3>
-                        <p style="font-size: 13px; color: var(--text-muted); line-height: 1.5; margin-bottom: 20px;">Coleta certificada de resíduos com destinação para biodiesel. Gera certificado ODS.</p>
+                        <h3 style="font-size: 16px; margin-bottom: 5px;">Recolhimento Óleo Fabril</h3>
+                        <p style="font-size: 12px; color: var(--text-muted); margin-bottom: 15px;">Emissão de Certificado ODS Governo. Split 10% Plataforma ativado.</p>
                     </div>
                     <div>
-                        <div style="display: flex; justify-content: space-between; margin-bottom: 15px; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 15px;">
-                            <span style="font-size: 12px; color: var(--text-muted);">Valor Fixo:</span>
-                            <span class="neon-green" style="font-weight: bold;">R$ 150,00</span>
-                        </div>
-                        <button class="btn-neon-green" style="width: 100%;" onclick="openModal('modal-checkout')">Contratar (Split Ativo)</button>
+                        <div class="neon-green" style="font-weight: bold; font-size: 20px; margin-bottom: 15px;">R$ 150,00 <span style="font-size: 10px; color: gray;">/visita</span></div>
+                        <button class="btn-neon-green" style="width: 100%;" onclick="simularServicoHUB()">Disparar Contrato API</button>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- ====================================
-             ABA: AUDITORIA
+             ABA: AUDITORIA BLOCKCHAIN
         ==================================== -->
         <section id="auditoria" class="tab-content">
             <div class="header">
                 <div>
-                    <h2>Central de Compliance e Auditoria</h2>
-                    <p>Rastreabilidade imutável de todas as ações no sistema ERP.</p>
+                    <h2>Livro Caixa de Ações Irreversíveis</h2>
+                    <p>Qualquer modificação no banco de dados local gera uma Hash de segurança.</p>
                 </div>
             </div>
             <div class="glass-card table-container">
                 <table>
                     <thead>
-                        <tr>
-                            <th>Timestamp (Data/Hora)</th>
-                            <th>Credencial do Operador</th>
-                            <th>Natureza da Ação</th>
-                            <th>Objeto Modificado</th>
-                            <th>Validação Blockchain</th>
-                        </tr>
+                        <tr><th>T-Stamp ZULU</th><th>Credencial Identificada</th><th>Classificação do Risco</th><th>Ação Modificadora Criptografada</th></tr>
                     </thead>
-                    <tbody id="tabela-auditoria">
-                        <!-- Renderizado via JS -->
-                    </tbody>
+                    <tbody id="tbody-auditoria"></tbody>
                 </table>
             </div>
         </section>
@@ -671,390 +696,330 @@
              ABA: CONFIGURAÇÕES
         ==================================== -->
         <section id="config" class="tab-content">
-            <div class="header">
-                <div>
-                    <h2>Configurações do Ecossistema</h2>
-                    <p>Parâmetros do motor do aplicativo, integrações API e regras de negócio.</p>
-                </div>
-            </div>
-            
-            <div class="dashboard-grid charts">
-                <div class="glass-card">
-                    <h3 style="color: var(--cyan-neon); margin-bottom: 25px; font-size: 16px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 10px;">Identidade Organizacional</h3>
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
-                        <div class="form-group"><label>Razão Social</label><input type="text" value="StockDemand S.A."></div>
-                        <div class="form-group"><label>CNPJ Matriz</label><input type="text" value="45.123.890/0001-77"></div>
-                    </div>
-                    <button class="btn-neon" style="width: 100%;">Atualizar Dados Sefaz</button>
-                </div>
+            <div class="header"><h2>Parâmetros Fiscais do WebApp</h2></div>
+            <div class="glass-card" style="max-width: 600px;">
+                <div class="form-group"><label>CNPJ Faturamento</label><input type="text" value="45.882.110/0001-99"></div>
+                <div class="form-group"><label>Token API Meios Pagto</label><input type="password" value="sk_live_h98syd78fsydf89"></div>
+                <button class="btn-neon-cyan" style="width: 100%;">Salvar Definições Nuvens</button>
             </div>
         </section>
 
     </main>
 
     <!-- ====================================
-         SISTEMA DE TOASTS E MODAIS
+         CUPOM TÉRMICO (INVISÍVEL NA TELA)
+    ==================================== -->
+    <div id="cupom-print" class="no-print">
+        <h2 style="text-align:center; font-size:16px; margin:0;">STOCKDEMAND ERP B2B</h2>
+        <p style="text-align:center; font-size:10px; margin:2px 0 10px;">CNPJ: 45.882.110/0001-99</p>
+        <hr style="border-top:1px dashed black; margin:10px 0;">
+        <p style="font-size:12px; text-align:center; font-weight:bold;">RECIBO NÃO FISCAL DE VENDA</p>
+        <p style="font-size:10px;" id="print-data"></p>
+        <hr style="border-top:1px dashed black; margin:10px 0;">
+        <div id="print-itens" style="font-size:11px;"></div>
+        <hr style="border-top:1px dashed black; margin:10px 0;">
+        <div style="display:flex; justify-content:space-between; font-weight:bold; font-size:14px;">
+            <span>TOTAL LIQUIDADO:</span><span id="print-total"></span>
+        </div>
+        <p style="text-align:center; font-size:10px; margin-top:20px;">SISTEMA GERADO POR TECNOLOGIA LOCALSTORAGE V5.0</p>
+    </div>
+
+    <!-- ====================================
+         MODAIS NATIVOS
     ==================================== -->
     <div class="toast-container" id="toast-container"></div>
     
-    <!-- MODAL: CADASTRAR PRODUTO -->
-    <div class="modal-overlay" id="modal-add">
+    <!-- Modal Cadastro Lote Físico -->
+    <div class="modal-overlay" id="modal-add-estoque">
         <div class="modal-content">
-            <h3 style="color: var(--cyan-neon); font-size: 20px; margin-bottom: 25px; border-bottom: 1px solid rgba(0,240,255,0.2); padding-bottom: 15px;">Registro de Novo Lote (Estoque)</h3>
-            
-            <div class="form-group">
-                <label>Descrição do SKU</label>
-                <input type="text" id="add-nome" placeholder="Ex: Filé Mignon Bovino Resfriado">
+            <h3 style="color: var(--cyan-neon); font-size: 18px; margin-bottom: 20px;">Novo Faturamento Entrada</h3>
+            <div class="form-group"><label>Mercadoria Nome</label><input type="text" id="add-nome" placeholder="Ex: Carne Seca Premium 1kg"></div>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+                <div class="form-group"><label>Cód Lote</label><input type="text" id="add-lote" placeholder="LT-AUTO"></div>
+                <div class="form-group"><label>Qtd Entrada</label><input type="number" id="add-qtd" value="1" min="1"></div>
             </div>
-            <div class="form-group">
-                <label>Lote (Rastreabilidade)</label>
-                <input type="text" id="add-lote" placeholder="Gerado automaticamente se vazio">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+                <div class="form-group"><label>Custo Pago (R$)</label><input type="number" id="add-custo" value="0.00" step="0.01"></div>
+                <div class="form-group"><label>PV Balcão (R$)</label><input type="number" id="add-pv" value="0.00" step="0.01"></div>
             </div>
-            
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
-                <div class="form-group"><label>Volume (Qtd)</label><input type="number" id="add-qtd" value="1" min="1"></div>
-                <div class="form-group"><label>Custo Unit. Compra</label><input type="number" id="add-valor" value="0.00" step="0.01"></div>
-            </div>
-            
-            <div class="form-group">
-                <label>Preço Sugerido de Venda (PDV)</label>
-                <input type="number" id="add-preco-venda" value="0.00" step="0.01">
-            </div>
-            
-            <div class="form-group"><label>Validade (Regra PEPS)</label><input type="date" id="add-validade"></div>
-            
-            <div style="display: flex; gap: 15px; margin-top: 30px;">
-                <button class="btn-neon" style="flex: 1; border-color: rgba(255,255,255,0.2); color: var(--text-muted);" onclick="closeModal('modal-add')">Abortar</button>
-                <button class="btn-neon-cyan" style="flex: 1; background: var(--cyan-neon); color: #000; font-weight: bold; border: none;" onclick="salvarProduto(this)">Injetar Lote</button>
+            <div class="form-group"><label>Maturidade PEPS (Venc.)</label><input type="date" id="add-venc"></div>
+            <div style="display: flex; gap: 10px; margin-top: 20px;">
+                <button class="btn-neon" style="flex: 1; border-color: rgba(255,255,255,0.2); color: gray;" onclick="closeModal('modal-add-estoque')">Ignorar</button>
+                <button class="btn-neon-cyan" style="flex: 1.5; font-size: 13px;" onclick="injetarLoteEstoque(this)">Comprometer Capital (Salvar)</button>
             </div>
         </div>
     </div>
 
-    <!-- MODAL: CHECKOUT HUB -->
-    <div class="modal-overlay" id="modal-checkout">
+    <!-- Modal Despesa Financeiro -->
+    <div class="modal-overlay" id="modal-add-despesa">
         <div class="modal-content">
-            <h3 style="color: var(--green-neon); font-size: 20px; margin-bottom: 25px;">Autorizar Pagamento (Split)</h3>
-            <button class="btn-solid-green" onclick="pagarServico(this)">Confirmar R$ 150,00</button>
-            <button class="btn-neon" style="width: 100%; margin-top: 10px; border:none;" onclick="closeModal('modal-checkout')">Cancelar</button>
+            <h3 style="color: var(--red-danger); font-size: 18px; margin-bottom: 20px;">Ordem de Pagamento ERP</h3>
+            <div class="form-group"><label>Descrição Resumo</label><input type="text" id="fin-desc" placeholder="Ex: Agência Marketing Digital"></div>
+            <div class="form-group"><label>Centro de Custo</label>
+                <select id="fin-cat">
+                    <option>Marketing ADS</option><option>Folha Pgto</option><option>Imposto (DAS)</option><option>Custos Operacionais</option>
+                </select>
+            </div>
+            <div class="form-group"><label>Montante Autorizado (R$)</label><input type="number" id="fin-val" value="0.00" step="0.01"></div>
+            <div style="display: flex; gap: 10px; margin-top: 20px;">
+                <button class="btn-neon" style="flex: 1; border-color: rgba(255,255,255,0.2); color: gray;" onclick="closeModal('modal-add-despesa')">Ignorar</button>
+                <button class="btn-neon-red" style="flex: 1.5; font-size: 13px;" onclick="registrarSaidaFinanceira(this)">Deduzir Saldo</button>
+            </div>
         </div>
     </div>
 
     <!-- ====================================
-         MOTOR JAVASCRIPT AVANÇADO (MINI-ERP)
+         MOTOR ENGINE / JAVASCRIPT GLOBAL
     ==================================== -->
     <script>
-        // 1. INICIALIZAÇÃO
-        window.addEventListener('load', () => {
-            setTimeout(() => {
-                const splash = document.getElementById('splash-screen');
-                splash.style.opacity = '0';
-                setTimeout(() => splash.style.display = 'none', 600);
-            }, 1200);
-            
-            iniciarGrafico();
-            renderTudo();
-        });
+        // -----------------------------------------------------
+        // 1. CONTROLADOR DE MEMÓRIA (DB BROWSER PERSISTENTE)
+        // -----------------------------------------------------
+        function loadDB(t, d) { return JSON.parse(localStorage.getItem(t)) || d; }
+        function saveDB(t, d) { localStorage.setItem(t, JSON.stringify(d)); }
 
-        // 2. BANCOS DE DADOS DO ERP (SIMULADO)
-        let dbEstoque = [
-            { id: 1, nome: "Azeite Trufado Especial", lote: "LT-8849-A", qtd: 45, custo: 50.00, precoVenda: 89.90, validade: "2026-11-20", cat: "Alimentos" },
-            { id: 2, nome: "Limpa Pisos Industrial", lote: "CHM-002", qtd: 12, custo: 20.00, precoVenda: 45.00, validade: "2027-01-15", cat: "Limpeza" },
-            { id: 3, nome: "Leite UHT Integral", lote: "LOTE-089", qtd: 200, custo: 2.50, precoVenda: 4.80, validade: "2024-04-12", cat: "Bebidas" }
-        ];
+        // Bases Relacionais
+        let dbEstoque = loadDB('v5_estoque', [
+            { id: 1, nome: "Licença Software Premium", lote: "SRV-99", qtd: 50, custo: 0, precoVenda: 1500.00, validade: "2099-12-31" }
+        ]);
+        
+        let dbFinanceiro = loadDB('v5_financeiro', [
+            { data: new Date().toISOString(), desc: "Investimento Anjo Semente", cat: "Capitalização", tipo: "Receita", valor: 250000.00 }
+        ]);
 
-        let dbFinanceiro = [
-            { data: new Date().toISOString(), desc: "Aporte Inicial de Capital", cat: "Investimento", tipo: "receita", valor: 50000.00 },
-            { data: new Date(Date.now() - 86400000).toISOString(), desc: "Pagto Aluguel Galpão", cat: "Custo Fixo", tipo: "despesa", valor: 4500.00 },
-            { data: new Date(Date.now() - 172800000).toISOString(), desc: "Compra Lote Fornecedor X", cat: "Insumos", tipo: "despesa", valor: 1250.00 }
-        ];
+        let dbLogistica = loadDB('v5_logistica', [
+            { ped: "LD-INI", cli: "Cliente Genérico B2B", mot: "Aguardando Escala", prev: "Pendente", status: "Fila ERP" }
+        ]);
 
-        let dbCRM = [
-            { nome: "Ambev S.A.", cat: "Bebidas", contato: "0800-725-0001", sla: 98 },
-            { nome: "Fazenda AgroBoi", cat: "Carnes Frescas", contato: "contato@agroboi.br", sla: 85 },
-            { class: "Embalagens Pack+", cat: "Suprimentos", contato: "(11) 98888-7777", sla: 99 }
-        ];
+        let dbAuditoria = loadDB('v5_auditoria', []);
+        
+        let sessionPDVCarrinho = []; // Carrinho efêmero
+        let faturamentoTurnoCorrente = 0;
 
-        let dbRH = [
-            { nome: "Lucas Carvalho", cargo: "CEO / Admin", acesso: "Master (L4)", login: "Hoje, 08:14", status: "Ativo" },
-            { nome: "Mariana Souza", cargo: "Gerente Financeira", acesso: "Financeiro (L3)", login: "Hoje, 09:02", status: "Ativo" },
-            { nome: "Pedro Gomes", cargo: "Op. Caixa / PDV", acesso: "Frente Caixa (L1)", login: "Hoje, 09:15", status: "Ativo" }
-        ];
+        // Mock DBs Fixos para visão de Produto
+        const mockMkt = [ { c: "Captura Inbound B2B", p: "Google Search", b: 4500, cpa: 14.50, s: "Ativo" } ];
+        const mockCRM = [ { r: "Atacadão Suprimentos", c: "Insumo Físico", f: "sac@atc.br", sla: 98 }, { r: "Cloud Data Center", c: "Infra TIC", f: "aws@com.br", sla: 99.9 } ];
+        const mockRH  = [ { n: "Fernando Rocha", c: "CEO Global", a: "Admin L5", s: "Logado App" }, { n: "Pedro Vendas", c: "Op. Caixa", a: "PVD L1", s: "Fim Turno" } ];
 
-        let dbAuditoria = [
-            { data: formatarDataHora(new Date()), user: "Lucas (Master)", acao: "Boot Sistema ERP", item: "Core V4.0", status: "OK" }
-        ];
-
-        let carrinhoPDV = [];
-        let totalFaturamentoHoje = 0;
-
-        // 3. FUNÇÕES GERAIS E FORMATAÇÃO
-        function toggleMenu() { document.getElementById('sidebar').classList.toggle('open'); }
-        function switchTab(tabId) {
-            document.querySelectorAll('.nav-item').forEach(el => el.classList.remove('active'));
-            document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
-            
-            const caller = event.currentTarget;
-            if(caller && caller.classList.contains('nav-item')) caller.classList.add('active');
-            
-            document.getElementById(tabId).classList.add('active');
+        // -----------------------------------------------------
+        // 2. FUNÇÕES CHAVES SISTÊMICAS UI
+        // -----------------------------------------------------
+        function openModal(id) { document.getElementById(id).style.display = 'flex'; setTimeout(() => document.getElementById(id).classList.add('active'), 10); }
+        function closeModal(id) { document.getElementById(id).classList.remove('active'); setTimeout(() => document.getElementById(id).style.display = 'none', 300); }
+        
+        function switchTab(t) {
+            document.querySelectorAll('.tab-content').forEach(e => e.classList.remove('active'));
+            document.querySelectorAll('.nav-item').forEach(e => e.classList.remove('active'));
+            document.getElementById(t).classList.add('active');
+            if(event && event.currentTarget.classList.contains('nav-item')) event.currentTarget.classList.add('active');
             document.getElementById('sidebar').classList.remove('open');
         }
-        function formatarMoeda(v) { return v.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'}); }
-        function formatarData(d) { if(!d) return "-"; const [ano, mes, dia] = d.split('-'); return `${dia}/${mes}/${ano}`; }
-        function formatarDataHora(d) { return new Date(d).toLocaleString('pt-BR'); }
+        
+        function formatMoeda(v) { return Number(v).toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'}); }
+        function formatData(iso) { return new Date(iso).toLocaleDateString('pt-BR'); }
+        function formatDataHora(iso) { return new Date(iso).toLocaleString('pt-BR'); }
 
-        // 4. RENDERIZAÇÃO GLOBAL (CORE DO ERP)
-        function renderTudo() {
-            renderEstoque();
-            renderFinanceiro();
-            renderCRM();
-            renderRH();
-            renderAuditoria();
-            renderPDV();
-            atualizarDashboardGlobais();
+        function sToast(msg, error=false) {
+            const c = document.getElementById('toast-container'), t = document.createElement('div');
+            t.className = `toast ${error?'error':''}`; t.innerHTML = msg;
+            c.appendChild(t); setTimeout(() => t.classList.add('show'), 10);
+            setTimeout(() => { t.classList.remove('show'); setTimeout(() => t.remove(), 400); }, 3000);
         }
 
-        function atualizarDashboardGlobais() {
-            // Estoque
-            let capitalEstoque = dbEstoque.reduce((acc, curr) => acc + (curr.qtd * curr.custo), 0);
-            document.getElementById('dash-valor').innerText = formatarMoeda(capitalEstoque);
-            // Financeiro
-            let receitas = dbFinanceiro.filter(t => t.tipo === 'receita').reduce((a, b) => a + b.valor, 0);
-            let despesas = dbFinanceiro.filter(t => t.tipo === 'despesa').reduce((a, b) => a + b.valor, 0);
-            
-            if(document.getElementById('fin-receitas')) document.getElementById('fin-receitas').innerText = formatarMoeda(receitas);
-            if(document.getElementById('fin-despesas')) document.getElementById('fin-despesas').innerText = formatarMoeda(despesas);
-            if(document.getElementById('fin-saldo')) document.getElementById('fin-saldo').innerText = formatarMoeda(receitas - despesas);
-            
-            // Faturamento PDV Hoje
-            document.getElementById('dash-faturamento').innerText = formatarMoeda(totalFaturamentoHoje);
+        function simularAcao(btn, txtT, txtF) {
+            let ob = btn.innerText; btn.classList.add('btn-loading'); btn.innerText = txtT;
+            setTimeout(() => { btn.classList.remove('btn-loading'); btn.innerText = txtF; sToast(txtF); setTimeout(() => btn.innerText = ob, 1500); }, 1200);
         }
 
-        // --- ESTOQUE ---
-        function renderEstoque() {
-            const tbody = document.getElementById('tabela-estoque');
-            tbody.innerHTML = '';
-            dbEstoque.forEach((item, idx) => {
-                let badgeValidade = '<span class="badge bg-green">OK</span>';
-                if(new Date(item.validade) < new Date(Date.now() + 15*86400000)) badgeValidade = '<span class="badge bg-magenta">Atenção</span>';
-                
-                tbody.innerHTML += `<tr>
-                    <td><b>${item.nome}</b><div style="font-size:11px;color:var(--text-muted)">Cat: ${item.cat} | PV: ${formatarMoeda(item.precoVenda)}</div></td>
-                    <td><span class="badge bg-cyan">${item.lote}</span></td>
-                    <td><b style="font-size:16px">${item.qtd}</b> un.</td>
-                    <td>${formatarMoeda(item.custo)} /un<div style="font-size:12px;color:var(--green-neon)">Tot: ${formatarMoeda(item.qtd*item.custo)}</div></td>
-                    <td>${badgeValidade} <br><small>${formatarData(item.validade)}</small></td>
-                    <td style="text-align:right;"><button class="btn-neon-red" style="padding:4px 8px;font-size:10px" onclick="removerProduto(${idx})">🗑️ Baixa</button></td>
-                </tr>`;
+        function logBlock(acao, info) {
+            let h = Math.random().toString(36).substring(2, 10).toUpperCase();
+            dbAuditoria.unshift({ d: new Date().toISOString(), u: "FR.Admin", a: acao, i: `${info} [Hash:${h}]` });
+            saveDB('v5_auditoria', dbAuditoria);
+        }
+
+        // -----------------------------------------------------
+        // 3. ENGINE DE RENDERIZAÇÃO COMPLETA
+        // -----------------------------------------------------
+        function reRenderizarERP() {
+            // == Estoque ==
+            const tbE = document.getElementById('tbody-estoque'); tbE.innerHTML = ''; let sumEstoque = 0;
+            dbEstoque.forEach((i, x) => {
+                sumEstoque += (i.qtd * i.custo);
+                tbE.innerHTML += `<tr><td><b>${i.nome}</b></td><td><span class="badge bg-cyan">${i.lote}</span></td><td><b>${i.qtd}</b> UN</td><td>${formatMoeda(i.custo)} /un<br><small class="neon-green">Tot: ${formatMoeda(i.qtd*i.custo)}</small></td><td>${formatMoeda(i.precoVenda)}</td><td style="text-align:right"><button class="btn-neon-red" style="padding:4px 8px;font-size:9px" onclick="deletarEstoque(${x})">Forçar Baixa</button></td></tr>`;
             });
+
+            // == Financeiro ==
+            const tbF = document.getElementById('tbody-financeiro'); tbF.innerHTML = ''; let sumRec = 0, sumDesp = 0;
+            dbFinanceiro.forEach(f => {
+                let isR = f.tipo === 'Receita'; if(isR) sumRec+=f.valor; else sumDesp+=f.valor;
+                tbF.innerHTML += `<tr><td><small>${formatData(f.data)}</small></td><td><b>${f.desc}</b></td><td><span class="badge bg-magenta">${f.cat}</span></td><td><span class="badge ${isR?'bg-green':'bg-red'}">${f.tipo}</span></td><td style="color:${isR?'var(--green-neon)':'var(--red-danger)'};font-weight:bold">${isR?'+':'-'} ${formatMoeda(f.valor)}</td></tr>`;
+            });
+
+            // == Logística ==
+            const tbL = document.getElementById('tbody-logistica'); tbL.innerHTML = ''; let qEntregas = 0;
+            dbLogistica.forEach((l, x) => {
+                if(l.status !== 'Finalizado') qEntregas++;
+                tbL.innerHTML += `<tr><td><b>${l.ped}</b></td><td>${l.cli}</td><td>${l.mot}</td><td>${l.prev}</td><td><span class="badge ${l.status==='Pendente'?'bg-orange':'bg-cyan'}">${l.status}</span></td><td style="text-align:right"><button class="btn-neon-green" style="padding:4px 8px;font-size:9px" onclick="baixaLogistica(${x})">Marcar Entregue</button></td></tr>`;
+            });
+
+            // == Mocks MKT, CRM, RH ==
+            document.getElementById('tbody-mkt').innerHTML = mockMkt.map(m => `<tr><td><b>${m.c}</b></td><td><span class="badge bg-purple">${m.p}</span></td><td>${formatMoeda(m.b)}</td><td>${formatMoeda(m.cpa)}</td><td><span class="badge bg-green">${m.s}</span></td></tr>`).join('');
+            document.getElementById('tbody-crm').innerHTML = mockCRM.map(c => `<tr><td><b>${c.r}</b></td><td><span class="badge bg-cyan">${c.c}</span></td><td><small>${c.f}</small></td><td><span class="badge ${c.sla>95?'bg-green':'bg-orange'}">${c.sla}%</span></td><td style="text-align:right"><button class="btn-neon-magenta" style="padding:4px 8px;font-size:9px">Emitir Push</button></td></tr>`).join('');
+            document.getElementById('tbody-rh').innerHTML = mockRH.map(r => `<tr><td><b>${r.n}</b></td><td>${r.c}</td><td><span class="badge bg-magenta">${r.a}</span></td><td><span class="badge ${r.s.includes('Logado')?'bg-green':'bg-orange'}">${r.s}</span></td><td>Ponto Seguro ✅</td></tr>`).join('');
+
+            // == Auditoria ==
+            document.getElementById('tbody-auditoria').innerHTML = dbAuditoria.slice(0,25).map(a => `<tr><td><small style="color:var(--text-muted)">${formatDataHora(a.d)}</small></td><td><span class="neon-cyan"><b>${a.u}</b></span></td><td><span class="badge bg-magenta">${a.a}</span></td><td><small style="color:var(--text-muted)">${a.i}</small></td></tr>`).join('');
+
+            // == Dashboards Global Refresh ==
+            document.getElementById('dash-faturamento').innerText = formatMoeda(faturamentoTurnoCorrente);
+            document.getElementById('dash-valor-estoque').innerText = formatMoeda(sumEstoque);
+            document.getElementById('dash-despesas').innerText = formatMoeda(sumDesp);
+            document.getElementById('dash-entregas').innerText = qEntregas;
         }
 
-        function salvarProduto(btn) {
-            simularAcao(btn, 'Processando...', 'Validado!');
+        // -----------------------------------------------------
+        // 4. MÉTODOS DE AÇÃO DO USUÁRIO (INTERCONECTADOS)
+        // -----------------------------------------------------
+        
+        // ESTOQUE INSERIR -> Afeta Estoque e Financeiro
+        function injetarLoteEstoque(btn) {
+            const nome = document.getElementById('add-nome').value, qtd = Number(document.getElementById('add-qtd').value);
+            if(!nome) return sToast("Erro: Denominação nula.", true);
+            simularAcao(btn, "Commiting DB...", "Salvo!");
+            
             setTimeout(() => {
-                const nome = document.getElementById('add-nome').value;
-                const lote = document.getElementById('add-lote').value || `AUTO-${Math.floor(Math.random()*1000)}`;
-                const qtd = parseInt(document.getElementById('add-qtd').value);
-                const custo = parseFloat(document.getElementById('add-valor').value);
-                const precoVenda = parseFloat(document.getElementById('add-preco-venda').value);
-                const validade = document.getElementById('add-validade').value;
-
-                dbEstoque.push({ id: Date.now(), nome, lote, qtd, custo, precoVenda, validade, cat: "Indefinida" });
-                registrarAuditoria("Compra de Estoque (Entrada)", `[${lote}] ${nome} (+${qtd} un)`);
+                let custo = Number(document.getElementById('add-custo').value);
+                let lote = document.getElementById('add-lote').value || `A-${Math.floor(Math.random()*9000)}`;
                 
-                // Impacta financeiro
-                dbFinanceiro.push({ data: new Date().toISOString(), desc: `Compra Estoque: ${nome}`, cat: "Insumos", tipo: "despesa", valor: (custo * qtd) });
-
-                renderTudo();
-                closeModal('modal-add');
-            }, 800);
-        }
-        function removerProduto(idx) {
-            let item = dbEstoque[idx];
-            dbEstoque.splice(idx, 1);
-            registrarAuditoria("Baixa Manual Perda/Avaria", `[${item.lote}] ${item.nome}`);
-            renderTudo();
-        }
-
-        // --- PDV (FRENTE DE CAIXA) MAGIA ACONTECE AQUI ---
-        function buscarProdutoPDV() {
-            const termo = document.getElementById('pdv-busca').value.toLowerCase();
-            if(!termo) return;
-            
-            let itemEnc = dbEstoque.find(i => i.nome.toLowerCase().includes(termo) || i.lote.toLowerCase().includes(termo));
-            
-            if(itemEnc && itemEnc.qtd > 0) {
-                // Adiciona ao carrinho
-                let noCarrinho = carrinhoPDV.find(c => c.id === itemEnc.id);
-                if(noCarrinho) {
-                    if(noCarrinho.qtdCarrinho < itemEnc.qtd) noCarrinho.qtdCarrinho++;
-                    else showToast("Estoque insuficiente deste lote!", "warning");
-                } else {
-                    carrinhoPDV.push({ ...itemEnc, qtdCarrinho: 1 });
+                dbEstoque.unshift({ id: Date.now(), nome, lote, qtd, custo, precoVenda: Number(document.getElementById('add-pv').value), validade: document.getElementById('add-venc').value });
+                
+                if(custo > 0) { // Se teve custo, tira do caixa.
+                    dbFinanceiro.unshift({ data: new Date().toISOString(), desc: `Aquis. Insumo: ${nome}`, cat: "Fornecedores Supply", tipo: "Despesa", valor: (custo * qtd) });
                 }
-                document.getElementById('pdv-busca').value = '';
-                renderPDV();
-                showToast("Item bipado!");
-            } else {
-                showToast("SKU não encontrado ou sem saldo.", "error");
-            }
-        }
-
-        function removerDoCarrinho(idx) { carrinhoPDV.splice(idx, 1); renderPDV(); }
-
-        function renderPDV() {
-            const tbody = document.getElementById('tabela-pdv');
-            tbody.innerHTML = '';
-            let subtotal = 0;
-            
-            carrinhoPDV.forEach((c, idx) => {
-                let calc = c.qtdCarrinho * c.precoVenda;
-                subtotal += calc;
-                tbody.innerHTML += `
-                    <tr>
-                        <td><b>${c.nome}</b><br><small style="color:var(--text-muted)">${c.lote}</small></td>
-                        <td>${c.qtdCarrinho}x</td>
-                        <td>${formatarMoeda(c.precoVenda)}</td>
-                        <td class="neon-cyan"><b>${formatarMoeda(calc)}</b></td>
-                        <td><button class="btn-neon-red" style="padding:4px 8px" onclick="removerDoCarrinho(${idx})">X</button></td>
-                    </tr>
-                `;
-            });
-            
-            document.getElementById('pdv-subtotal').innerText = formatarMoeda(subtotal);
-            document.getElementById('pdv-total').innerText = formatarMoeda(subtotal);
-        }
-
-        function finalizarVenda() {
-            if(carrinhoPDV.length === 0) return showToast("Carrinho vazio!", "warning");
-            
-            let totalVenda = 0;
-            
-            // Processa venda: deduz estoque
-            carrinhoPDV.forEach(cItem => {
-                let itemReal = dbEstoque.find(i => i.id === cItem.id);
-                if(itemReal) itemReal.qtd -= cItem.qtdCarrinho;
-                totalVenda += (cItem.qtdCarrinho * cItem.precoVenda);
-                registrarAuditoria("Saída PDV (Venda)", `-${cItem.qtdCarrinho}x ${cItem.nome}`);
-            });
-            
-            // Adiciona Receita no Financeiro
-            let metodo = document.getElementById('pdv-pagamento').options[document.getElementById('pdv-pagamento').selectedIndex].text;
-            dbFinanceiro.push({ 
-                data: new Date().toISOString(), desc: `Venda PDV Cód #${Math.floor(Math.random()*99999)} (${metodo})`, 
-                cat: "Vendas", tipo: "receita", valor: totalVenda 
-            });
-            
-            totalFaturamentoHoje += totalVenda;
-            carrinhoPDV = []; // Limpa
-            
-            renderTudo();
-            showToast("✅ Cupom Fiscal Emitido! Venda processada no ERP.", "success");
-        }
-
-        // --- MÓDULOS EXTRAS (FINANCEIRO, CRM, RH, AUDITORIA) ---
-        function renderFinanceiro() {
-            const tbody = document.getElementById('tbody-financeiro');
-            if(!tbody) return;
-            tbody.innerHTML = '';
-            dbFinanceiro.slice().reverse().forEach(f => {
-                let cor = f.tipo === 'receita' ? 'var(--green-neon)' : 'var(--red-danger)';
-                let sinal = f.tipo === 'receita' ? '+' : '-';
-                tbody.innerHTML += `<tr>
-                    <td style="color:var(--text-muted); font-size:12px;">${formatarDataHora(f.data)}</td>
-                    <td><b>${f.desc}</b></td>
-                    <td><span class="badge" style="background:rgba(255,255,255,0.05); border:1px solid var(--glass-border);">${f.cat}</span></td>
-                    <td style="text-transform:uppercase; font-size:11px; color:${cor}">${f.tipo}</td>
-                    <td style="color:${cor}; font-weight:bold;">${sinal} ${formatarMoeda(f.valor)}</td>
-                    <td><span class="badge bg-green">Liquidado</span></td>
-                </tr>`;
-            });
-        }
-
-        function renderCRM() {
-            const tbody = document.getElementById('tbody-crm');
-            if(!tbody) return;
-            tbody.innerHTML = '';
-            dbCRM.forEach(c => {
-                let corSla = c.sla > 90 ? 'bg-green' : 'bg-orange';
-                tbody.innerHTML += `<tr>
-                    <td><b>${c.nome || c.class}</b></td>
-                    <td><span class="badge bg-cyan">${c.cat}</span></td>
-                    <td style="color:var(--text-muted)">${c.contato}</td>
-                    <td><span class="badge ${corSla}">SLA: ${c.sla}%</span></td>
-                    <td style="text-align:right;"><button class="btn-neon" style="padding:6px 12px; font-size:11px;">Solicitar Cotação B2B</button></td>
-                </tr>`;
-            });
-        }
-
-        function renderRH() {
-            const tbody = document.getElementById('tbody-rh');
-            if(!tbody) return;
-            tbody.innerHTML = '';
-            dbRH.forEach(r => {
-                tbody.innerHTML += `<tr>
-                    <td><b>${r.nome}</b></td>
-                    <td style="color:var(--text-muted)">${r.cargo}</td>
-                    <td><span class="badge bg-magenta">${r.acesso}</span></td>
-                    <td style="font-size:12px">${r.login}</td>
-                    <td><span class="badge bg-green">${r.status}</span></td>
-                </tr>`;
-            });
-        }
-
-        function renderAuditoria() {
-            const tbody = document.getElementById('tabela-auditoria');
-            if(!tbody) return;
-            tbody.innerHTML = '';
-            dbAuditoria.slice().reverse().forEach(log => {
-                let blockHash = Math.random().toString(36).substring(2, 10).toUpperCase();
-                tbody.innerHTML += `<tr>
-                    <td style="color:var(--text-muted);font-size:12px;font-family:monospace">${log.data}</td>
-                    <td class="neon-cyan"><b>${log.user}</b></td>
-                    <td>${log.acao}</td>
-                    <td style="color:var(--text-muted); font-size:13px">${log.item}</td>
-                    <td><span class="badge" style="background:rgba(255,255,255,0.1); border:1px solid var(--glass-border); font-family:monospace;">0x${blockHash}</span></td>
-                </tr>`;
-            });
-        }
-
-        function registrarAuditoria(acao, item) {
-            dbAuditoria.push({ data: formatarDataHora(new Date()), user: "Lucas (Logado)", acao: acao, item: item, status: "OK" });
-        }
-
-        function pagarServico(btn) {
-            simularAcao(btn, 'Gateway...', 'Aprovado!');
-            setTimeout(() => {
-                closeModal('modal-checkout');
-                dbFinanceiro.push({ data: new Date().toISOString(), desc: `Serviço ODS 17 (Coleta Óleo)`, cat: "Serviços", tipo: "despesa", valor: 150.00 });
-                registrarAuditoria("Smart Contract Liquidado", "Fornecedor Hub B2B");
-                renderTudo();
+                
+                saveDB('v5_estoque', dbEstoque); saveDB('v5_financeiro', dbFinanceiro);
+                logBlock("Alimentação de Inventário", `${qtd} Vol de ${nome}`);
+                closeModal('modal-add-estoque'); reRenderizarERP();
             }, 1000);
         }
 
-        // Gráfico
-        function iniciarGrafico() {
-            const ctx = document.getElementById('vendasChart').getContext('2d');
-            let gradient = ctx.createLinearGradient(0, 0, 0, 300);
-            gradient.addColorStop(0, 'rgba(0, 240, 255, 0.4)');
-            gradient.addColorStop(1, 'rgba(0, 240, 255, 0.0)');
-            new Chart(ctx, {
-                type: 'line',
-                data: {
-                    labels: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun'],
-                    datasets: [{ label: 'Faturamento', data: [45000, 52000, 48000, 61000, 59000, 75000], borderColor: '#00F0FF', backgroundColor: gradient, borderWidth: 3, fill: true, tension: 0.4, pointBackgroundColor: '#05070B', pointBorderColor: '#00F0FF', pointBorderWidth: 2, pointRadius: 5 }]
-                },
-                options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } }, scales: { y: { grid: { color: 'rgba(255,255,255,0.05)' }, ticks: { color: '#94A3B8' } }, x: { grid: { display: false }, ticks: { color: '#94A3B8' } } } }
-            });
+        function deletarEstoque(id) { logBlock("Exclusão Override Estoque", dbEstoque[id].nome); dbEstoque.splice(id,1); saveDB('v5_estoque', dbEstoque); reRenderizarERP(); }
+
+        // FINANCEIRO DESPESA -> Afeta Só Financeiro
+        function registrarSaidaFinanceira(btn) {
+            const desc = document.getElementById('fin-desc').value, val = Number(document.getElementById('fin-val').value);
+            if(!desc || val <= 0) return sToast("Dados Nulos", true);
+            simularAcao(btn, "Autorizando...", "Debitado");
+            setTimeout(() => {
+                let cat = document.getElementById('fin-cat').value;
+                dbFinanceiro.unshift({ data: new Date().toISOString(), desc, cat, tipo: "Despesa", valor: val });
+                saveDB('v5_financeiro', dbFinanceiro); logBlock("Lançamento Despesa Teto", `${desc} (${val})`);
+                closeModal('modal-add-despesa'); reRenderizarERP();
+            }, 800);
         }
-    </script>
-    
-    <script>
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', () => {
-                navigator.serviceWorker.register('sw.js')
-                .then(r => console.log('PWA Ready'))
-                .catch(err => console.log('PWA Error: ', err));
+
+        // -----------------------------------------------------
+        // 5. CAIXA PDV INTEGRADOR SUPREMO
+        // -----------------------------------------------------
+        function buscarProdutoPDV() {
+            let t = document.getElementById('pdv-busca').value.toLowerCase(); if(!t) return;
+            let itemDb = dbEstoque.find(i => i.nome.toLowerCase().includes(t) || i.lote.toLowerCase() === t);
+            
+            if(!itemDb) return sToast("Matriz não encontrada no ERP", true);
+            if(itemDb.qtd <= 0) return sToast("Ruptura física: Sem estoque Lote", true);
+
+            let cartItem = sessionPDVCarrinho.find(c => c.id === itemDb.id);
+            if(cartItem) { if(cartItem.cartQtd < itemDb.qtd) cartItem.cartQtd++; else return sToast("Saldo Teto Atingido", true); }
+            else sessionPDVCarrinho.push({...itemDb, cartQtd: 1});
+
+            document.getElementById('pdv-busca').value = ''; renderCartPDV();
+        }
+
+        function renderCartPDV() {
+            const tb = document.getElementById('tabela-pdv-cart'); tb.innerHTML = ''; let tVal = 0;
+            sessionPDVCarrinho.forEach((c, i) => {
+                tVal += (c.precoVenda * c.cartQtd);
+                tb.innerHTML += `<tr><td><b>${c.nome}</b><br><small style="color:var(--text-muted)">${c.lote}</small></td><td>${c.cartQtd} Un</td><td>${formatMoeda(c.precoVenda)}</td><td class="neon-cyan"><b>${formatMoeda(c.precoVenda * c.cartQtd)}</b></td><td><button style="background:var(--red-danger);border:none;color:white;padding:5px 10px;border-radius:4px" onclick="sessionPDVCarrinho.splice(${i},1);renderCartPDV()">X</button></td></tr>`;
+            });
+            document.getElementById('pdv-subtotal').innerText = formatMoeda(tVal); document.getElementById('pdv-total').innerText = formatMoeda(tVal);
+        }
+
+        // >>> Venda Afeta Estoque + Financeiro + Logística + Impressão
+        function finalizarVendaPDV() {
+            if(sessionPDVCarrinho.length === 0) return sToast("Caixa Vazio", true);
+            
+            let valTotal = 0; let reciboBody = ""; let tkVenda = `NF-${Math.floor(Math.random()*90000)}`;
+
+            // 1. Reduz Estoque e Cria Corpo do Recibo
+            sessionPDVCarrinho.forEach(c => {
+                valTotal += (c.precoVenda * c.cartQtd);
+                reciboBody += `<div style="display:flex;justify-content:space-between;margin-bottom:5px;"><span>${c.cartQtd}x ${c.nome.substring(0,15)}..</span><span>${formatMoeda(c.precoVenda * c.cartQtd)}</span></div>`;
+                let dbPointer = dbEstoque.find(i => i.id === c.id);
+                if(dbPointer) dbPointer.qtd -= c.cartQtd;
+            });
+
+            // 2. Registra Receita no ERP
+            let viaPgto = document.getElementById('pdv-pagamento').value;
+            dbFinanceiro.unshift({ data: new Date().toISOString(), desc: `Liquidação PDV ${tkVenda} (${viaPgto})`, cat: "Receita de Venda", tipo: "Receita", valor: valTotal });
+            faturamentoTurnoCorrente += valTotal;
+
+            // 3. Integra Rota Logística se ativado
+            if(document.getElementById('pdv-despacho').checked) {
+                dbLogistica.unshift({ ped: tkVenda, cli: "Cliente Balcão PDV", mot: "Aguard. Distribuição", prev: "Curto Prazo", status: "Pendente" });
+                saveDB('v5_logistica', dbLogistica); sToast("Motor de Despacho Acionado");
+            }
+
+            // Commits DB Local
+            saveDB('v5_estoque', dbEstoque); saveDB('v5_financeiro', dbFinanceiro);
+            logBlock("Transação Caixa / Baixa Multi", `Venda ${tkVenda} = ${formatMoeda(valTotal)}`);
+
+            // 4. Executa Módulo de Impressão Térmica (CSS @print)
+            document.getElementById('print-data').innerText = `DATA/HORA: ${formatDataHora(new Date().toISOString())} \nTRANSAÇÃO: ${tkVenda}`;
+            document.getElementById('print-itens').innerHTML = reciboBody;
+            document.getElementById('print-total').innerText = formatMoeda(valTotal);
+            
+            document.getElementById('cupom-print').classList.remove('no-print');
+            window.print(); // Abre diálogo nativo do SO
+            document.getElementById('cupom-print').classList.add('no-print');
+
+            // Reset Frontend State
+            sessionPDVCarrinho = []; renderCartPDV(); reRenderizarERP();
+            sToast("Operação Concluída. Cadeia Sincronizada.");
+        }
+
+        // Função Extra
+        function baixaLogistica(x) { dbLogistica[x].status = 'Finalizado'; dbLogistica[x].mot = 'Entregue OK'; saveDB('v5_logistica', dbLogistica); reRenderizarERP(); }
+        function simularServicoHUB() {
+            dbFinanceiro.unshift({ data: new Date().toISOString(), desc: `Serviço ODS 17 API Externo`, cat: "ESG Sustentável", tipo: "Despesa", valor: 150.00 });
+            saveDB('v5_financeiro', dbFinanceiro); logBlock("Contrato Hub Executado", "Debito Aut."); reRenderizarERP(); sToast("Contrato Liquidado B2B!");
+        }
+
+        function exportarCSV(name, arr) {
+            if(!arr.length) return sToast("Base limpa.", true);
+            let k = Object.keys(arr[0]), c = k.join(",") + "\n";
+            arr.forEach(o => c += k.map(x => `"${o[x]}"`).join(",") + "\n");
+            let l = document.createElement("a"); l.href = URL.createObjectURL(new Blob([c], {type:'text/csv'})); l.download = name; l.click();
+            logBlock("Dump Segurança Dados", name);
+        }
+
+        function resetarSistema() {
+            if(confirm("ATENÇÃO MASTER: Essa ação expurga TODA a LocalStorage do Device. O ERP Voltará estado de fábrica. Prosseguir?")) {
+                localStorage.clear(); location.reload();
+            }
+        }
+
+        // -----------------------------------------------------
+        // 6. INICIALIZAÇÃO CHARTS
+        // -----------------------------------------------------
+        function iniciarGraficos() {
+            const ctx = document.getElementById('vendasChart').getContext('2d');
+            let grad = ctx.createLinearGradient(0, 0, 0, 300);
+            grad.addColorStop(0, 'rgba(0, 240, 255, 0.4)'); grad.addColorStop(1, 'rgba(0, 240, 255, 0.0)');
+            new Chart(ctx, {
+                type: 'line', data: { labels: ['Q1','Q2','Q3','Q4','Mês Atual'], datasets: [
+                    { label: 'Ingresso Bruto', data: [80000, 95000, 110000, 140000, 50000], borderColor: '#00F0FF', backgroundColor: grad, fill: true, tension: 0.4 },
+                    { label: 'Burn Rate (Custos)', data: [45000, 50000, 60000, 70000, 30000], borderColor: '#FF3366', backgroundColor: 'transparent', borderDash: [5, 5], tension: 0.4 }
+                ]}, options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } }, scales: { x: { grid: { display: false } } } }
             });
         }
     </script>
